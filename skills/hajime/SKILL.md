@@ -68,7 +68,7 @@ Rules that Claude Code can enforce go in settings, not prose.
   - Never add push, reset, deleting branches or files, or publishing. Those keep asking.
   - If the file exists, merge: keep every entry and add only what's missing.
 - **`.claude/settings.local.json`,** personal to this machine and ignored by git:
-  - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its id from `claude plugin list`, as `name@marketplace`), so its released skills don't fire while its source is being changed;
+  - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its id from `claude plugin list`, as `name@marketplace`), so its released skills don't fire while its source is being changed. The exception is sensei's own repository: there the installed copy is the tool doing the maintenance, so it stays on;
   - the same for each conflicting plugin the user agrees to turn off (step 5).
   - Turning a plugin off in the shared file would turn it off for every contributor, so it goes here.
 
@@ -122,7 +122,7 @@ Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts
 
 Offer a commit with the setup. Don't commit without the OK.
 
-Tell the user that a new session in this folder picks up the settings. If the plugin being maintained is sensei itself, turning off its installed copy also turns off the skills doing the maintenance. In that case, start sessions with `claude --plugin-dir <this repository>`, which loads the copy being changed in place of the installed one.
+Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session with `claude --plugin-dir <this repository>`, which loads the working copy in place of the installed one. Never use it for the session doing the maintenance of sensei itself: a broken change would break the tool making it.
 
 ## Re-running
 

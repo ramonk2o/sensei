@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Fixed
+
+- hajime: in sensei's own repository, keeps the installed copy on, because it does the maintenance, and suggests `--plugin-dir` only for trying a change.
+
 ## [0.1.0] - 2026-11-07
 
 The first version: the whole maintenance cycle, from setup to release.
