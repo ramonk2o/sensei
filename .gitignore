@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.DocumentRevisions-V100
+.VolumeIcon.icns
+Icon?
+
+# Python
+__pycache__/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Eval results
+evals/**/results/

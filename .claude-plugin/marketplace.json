@@ -1,0 +1,16 @@
+{
+  "name": "sensei",
+  "description": "Marketplace for the Sensei plugin.",
+  "owner": {
+    "name": "Ramon K.",
+    "email": "contato@ramonk.com"
+  },
+  "plugins": [
+    {
+      "name": "sensei",
+      "displayName": "Sensei",
+      "source": "./",
+      "description": "A lean maintenance cycle for Claude Code skill plugins: set up a plugin repo (hajime), keep its backlog and changelog (kanban), create or change a skill from a real case with checks, independent reviews and trigger tests (kata), and release a version (shodan)."
+    }
+  ]
+}
