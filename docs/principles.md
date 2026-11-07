@@ -16,7 +16,7 @@ description_chars: 600
 ## Protecting the plugin
 
 4. **Protection matches the change.** Cheap, certain checks (the script, the validator, settings) run on every change. Costly ones (review agents, evals) are scaled to the change: none for a wording fix, the cohesion review for a behavior change, the cohesion review and a trigger suite for a new description, both reviews, a cold reader and a trigger suite for a new skill.
-5. **Certain beats remembered.** A rule that a script or a setting can enforce is enforced there, not left to prose in CLAUDE.md: sizes and names by the check script, trailers by the attribution setting, the maintained plugin's own skills turned off in its repo by `enabledPlugins`.
+5. **Certain beats remembered.** A rule that a script or a setting can enforce is enforced there, not left to prose in CLAUDE.md: sizes and names by the check script, trailers by the attribution setting, the maintained plugin's own skills turned off in its repo by `enabledPlugins` (except sensei's own, whose installed copy does the maintenance).
 6. **Drift is the usual failure.** A change to a rule is searched for in every sibling skill and every listing (README, manifests) before it is planned, and the plan names each file that must change in the same branch.
 7. **Judged outside the conversation.** Reviews and tests run in agents or processes that never saw the conversation or the plan, because a model that took part already knows what the skill was meant to say.
 

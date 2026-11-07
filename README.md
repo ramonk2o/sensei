@@ -11,7 +11,7 @@ The names come from the dojo.
 - **hajime** ("begin") sets up a plugin repository, new or existing:
   - what's missing of the skeleton, and the principles your skills follow;
   - a CLAUDE.md with the project's facts;
-  - settings that turn off conflicting plugins, and the installed copy of the plugin itself, in its own repository;
+  - settings that turn off conflicting plugins, and the installed copy of the plugin itself, in its own repository (except for sensei itself, whose installed copy does the maintenance);
   - the rules of an old process document moved into place.
 
   Run it with `/sensei:hajime`.

@@ -22,4 +22,5 @@ Other skills or plugins that write skills or manage these files don't apply in t
 - **Commits:** author `Ramon K. <contato@ramonk.com>`; no trailers.
 - **Integration:** local merge with `--no-ff`; push main when the maintainer says so or at release.
 - **Tags:** `vX.Y.Z`.
+- **Maintenance runs on the installed release** of sensei, not on this working copy: `--plugin-dir` is only for trying a change in a separate session. The installed check script doesn't see changes to `scripts/check.py`, so the local one (Validate) always runs too.
 - **Generic:** sensei is public, so no skill names a person, a private repository or a specific plugin as part of its behavior (principle 10). Names appear only as examples.
