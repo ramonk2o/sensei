@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-07
+
+The first version: the whole maintenance cycle, from setup to release.
+
 ### Added
 
 - First version of the plugin: hajime (setup), kanban (backlog and changelog), kata (creating and changing skills), shodan (releases), the shihan and soji review agents, and the check script.
