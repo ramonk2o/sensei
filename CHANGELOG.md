@@ -12,7 +12,7 @@ applied to how the skills behave.
 
 - hajime: writes the check script's permission with a wildcard path that matches every installed version, because permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`.
 - hajime: adds missing lines to an existing `.gitignore`, turns off a conflicting skill that has no plugin with `skillOverrides`, keeps the maintenance section of sensei's own CLAUDE.md on a re-run, and suggests trying a change from another folder.
-- Check script: accepts a pointer to a file at the plugin's root, such as `scripts/check.py`.
+- The check script accepts a pointer to a file at the plugin's root, such as `scripts/check.py`.
 - hajime: in sensei's own repository, keeps the installed copy on, because it does the maintenance, and suggests `--plugin-dir` only for trying a change.
 
 ## [0.1.0] - 2026-11-07

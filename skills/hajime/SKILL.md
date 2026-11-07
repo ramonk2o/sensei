@@ -1,6 +1,6 @@
 ---
 name: hajime
-description: Sets up a Claude Code skill plugin repository, new or existing, for maintenance with sensei. It creates what's missing of the skeleton and the principles, writes the CLAUDE.md, turns off conflicting plugins and the installed copy of the plugin itself for this project (except for sensei itself), adds permissions, and moves an old process document's rules into place. Safe to re-run to refresh. Not for changing skills (kata) or releasing (shodan). Run only when the user invokes it.
+description: Sets up a Claude Code skill plugin repository, new or existing, for maintenance with sensei. It creates what's missing of the skeleton and the principles, writes the CLAUDE.md, turns off conflicting plugins and skills and the installed copy of the plugin itself for this project (except for sensei itself), adds permissions, and moves an old process document's rules into place. Safe to re-run to refresh. Not for changing skills (kata) or releasing (shodan). Run only when the user invokes it.
 disable-model-invocation: true
 ---
 
@@ -68,7 +68,7 @@ Rules that Claude Code can enforce go in settings, not prose.
   - Never add push, reset, deleting branches or files, or publishing. Those keep asking.
   - If the file exists, merge: keep every entry and add only what's missing.
 - **`.claude/settings.local.json`,** personal to this machine and ignored by git:
-  - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its id from `claude plugin list`, as `name@marketplace`), so its released skills don't fire while its source is being changed. When the plugin being maintained is sensei itself (the `name` in its `plugin.json`), write no entry for it: there the installed copy is the tool doing the maintenance;
+  - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its `id` from `claude plugin list --json`, as `name@marketplace`), so its released skills don't fire while its source is being changed. When the plugin being maintained is sensei itself (the `name` in its `plugin.json`), write no entry for it, and remove one an earlier run left: there the installed copy is the tool doing the maintenance;
   - the same for each conflicting plugin the user agrees to turn off, and `skillOverrides` for each conflicting skill that has no plugin (step 5).
   - Turning a plugin off in the shared file would turn it off for every contributor, so it goes here.
 
@@ -126,12 +126,12 @@ Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts
 
 Offer a commit with the setup. Don't commit without the OK.
 
-Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, even one turned off here, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
+Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
 
 ## Re-running
 
 On a repository already set up, hajime refreshes rather than rebuilds:
-- the "Maintenance with sensei" section of CLAUDE.md;
+- the "Maintenance with sensei" section of CLAUDE.md, as `references/claude-md.md` says (sensei's own repository keeps it as it is);
 - the conflict list;
 - the permissions.
 
