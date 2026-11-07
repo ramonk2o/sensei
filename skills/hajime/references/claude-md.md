@@ -47,4 +47,4 @@ Other skills or plugins that write skills or manage these files don't apply in t
 
 ## An existing CLAUDE.md
 
-Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of hajime, refresh only the "Maintenance with sensei" section from the template above, and propose fact changes only where the repository now says something different.
+Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of hajime, refresh only the "Maintenance with sensei" section from the template above, and propose fact changes only where the repository now says something different. When the plugin being maintained is sensei itself, keep its "Maintenance with sensei" section as it is: it is adapted to a plugin that maintains itself (its fallback points to the repository's own `skills/kata/SKILL.md`).

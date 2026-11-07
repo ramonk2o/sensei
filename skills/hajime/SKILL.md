@@ -53,7 +53,7 @@ description_chars: <agreed limit for a description, in characters>
 
 When principles exist, propose only that block, from the limits they already state.
 
-**Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`.
+**Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
 
 ## 3. CLAUDE.md
 
@@ -64,12 +64,12 @@ Read `references/claude-md.md` and write the draft from its template. The fixed 
 Rules that Claude Code can enforce go in settings, not prose.
 - **`.claude/settings.json`,** shared with everyone who clones the repository:
   - `attribution`: `{"commit": "", "pr": ""}` when the project allows no trailers;
-  - permissions under `permissions.allow` for `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py`, written as a wildcard pattern that survives sensei updates, because the plugin's path changes with each version (check the current permission rule syntax in the Claude Code docs), and for `claude plugin validate:*`, `claude plugin eval:*`, and the local git commands the cycle uses (status, diff, log, show, add, commit, switch, merge, branch --list, tag, merge-base, rev-parse, archive).
+  - permissions under `permissions.allow` for sensei's check script. Permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`, and the installed path changes with each version, so write it with wildcards: `Bash(python3 */plugins/cache/*/sensei/*/scripts/check.py*)`. When the plugin being maintained is sensei itself, add `Bash(python3 scripts/check.py*)` for the working copy's script. Then `Bash(claude plugin validate*)`, `Bash(claude plugin eval*)`, and the local git commands the cycle uses (status, diff, log, show, add, commit, switch, merge, branch --list, tag, merge-base, rev-parse, archive).
   - Never add push, reset, deleting branches or files, or publishing. Those keep asking.
   - If the file exists, merge: keep every entry and add only what's missing.
 - **`.claude/settings.local.json`,** personal to this machine and ignored by git:
   - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its id from `claude plugin list`, as `name@marketplace`), so its released skills don't fire while its source is being changed. When the plugin being maintained is sensei itself (the `name` in its `plugin.json`), write no entry for it: there the installed copy is the tool doing the maintenance;
-  - the same for each conflicting plugin the user agrees to turn off (step 5).
+  - the same for each conflicting plugin the user agrees to turn off, and `skillOverrides` for each conflicting skill that has no plugin (step 5).
   - Turning a plugin off in the shared file would turn it off for every contributor, so it goes here.
 
 **Git identity:** when the project fixes a commit author and the environment has none, propose a repo-local `git config user.name` and `user.email`.
@@ -82,7 +82,11 @@ Look at the skills available in this session. List those whose descriptions clai
 - releasing versions;
 - reviewing pull requests or changes.
 
-Judge them by what they say they do, never by a fixed list of names. For each, propose turning its plugin off for this project (step 4, local file), or leaving it and relying on the routing in CLAUDE.md. Say which you recommend and why.
+Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file (step 4), or leaving it and relying on the routing in CLAUDE.md:
+- a plugin's skill (`plugin:skill`): its whole plugin, by the `id` that `claude plugin list --json` gives (`name@marketplace`); the prefix is the manifest's name and can differ from that id;
+- a skill with no plugin prefix (bundled, user or project): that skill alone, with `"skillOverrides": {"<name>": "off"}`.
+
+Say which you recommend and why.
 
 ## 6. Migration and orphans
 
@@ -122,7 +126,7 @@ Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts
 
 Offer a commit with the setup. Don't commit without the OK.
 
-Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session with `claude --plugin-dir <this repository>`, which loads the working copy in place of the installed one. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
+Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, even one turned off here, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
 
 ## Re-running
 
