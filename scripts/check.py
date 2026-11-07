@@ -159,6 +159,8 @@ def check_skills(plugin, limits, rel):
                 continue
             if here is not None and (here / ref).exists():
                 continue
+            if (plugin / ref).exists():
+                continue
             if not (folder / ref).exists():
                 owners = [d.name for d in sdir.iterdir() if d.is_dir() and d != folder and (d / ref).exists()]
                 if owners:
