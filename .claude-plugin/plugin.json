@@ -1,7 +1,7 @@
 {
   "name": "sensei",
   "displayName": "Sensei",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A lean maintenance cycle for Claude Code skill plugins: set up a plugin repo (hajime), keep its backlog and changelog (kanban), create or change a skill from a real case with checks, independent reviews and trigger tests (kata), and release a version (shodan).",
   "author": {
     "name": "Ramon K.",

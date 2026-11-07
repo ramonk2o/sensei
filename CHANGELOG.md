@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-07
+
+hajime sets up existing repositories and sensei's own repository correctly, with a check script permission that works.
+
 ### Fixed
 
 - hajime: writes the check script's permission with a wildcard path that matches every installed version, because permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`.
