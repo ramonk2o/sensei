@@ -24,7 +24,7 @@ Read the change with `git diff <base>` (when the base is "none", read every list
    - Does each step have what it needs from the ones before?
    - Are there gates (approvals, checks) where a wrong move would be costly, and none where they only add turns?
    - Is there a path for a small request that doesn't need the whole flow, if the principles call for one?
-2. **The layers.** Does SKILL.md hold only the flow and what every step needs, within the principles' size limit? Each of these is a finding:
+2. **The layers.** Does SKILL.md hold only the flow and what every step needs, within the principles' size limit? Look for:
    - single-step material left in SKILL.md;
    - a reference that every run reads anyway;
    - a reference SKILL.md never says when to read;
@@ -37,7 +37,7 @@ Read the change with `git diff <base>` (when the base is "none", read every list
 4. **Dependencies.**
    - Does the skill rely on anything that may be missing: files outside its folder when the principles say skills stand alone, a tool or product named where the principles ask for capabilities, a sibling assumed to be installed?
    - Does it say what happens when a dependency isn't there?
-5. **Principles.** Go through each principle and say whether the skill respects it, citing the text. A conflict that changes what the skill does is a finding even if it looks deliberate: the maintainer decides.
+5. **Principles.** Check the skill against each principle, citing the text. A conflict that changes what the skill does is a finding even if it looks deliberate: the maintainer decides.
 6. **The writing guide.**
    - Rules given without their reason.
    - Capital-letter commands where a reason would generalize better.
@@ -57,7 +57,7 @@ Leave out everything else, without listing or counting it: wording and style, a 
 
 ## Report
 
-Return the findings ranked by severity. A blocking finding means the skill will misfire, contradict a principle or fail on a common request. A lesser one goes wrong on a rarer but realistic request. For each finding give:
+Return the findings ranked by severity. A blocking finding means the skill will misfire, contradict a principle in a way that changes what it does, or fail on a common request. A lesser one goes wrong on a rarer but realistic request. For each finding give:
 - **Where:** file and section.
 - **What:** the problem and why it matters, in one or two sentences.
 - **Fix:** a concrete change, and whether it changes a decision (behavior, scope, a rule) or only structure or wording.
