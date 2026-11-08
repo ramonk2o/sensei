@@ -21,7 +21,7 @@ When the maintainer asks to check the whole plugin ("audit the plugin", "is ever
 1. Run the check script (its path is in SKILL.md, step 5), plain and with `--scope-map`.
 2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them).
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
-4. List everything you found, grouped by skill and ranked, with a proposed fix for each. Edit nothing before the maintainer picks what to fix.
+4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each. Edit nothing before the maintainer picks what to fix.
 
 Each fix then goes through the form for its kind.
 

@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- Reviews report only what changes how a skill runs on a realistic request. The sweeper, the examiner and the cold reader leave out wording, style, cost that breaks no limit and edge cases no real user would send, and `train` drops any finding below that bar before showing the review or an audit to the maintainer.
+
 ## [0.3.0] - 2026-11-08
 
 Skills and agents get English names that keep the dojo analogy, a breaking change: the old commands no longer work.

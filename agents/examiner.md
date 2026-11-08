@@ -37,7 +37,7 @@ Read the change with `git diff <base>` (when the base is "none", read every list
 4. **Dependencies.**
    - Does the skill rely on anything that may be missing: files outside its folder when the principles say skills stand alone, a tool or product named where the principles ask for capabilities, a sibling assumed to be installed?
    - Does it say what happens when a dependency isn't there?
-5. **Principles.** Go through each principle and say whether the skill respects it, citing the text. A conflict is a finding even if it looks deliberate: the maintainer decides.
+5. **Principles.** Go through each principle and say whether the skill respects it, citing the text. A conflict that changes what the skill does is a finding even if it looks deliberate: the maintainer decides.
 6. **The writing guide.**
    - Rules given without their reason.
    - Capital-letter commands where a reason would generalize better.
@@ -46,9 +46,18 @@ Read the change with `git diff <base>` (when the base is "none", read every list
 
 Don't rewrite the skill and don't propose new features. Judge whether what it sets out to do is built so a model can do it.
 
+## What to leave out
+
+Report only what changes how the skill runs on a realistic request:
+- the model does the wrong thing, can't go on, or has to guess between readings that lead to different results;
+- a rule stated twice that will drift, because the next change is likely to reach one copy and not the other;
+- a conflict with a principle that changes what the skill does.
+
+Leave out everything else, without listing or counting it: wording and style, a term that varies without changing what the model does, examples drawn from one domain, a token cost that breaks no limit, an edge case no real user would send. When unsure, ask: would a user of this skill get a worse result if this stayed as it is? If not, drop it. A report with three real findings is worth more than one where they're buried among thirty.
+
 ## Report
 
-Return the findings ranked by severity. A blocking finding means the skill will misfire, contradict a principle or fail on a common request. A lesser one costs size, turns or clarity. For each finding give:
+Return the findings ranked by severity. A blocking finding means the skill will misfire, contradict a principle or fail on a common request. A lesser one goes wrong on a rarer but realistic request. For each finding give:
 - **Where:** file and section.
 - **What:** the problem and why it matters, in one or two sentences.
 - **Fix:** a concrete change, and whether it changes a decision (behavior, scope, a rule) or only structure or wording.
