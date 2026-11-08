@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-08
+
+Reviews and audits report only what changes how a skill runs, and an audit can review architecture too.
+
 ### Changed
 
 - A consistency audit that asks about architecture or design also runs the examiner on each skill. A fix picked from an audit uses the finding as its real case, without asking the maintainer for another example.
