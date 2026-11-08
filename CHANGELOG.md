@@ -10,6 +10,7 @@ applied to how the skills behave.
 
 ### Changed
 
+- A consistency audit that asks about architecture or design also runs the examiner on each skill. A fix picked from an audit uses the finding as its real case, without asking the maintainer for another example.
 - Reviews report only what changes how a skill runs on a realistic request. The sweeper, the examiner and the cold reader leave out wording, style, cost that breaks no limit and edge cases no real user would send, and `train` drops any finding below that bar before showing the review or an audit to the maintainer.
 
 ## [0.3.0] - 2026-11-08

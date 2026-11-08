@@ -42,7 +42,7 @@ For a wording fix, check whether the same text repeats in another file, then edi
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. If the change comes from a backlog entry, its Motivation is the case.
+Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. If the change comes from a backlog entry, its Motivation is the case; if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
 
 ### 2. Rounds
 Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.

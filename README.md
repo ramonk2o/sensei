@@ -25,7 +25,7 @@ The names follow a dojo: **prepare** the repository, **train** each skill, **log
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone. Run it with `/sensei:graduate`.
 
 Two read-only agents review changes for `train`:
-- **examiner** judges a new skill's architecture;
+- **examiner** judges a new skill's architecture, or any skill's in an audit that asks for it;
 - **sweeper** finds leftovers, contradictions, redundancy, drift between skills, broken references, inconsistent terms, vague instructions and scope overlap.
 
 `scripts/check.py` checks:
