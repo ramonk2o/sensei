@@ -37,11 +37,20 @@ Read the change with `git diff <base>` (when the base is "none", read every list
    - a "when needed" that never says when.
 8. **Scope overlap.** Using the scope map: a description that now claims requests a sibling claims, or an opening that no longer says what the skill leaves to a sibling.
 
-Ignore style preferences that don't affect what the model does. Don't suggest new behavior: that's not cohesion.
+Don't suggest new behavior: that's not cohesion.
+
+## What to leave out
+
+The checks above are where to look, not what to report: a check that turns something up is reported only when it passes this bar. Report only what changes how the skill runs on a realistic request:
+- the model does the wrong thing, can't go on, or has to guess between readings that lead to different results;
+- a rule stated twice that will drift, because the next change is likely to reach one copy and not the other;
+- a conflict with a principle that changes what the skill does.
+
+Leave out everything else, without listing or counting it: wording and style, a term that varies without changing what the model does, examples drawn from one domain that the model won't copy into its output, a token cost that breaks no limit, an edge case no real user would send. When unsure, ask: would a user of this skill get a worse result if this stayed as it is? If not, drop it. A report with three real findings is worth more than one where they're buried among thirty.
 
 ## Report
 
-Return the findings ranked by severity. A blocking finding makes the model do the wrong thing or leaves it unable to follow the skill. A lesser one costs clarity or will drift later. For each finding give:
+Return the findings ranked by severity. A blocking finding goes wrong on a common request: the model does the wrong thing or can't follow the skill. A lesser one goes wrong on a rarer but realistic request, or is a copy that will drift. For each finding give:
 - **Where:** file and section (and line when useful).
 - **What:** the problem, quoting the conflicting or leftover text briefly.
 - **Fix:** the smallest change that resolves it, and whether it changes a decision (adds a rule, changes behavior) or only wording.

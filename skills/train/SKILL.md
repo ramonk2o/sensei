@@ -79,7 +79,7 @@ It checks sizes, names, the files a skill points to, the changelog's structure a
 ### 6. Reviews
 For the kinds that have reviews, read `references/review.md` and start the review agents it describes. When there are two, start them in parallel. The paths they need:
 - writing guide: `${CLAUDE_PLUGIN_ROOT}/skills/train/references/writing.md`;
-- agent briefings, for the fallback: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`. Show the findings together, ranked:
+- agent briefings, for the fallback: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`. Show the findings that pass the bar in `review.md`, together, ranked:
 - Fixes that change no decision go straight to the branch.
 - Fixes that add a rule or change a decision are proposals the maintainer approves.
 

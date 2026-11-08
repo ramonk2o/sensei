@@ -9,7 +9,7 @@ The cold reader tests what happens once the skill is running; the trigger suite 
 Start a fresh agent with no access to this conversation. Give it only:
 - the changed `SKILL.md` and every changed reference (most contradictions are between a SKILL.md and a reference);
 - the real case, written as the user's request, with any material the user gave;
-- the question: "Following only these files, what do you do with this request, step by step? Where are the files unclear or contradictory?"
+- the question: "Following only these files, what do you do with this request, step by step? Where did you have to guess, or could two readings lead you to different results? Name only the gaps that change or could change what you do."
 
 The test passes when its answer does what the plan said the skill should do in that case. When it goes another way, the text doesn't say what the plan decided: fix the text, not the reader. If the session can't start an agent, give the maintainer that prompt and the files, ready to run in a new conversation.
 
