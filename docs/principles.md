@@ -10,7 +10,7 @@ description_chars: 600
 ## Working with the maintainer
 
 1. **The maintainer decides; the skill proposes.** Nothing is edited before an explicit OK to a plan, nothing is merged before an OK to the whole change, and nothing is published before an OK to the version. "OK" or "go ahead" approve; silence, a passing comment or approving a round's answers do not. Two light paths are written first and reported right after, because the request already says exactly what to write: a wording fix that changes no behavior, and a backlog entry the maintainer dictated.
-2. **Start from the real case.** A change answers something that happened: what a skill was asked, what it did and what it should have done. An impression ("it's off") is a reason to ask for the case, not to propose a fix.
+2. **Start from the real case.** A change answers something that happened: what a skill was asked, what it did and what it should have done. A reviewer's finding that names the text and the realistic request it breaks also counts as a case. An impression ("it's off") is a reason to ask for the case, not to propose a fix.
 3. **Propose before asking.** Questions come in rounds of up to five, numbered, each with a recommended answer and a one-line reason, the riskiest first. When the repository answers a question, the skill uses that answer and says where it came from.
 
 ## Protecting the plugin

@@ -13,7 +13,7 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 
 ### <Entry title>
 - **Type:** Idea | Bug | Debt
-- **Motivation:** <the real case: what was asked, what the skill did, what it should have done>
+- **Motivation:** <the real case: what was asked, what the skill did, what it should have done; or a review finding: the text and the request it breaks>
 - **Description:** <the change wanted, from the user's side>
 - **Decisions:**
   - <a choice already made>

@@ -19,11 +19,11 @@ An accepted pull request still goes through the form from step 3: the plan lists
 
 When the maintainer asks to check the whole plugin ("audit the plugin", "is everything consistent?"):
 1. Run the check script (its path is in SKILL.md, step 5), plain and with `--scope-map`.
-2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them). When the maintainer also asks about architecture or design ("cohesion and architecture", "is it well built?"), start `sensei:examiner` on each skill too, with the same message plus the writing guide (path in SKILL.md, step 6).
+2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them). When the maintainer also asks about architecture or design ("cohesion and architecture", "is it well built?"), start `sensei:examiner` on each skill too: base "none", that skill's files, the other skills as siblings, and the writing guide (path in SKILL.md, step 6).
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
 4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each. Edit nothing before the maintainer picks what to fix.
 
-Each fix then goes through the form for its kind. The finding is its real case: it names the file, the text and what goes wrong, so don't ask the maintainer for another example unless they doubt it happens.
+Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1).
 
 ## Recreating a skill from an old one
 
