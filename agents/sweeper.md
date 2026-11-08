@@ -1,6 +1,6 @@
 ---
-name: soji
-description: Independent cohesion review of a change to a skill plugin. Given the base commit, the changed files, the sibling skills and the plugin's principles, it looks for leftovers, contradictions (including between a SKILL.md and its references), redundancy, drift of a shared rule between siblings, broken references, inconsistent terms, instructions too vague to act on, and scope overlap between skills. It reads and reports; it never edits files. Used by sensei's kata skill after a change is committed, and for consistency audits.
+name: sweeper
+description: Independent cohesion review of a change to a skill plugin. Given the base commit, the changed files, the sibling skills and the plugin's principles, it looks for leftovers, contradictions (including between a SKILL.md and its references), redundancy, drift of a shared rule between siblings, broken references, inconsistent terms, instructions too vague to act on, and scope overlap between skills. It reads and reports; it never edits files. Used by sensei's train skill after a change is committed, and for consistency audits.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

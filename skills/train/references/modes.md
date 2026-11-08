@@ -19,7 +19,7 @@ An accepted pull request still goes through the form from step 3: the plan lists
 
 When the maintainer asks to check the whole plugin ("audit the plugin", "is everything consistent?"):
 1. Run the check script (its path is in SKILL.md, step 5), plain and with `--scope-map`.
-2. Start `sensei:soji` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them).
+2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them).
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
 4. List everything you found, grouped by skill and ranked, with a proposed fix for each. Edit nothing before the maintainer picks what to fix.
 
@@ -36,4 +36,4 @@ Then it's a new skill: plan, edit, check, both reviews, the cold reader and the 
 
 ## Something that isn't a skill
 
-For a hook, an agent, a command or an MCP server, load the matching skill of Anthropic's official plugin-dev when the session has it (hook-development, agent-development, command-development, mcp-integration), for the format and its rules. Keep the target's principles above its style advice. The form is the same: case, plan, branch, checks (validate covers these components), review by soji, and a test that fits the component. A change to the README or the manifests alone is a wording fix, or a behavior change when it alters what the plugin promises. When plugin-dev isn't available, use the current Claude Code documentation for the format, never memory.
+For a hook, an agent, a command or an MCP server, load the matching skill of Anthropic's official plugin-dev when the session has it (hook-development, agent-development, command-development, mcp-integration), for the format and its rules. Keep the target's principles above its style advice. The form is the same: case, plan, branch, checks (validate covers these components), review by `sweeper`, and a test that fits the component. A change to the README or the manifests alone is a wording fix, or a behavior change when it alters what the plugin promises. When plugin-dev isn't available, use the current Claude Code documentation for the format, never memory.

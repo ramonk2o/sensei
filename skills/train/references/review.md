@@ -1,19 +1,19 @@
 # Independent reviews
 
 Two read-only agents review a change. Neither sees the conversation or the plan, so neither is anchored on the reasoning that produced the text:
-- **soji** checks cohesion: leftovers, contradictions, redundancy, drift between siblings, broken references, inconsistent terms, vague instructions and scope overlap.
-- **shihan** checks architecture: whether the skill is well built, against the target's principles and kata's writing guide.
+- **sweeper** checks cohesion: leftovers, contradictions, redundancy, drift between siblings, broken references, inconsistent terms, vague instructions and scope overlap.
+- **examiner** checks architecture: whether the skill is well built, against the target's principles and `train`'s writing guide.
 
 Which kinds of change get which review is in SKILL.md's "Kinds of change" table.
 
 ## Starting them
 
-They ship with sensei as the agents `sensei:soji` and `sensei:shihan`. Start each with a message that holds only:
+They ship with sensei as the agents `sensei:sweeper` and `sensei:examiner`. Start each with a message that holds only:
 - **Base:** the commit the branch started from (`git merge-base main HEAD`). The agent reads the change with `git diff <base>`. When there is no usable base (an audit, or a repository whose first commit holds the skill), say "none" and list every file to read in full.
 - **Changed files:** the paths in the diff.
 - **Siblings:** the SKILL.md path of every other skill in the plugin, plus every file the plan listed as stating the same rule.
 - **Principles:** the path to the target's `docs/principles.md`.
-- **Writing guide** (shihan only): the absolute path given in SKILL.md, step 6.
+- **Writing guide** (`examiner` only): the absolute path given in SKILL.md, step 6.
 - **Scope map:** the output of the check script's `--scope-map`, pasted in.
 
 Don't add what the change is for, what you think of it, or what to look for. Its job is to read the change without your view of it.

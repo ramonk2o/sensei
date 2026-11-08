@@ -1,6 +1,6 @@
 # CHANGELOG.md format
 
-`CHANGELOG.md`, at the repository root, records what changed in each version for the people who use the plugin. It follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), with [Semantic Versioning](https://semver.org/spec/v2.0.0.html) applied to how the skills behave. kata writes entries with this file; shodan moves them at release; kanban answers direct requests.
+`CHANGELOG.md`, at the repository root, records what changed in each version for the people who use the plugin. It follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), with [Semantic Versioning](https://semver.org/spec/v2.0.0.html) applied to how the skills behave. `train` writes entries with this file; `graduate` moves them at release; `log` answers direct requests.
 
 ## The file
 
@@ -53,7 +53,7 @@ Two branches that both add to `[Unreleased]` conflict there. Keep both sets of e
 
 ## Release
 
-At release (shodan):
+At release (`graduate`):
 1. Move every `[Unreleased]` entry under `## [X.Y.Z] - YYYY-MM-DD` (today's date), keeping the groups.
 2. Add the summary sentence under the heading.
 3. Leave `## [Unreleased]` empty above it.

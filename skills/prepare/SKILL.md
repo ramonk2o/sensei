@@ -1,12 +1,12 @@
 ---
-name: hajime
-description: Sets up a Claude Code skill plugin repository, new or existing, for maintenance with sensei. It creates what's missing of the skeleton and the principles, writes the CLAUDE.md, turns off conflicting plugins and skills and the installed copy of the plugin itself for this project (except for sensei itself), adds permissions, and moves an old process document's rules into place. Safe to re-run to refresh. Not for changing skills (kata) or releasing (shodan). Run only when the user invokes it.
+name: prepare
+description: Sets up a Claude Code skill plugin repository, new or existing, for maintenance with sensei. It creates what's missing of the skeleton and the principles, writes the CLAUDE.md, turns off conflicting plugins and skills and the installed copy of the plugin itself for this project (except for sensei itself), adds permissions, and moves an old process document's rules into place. Safe to re-run to refresh. Not for changing skills (train) or releasing (graduate). Run only when the user invokes it.
 disable-model-invocation: true
 ---
 
-# Hajime
+# Prepare
 
-Prepares a repository so the plugin it holds can be maintained with sensei's skills: `kata` (changing skills), `kanban` (backlog and changelog) and `shodan` (releases). The cycle lives in those skills. This setup only puts the project's facts and its enforced settings in place, so updating sensei updates every project.
+Prepares a repository so the plugin it holds can be maintained with sensei's skills: `train` (changing skills), `log` (backlog and changelog) and `graduate` (releases). The cycle lives in those skills. This setup only puts the project's facts and its enforced settings in place, so updating sensei updates every project.
 
 Talk to the user in their language. Write every file in English, unless the user explicitly asks for another language for the project's documents. Then record it in CLAUDE.md.
 
@@ -32,7 +32,7 @@ Propose only what's missing:
 - `.claude-plugin/marketplace.json` with an entry whose `source` is `./`, so the plugin installs from its own repository;
 - README (what it is, the skills, install, how it's built, contributing, license);
 - LICENSE (MIT unless the user says otherwise);
-- CHANGELOG.md and BACKLOG.md, in the formats of `../kanban/references/changelog.md` and `../kanban/references/backlog.md`;
+- CHANGELOG.md and BACKLOG.md, in the formats of `../log/references/changelog.md` and `../log/references/backlog.md`;
 - `docs/principles.md`.
 
 **Principles,** when missing, are settled with the user in rounds of up to five numbered questions, each with a recommended answer and a one-line reason:
@@ -97,7 +97,7 @@ Say which you recommend and why.
   - a personal preference is pointed to the user-level CLAUDE.md.
 
   Show where each rule goes. Then propose removing the document, or keeping it as history if the user prefers.
-- **Documents that overlap** BACKLOG or CHANGELOG (TODO.md, ROADMAP.md, HISTORY.md): point them out. Aligning them is kanban's job.
+- **Documents that overlap** BACKLOG or CHANGELOG (TODO.md, ROADMAP.md, HISTORY.md): point them out. Aligning them is `log`'s job.
 - **Broken references** in CLAUDE.md or the README: point them out.
 
 ## 7. Review
@@ -121,8 +121,8 @@ Apply what was approved, in this order:
 5. removals.
 
 Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .`. The script's own validate checks the last commit, which doesn't hold the setup yet. Failures aren't fixed here:
-- in existing skills (a description over its limit, a broken reference): offer to record each in BACKLOG.md as Debt, or to fix it with kata;
-- a changelog in another format: offer the alignment with kanban.
+- in existing skills (a description over its limit, a broken reference): offer to record each in BACKLOG.md as Debt, or to fix it with `train`;
+- a changelog in another format: offer the alignment with `log`.
 
 Offer a commit with the setup. Don't commit without the OK.
 
@@ -130,7 +130,7 @@ Tell the user that a new session in this folder picks up the settings. To try a 
 
 ## Re-running
 
-On a repository already set up, hajime refreshes rather than rebuilds:
+On a repository already set up, `prepare` refreshes rather than rebuilds:
 - the "Maintenance with sensei" section of CLAUDE.md, as `references/claude-md.md` says (sensei's own repository keeps it as it is);
 - the conflict list;
 - the permissions.

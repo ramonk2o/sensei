@@ -1,11 +1,11 @@
 ---
-name: kata
-description: In a skill plugin repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command from a real case: question rounds, a plan the maintainer approves, the edit with every sibling stating the same rule, checks, independent reviews, tests, changelog and merge. Also judges a contributor's issue or pull request, audits consistency, or recreates a skill. E.g. 'the deck skill did X, it should do Y', 'add a skill for…', 'review the PR to the email skill'. Not for noting an idea for later (kanban); releases are /sensei:shodan.
+name: train
+description: In a skill plugin repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command from a real case: question rounds, a plan the maintainer approves, the edit with every sibling stating the same rule, checks, independent reviews, tests, changelog and merge. Also judges a contributor's issue or pull request, audits consistency, or recreates a skill. E.g. 'the deck skill did X, it should do Y', 'add a skill for…', 'review the PR to the email skill'. Not for noting an idea for later (log); releases are /sensei:graduate.
 ---
 
-# Kata
+# Train
 
-A change to a skill goes wrong in predictable ways. It fixes the one example that failed instead of the case behind it. It changes a rule in one skill while a sibling still states the old one. It leaves a SKILL.md contradicting its own references. It is judged by a model that already knows what the skill was meant to say. Kata is the fixed form that prevents these: the case first, a plan the maintainer approves, every file that states the rule changed together, then checks and reviews by readers who weren't in the conversation. Ideas for later go to the backlog with kanban. Releases are the maintainer's call, with `/sensei:shodan`.
+A change to a skill goes wrong in predictable ways. It fixes the one example that failed instead of the case behind it. It changes a rule in one skill while a sibling still states the old one. It leaves a SKILL.md contradicting its own references. It is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these, the way a dojo drills a technique: the case first, a plan the maintainer approves, every file that states the rule changed together, then checks and reviews by readers who weren't in the conversation. Ideas for later go to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
 
 **The skills are the object of the work here, not tools.** When the maintainer talks about the plugin's subject (prompts, decks, emails…), it's about improving the skill. Don't run that skill's flow unless they explicitly ask to use it.
 
@@ -31,13 +31,13 @@ Decide the kind first, because it sets how much of the form runs:
 | Kind | Rounds and plan | Branch | Reviews | Test |
 |---|---|---|---|---|
 | **Wording fix** (typo, confusing sentence; no behavior change, not a description) | no | no: commit on main | none | none |
-| **Behavior change** to an existing skill | yes | yes | soji | cold reader |
-| **Description change** (what triggers the skill) | yes | yes | soji | trigger suite |
-| **New skill or full rewrite** | yes | yes | shihan and soji | cold reader and trigger suite |
+| **Behavior change** to an existing skill | yes | yes | `sweeper` | cold reader |
+| **Description change** (what triggers the skill) | yes | yes | `sweeper` | trigger suite |
+| **New skill or full rewrite** | yes | yes | `examiner` and `sweeper` | cold reader and trigger suite |
 
 When in doubt between two kinds, take the heavier one and say so. A skill that only the user can invoke (`disable-model-invocation: true`) has no triggering to test: it skips the trigger suite and gets the cold reader. A change to an agent, hook or command follows the row of the change it makes. Read `references/modes.md` for those.
 
-For a wording fix, check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../kanban/references/changelog.md`). Commit on main, then run the check script; if it fails, fix and amend.
+For a wording fix, check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../log/references/changelog.md`). Commit on main, then run the check script; if it fails, fix and amend.
 
 ## The form
 
@@ -53,7 +53,7 @@ Present one message with:
 - **Why:** the case, and the root it points to, not just the example.
 - **Principle touched:** which of the target's principles the change touches. If it goes against one, say which and why, and treat it as the maintainer's design decision.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
-- **Effect on the version** (`../kanban/references/changelog.md`, The version number).
+- **Effect on the version** (`../log/references/changelog.md`, The version number).
 - **Sample text:** for a new rule or section, the actual wording, so the maintainer judges text, not a description of it.
 
 Edit only after an explicit OK to this plan.
@@ -62,8 +62,8 @@ Edit only after an explicit OK to this plan.
 - **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main.
 - **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. For a new skill or a rewrite, draft from the plan, then reread the draft with fresh eyes before going on.
 - **Siblings:** change every sibling the plan listed.
-- **Changelog:** add the entry under `[Unreleased]` in the same edit (`../kanban/references/changelog.md`).
-- **Backlog:** if the change came from a backlog entry, remove it (`../kanban/references/backlog.md`).
+- **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
+- **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`).
 
 The plan is closed once approved. A sibling the search missed, which only has to restate the approved rule, is changed on the branch and reported. If writing shows the plan itself must change (a rule that can't be stated as planned, a sibling whose rule conflicts), stop and reopen it with the maintainer.
 
@@ -78,8 +78,8 @@ It checks sizes, names, the files a skill points to, the changelog's structure a
 
 ### 6. Reviews
 For the kinds that have reviews, read `references/review.md` and start the review agents it describes. When there are two, start them in parallel. The paths they need:
-- writing guide: `${CLAUDE_PLUGIN_ROOT}/skills/kata/references/writing.md`;
-- agent briefings, for the fallback: `${CLAUDE_PLUGIN_ROOT}/agents/soji.md` and `${CLAUDE_PLUGIN_ROOT}/agents/shihan.md`. Show the findings together, ranked:
+- writing guide: `${CLAUDE_PLUGIN_ROOT}/skills/train/references/writing.md`;
+- agent briefings, for the fallback: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`. Show the findings together, ranked:
 - Fixes that change no decision go straight to the branch.
 - Fixes that add a rule or change a decision are proposals the maintainer approves.
 

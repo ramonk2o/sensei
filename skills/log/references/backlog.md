@@ -7,7 +7,7 @@
 ```markdown
 # Backlog
 
-Ideas, bugs and debt for this plugin, managed with sensei's kanban skill. Each entry starts from a real case. Done work leaves this file: what changed goes to CHANGELOG.md.
+Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each entry starts from a real case. Done work leaves this file: what changed goes to CHANGELOG.md.
 
 ## <skill name>
 
@@ -51,5 +51,5 @@ Ideas, bugs and debt for this plugin, managed with sensei's kanban skill. Each e
 - **List:** by area, each entry's title and type. Give details only when asked.
 - **Discard:** only on the maintainer's word. Move the entry to Discarded, keeping its Description and adding a Why discarded line with the reason and the date.
 - **Clean up:** look for entries that are duplicated, already done (check the skills and CHANGELOG.md) or dropped. Show the plan and wait for the OK.
-- **Done:** when kata finishes a change that came from an entry, the entry leaves the file in that change's commit. kata does this.
-- **Create:** hajime creates the file with the title and the legend. kanban creates it when it's missing and the maintainer asks for it.
+- **Done:** when `train` finishes a change that came from an entry, the entry leaves the file in that change's commit. `train` does this.
+- **Create:** `prepare` creates the file with the title and the legend. `log` creates it when it's missing and the maintainer asks for it.

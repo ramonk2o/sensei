@@ -1,10 +1,10 @@
 ---
-name: shodan
-description: Releases a version of a Claude Code skill plugin maintained with sensei. It proposes the number from the changelog's unreleased entries, runs the release checks, then moves the entries, bumps plugin.json, tags, pushes and builds per-skill zips when the skills stand alone. Not for changing skills (kata) or editing the changelog (kanban). Run only when the user invokes it.
+name: graduate
+description: Releases a version of a Claude Code skill plugin maintained with sensei. It proposes the number from the changelog's unreleased entries, runs the release checks, then moves the entries, bumps plugin.json, tags, pushes and builds per-skill zips when the skills stand alone. Not for changing skills (train) or editing the changelog (log). Run only when the user invokes it.
 disable-model-invocation: true
 ---
 
-# Shodan
+# Graduate
 
 Releases what has reached main since the last version. People who installed the plugin get an update only when the version number in `plugin.json` goes up, so a release is what turns merged changes into something users receive.
 
@@ -14,12 +14,12 @@ Talk to the user in their language. Write the changelog and commit messages in t
 
 - Read the project's CLAUDE.md for its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
-- Read `CHANGELOG.md` and `../kanban/references/changelog.md`.
+- Read `CHANGELOG.md` and `../log/references/changelog.md`.
 - If `[Unreleased]` is empty, say there is nothing to release and stop.
 
 ## 2. Check
 
-Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --release`. Besides the usual checks, it requires a non-empty `[Unreleased]` and runs `claude plugin validate --profile directory`, which catches what the plugin directory would refuse. Fix failures through kata, or for a changelog structure problem through kanban's format, before going on. Don't release over a failure.
+Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --release`. Besides the usual checks, it requires a non-empty `[Unreleased]` and runs `claude plugin validate --profile directory`, which catches what the plugin directory would refuse. Fix failures through `train`, or for a changelog structure problem through `log`'s format, before going on. Don't release over a failure.
 
 ## 3. Propose
 

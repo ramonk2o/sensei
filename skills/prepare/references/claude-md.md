@@ -1,4 +1,4 @@
-# The CLAUDE.md hajime writes
+# The CLAUDE.md `prepare` writes
 
 The CLAUDE.md has three parts. The first two are fixed, copied as written below. The third is the project's facts, discovered in the repository or asked. The cycle's steps live in sensei's skills, not here, so an update to sensei reaches every project. Keep the file short: it loads in every session in the repository.
 
@@ -12,9 +12,9 @@ The CLAUDE.md has three parts. The first two are fixed, copied as written below.
 ## Maintenance with sensei
 
 This repository is maintained with the sensei plugin. If sensei is installed:
-- creating or changing a skill, judging an issue or pull request, or auditing consistency: the `kata` skill;
-- BACKLOG.md and CHANGELOG.md: the `kanban` skill (kata writes its own changelog entries);
-- releasing a version: `/sensei:shodan`.
+- creating or changing a skill, judging an issue or pull request, or auditing consistency: the `train` skill;
+- BACKLOG.md and CHANGELOG.md: the `log` skill (`train` writes its own changelog entries);
+- releasing a version: `/sensei:graduate`.
 
 Other skills or plugins that write skills or manage these files don't apply in this repository. Without sensei, follow `docs/principles.md` and keep CHANGELOG.md in the Keep a Changelog format.
 
@@ -43,8 +43,8 @@ Other skills or plugins that write skills or manage these files don't apply in t
 - **Leave out:**
   - the cycle's steps, because the skills own them;
   - personal preferences, such as the language to talk in or how the maintainer likes answers, which go to the user-level CLAUDE.md;
-  - anything already in `docs/principles.md`, except whether skills stand alone, which kata and shodan read here.
+  - anything already in `docs/principles.md`, except whether skills stand alone, which `train` and `graduate` read here.
 
 ## An existing CLAUDE.md
 
-Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of hajime, refresh only the "Maintenance with sensei" section from the template above, and propose fact changes only where the repository now says something different. When the plugin being maintained is sensei itself, keep its "Maintenance with sensei" section as it is: it is adapted to a plugin that maintains itself (its fallback points to the repository's own `skills/kata/SKILL.md`).
+Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of `prepare`, refresh only the "Maintenance with sensei" section from the template above, and propose fact changes only where the repository now says something different. When the plugin being maintained is sensei itself, keep its "Maintenance with sensei" section as it is: it is adapted to a plugin that maintains itself (its fallback points to the repository's own `skills/train/SKILL.md`).
