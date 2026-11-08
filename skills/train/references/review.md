@@ -27,7 +27,7 @@ Each agent returns findings ranked by severity, each with:
 - what is wrong;
 - a suggested fix.
 
-Before showing them, drop every finding that fails the bar in the agents' briefings ("What to leave out" in `sweeper.md`): one that wouldn't change the result of a realistic request. Drop it even when an agent reported it, and don't list or count what you dropped. When both agents ran, show the remaining findings together, merging duplicates. For each one, say whether you agree and what you'd do:
+Before showing them, drop every finding that fails the bar in the agents' briefings ("What to leave out", written the same in `sweeper.md` and `examiner.md`; a change to it reaches both). A finding passes when the model would do the wrong thing, stop or guess between readings on a realistic request, when it is a copy of a rule that will drift, or when it is a principle conflict that changes what the skill does. Drop the rest even when an agent reported it, and don't list or count what you dropped. When both agents ran, show the remaining findings together, merging duplicates. For each one, say whether you agree and what you'd do:
 - **Fixes that change no decision:** a leftover, a broken reference, a term made consistent, a sibling the plan missed. These go straight to the branch.
 - **Fixes that add a rule or change a decision:** proposals, applied only on the maintainer's OK.
 - **Findings you disagree with:** say why. The maintainer decides.
