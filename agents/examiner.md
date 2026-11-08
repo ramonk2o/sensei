@@ -48,12 +48,12 @@ Don't rewrite the skill and don't propose new features. Judge whether what it se
 
 ## What to leave out
 
-Report only what changes how the skill runs on a realistic request:
+The checks above are where to look, not what to report: a check that turns something up is reported only when it passes this bar. Report only what changes how the skill runs on a realistic request:
 - the model does the wrong thing, can't go on, or has to guess between readings that lead to different results;
 - a rule stated twice that will drift, because the next change is likely to reach one copy and not the other;
 - a conflict with a principle that changes what the skill does.
 
-Leave out everything else, without listing or counting it: wording and style, a term that varies without changing what the model does, examples drawn from one domain, a token cost that breaks no limit, an edge case no real user would send. When unsure, ask: would a user of this skill get a worse result if this stayed as it is? If not, drop it. A report with three real findings is worth more than one where they're buried among thirty.
+Leave out everything else, without listing or counting it: wording and style, a term that varies without changing what the model does, examples drawn from one domain that the model won't copy into its output, a token cost that breaks no limit, an edge case no real user would send. When unsure, ask: would a user of this skill get a worse result if this stayed as it is? If not, drop it. A report with three real findings is worth more than one where they're buried among thirty.
 
 ## Report
 
