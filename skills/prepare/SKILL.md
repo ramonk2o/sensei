@@ -19,7 +19,7 @@ Read the repository before proposing anything:
 - **Skills:** `skills/*/SKILL.md`, their `references/`, and any agents, hooks or commands.
 - **Documents:** README, LICENSE, CHANGELOG, BACKLOG, `docs/principles.md`, CLAUDE.md.
 - **Old process documents:** a pasted project prompt kept in the repo, CONTRIBUTING, or a maintenance doc.
-- **Git:** whether it's a repository, its tags, its log (authors, trailers), its remote.
+- **Git:** whether it's a repository, its tags, its git log (authors, trailers), its remote.
 
 Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .` to see where it stands.
 

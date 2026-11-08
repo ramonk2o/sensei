@@ -10,7 +10,7 @@ Releases what has reached main since the last version. People who installed the 
 
 Talk to the user in their language. Write the changelog and commit messages in the project's documents language (English unless its CLAUDE.md says otherwise).
 
-## 1. Prepare
+## 1. Read the state
 
 - Read the project's CLAUDE.md for its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
