@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- Skills and agents have English names: hajime → prepare, kanban → log, kata → train, shodan → graduate, shihan → examiner, soji → sweeper. The old names no longer work: the commands are now `/sensei:prepare` and `/sensei:graduate`. In a repository set up with an earlier version, run `/sensei:prepare` again to refresh its CLAUDE.md.
+
 ## [0.2.0] - 2026-11-07
 
 hajime sets up existing repositories and sensei's own repository correctly, with a check script permission that works.
