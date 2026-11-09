@@ -17,7 +17,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
 
 - **Documents:** English.
 - **Principles:** `docs/principles.md`. Every change is checked against them.
-- **Skills stand alone:** no. Sensei installs as a whole plugin, its skills point to each other's references (`../log/references/…`), and releases ship no per-skill zips.
+- **Skills stand alone:** no. Sensei installs as a whole plugin, its skills point to each other's references (`../log/references/…`), and releases ship one zip of the whole plugin, not one per skill.
 - **Validate:** `python3 scripts/check.py` on every change (it runs `claude plugin validate` on an archive of HEAD); `--release` at release.
 - **Commits:** author `Ramon K. <contato@ramonk.com>`; no trailers.
 - **Integration:** local merge with `--no-ff`; push main when the maintainer says so or at release.
