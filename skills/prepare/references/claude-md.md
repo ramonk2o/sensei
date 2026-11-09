@@ -24,7 +24,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
 
 - **Documents:** English. <or the language the maintainer asked for>
 - **Principles:** `docs/principles.md`. Every change is checked against them.
-- **Skills stand alone:** <yes: each skill reads nothing outside its folder, so a shared rule is written in every skill that needs it, and each release ships one zip per skill | no>
+- **Skills stand alone:** <yes: each skill reads nothing outside its folder, so a shared rule is written in every skill that needs it, and each release ships one zip per skill | no: each release ships one zip of the whole plugin>
 - **Validate:** sensei's check script on every change (it runs `claude plugin validate` on the last commit); `--release` at release, which adds `--profile directory`.
 - **Commits:** <author, if fixed>; <trailers: none | the environment's default>.
 - **Integration:** <local merge with `--no-ff`; push main when the maintainer says so or at release | pull requests: …>

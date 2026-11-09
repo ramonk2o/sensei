@@ -1,6 +1,6 @@
 ---
 name: graduate
-description: Releases a version of a Claude Code skill plugin maintained with sensei. It proposes the number from the changelog's unreleased entries, runs the release checks, then moves the entries, bumps plugin.json, tags, pushes and builds per-skill zips when the skills stand alone. Not for changing skills (train) or editing the changelog (log). Run only when the user invokes it.
+description: Releases a version of a Claude Code skill plugin maintained with sensei. It proposes the number from the changelog's unreleased entries, runs the release checks, then moves the entries, bumps plugin.json, tags, pushes and builds the release zips: one per skill when the skills stand alone, one of the whole plugin otherwise. Not for changing skills (train) or editing the changelog (log). Run only when the user invokes it.
 disable-model-invocation: true
 ---
 
@@ -28,7 +28,7 @@ Show in one message:
 - **The date:** today.
 - **The summary sentence** for the version's heading.
 - **The entries** that go into it.
-- **What will happen:** the commit, the tag, the push, and the zips if they apply.
+- **What will happen:** the commit, the tag, the push, and the zips.
 
 The user's OK to the number and the summary covers the whole release flow below. Anything else they change goes back to this step.
 
@@ -47,16 +47,19 @@ The user's OK to the number and the summary covers the whole release flow below.
 
 ## 5. Zips and the release page
 
-When the project's skills stand alone (CLAUDE.md says so):
-- Build one zip per skill from the tagged commit, named `<skill>.zip`, with the skill's folder at the root of the zip, in a temporary folder outside the repository:
+Build the zips from the tagged commit, in a temporary folder outside the repository:
+- **When the skills stand alone** (CLAUDE.md says so): one zip per skill, named `<skill>.zip`, with the skill's folder at the root of the zip:
   ```
   git archive --format=zip --prefix=<skill>/ -o <tmp>/<skill>.zip <tag>:skills/<skill>
   ```
-- Check that each zip lists `<skill>/SKILL.md`.
+  Check that each zip lists `<skill>/SKILL.md`.
+- **When they don't:** one zip of the whole plugin, named after `name` in `.claude-plugin/plugin.json`, with the plugin's files at the root of the zip:
+  ```
+  git archive --format=zip -o <tmp>/<plugin>.zip <tag>
+  ```
+  It holds every tracked file except paths marked `export-ignore` in `.gitattributes`. Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
 
 If the session can publish a release on GitHub (`gh` is available and signed in), offer to create it with the version's changelog entries as notes and the zips attached, and do it only on the OK. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
-
-When skills don't stand alone, skip the zips: the plugin installs as a whole.
 
 ## 6. Close
 

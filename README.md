@@ -22,7 +22,7 @@ The names follow a dojo: **prepare** the repository, **train** each skill, **log
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
-- **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone. Run it with `/sensei:graduate`.
+- **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise. Run it with `/sensei:graduate`.
 
 Two read-only agents review changes for `train`:
 - **examiner** judges a new skill's architecture, or any skill's in an audit that asks for it;
