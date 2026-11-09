@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-11-09
+
+Releases publish their GitHub page with the zips attached by default.
+
 ### Changed
 
 - `graduate` creates the GitHub release page with the zips attached as part of the release, instead of offering it, and leaves the zips or the page out only when the user asks.
