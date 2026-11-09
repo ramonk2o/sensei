@@ -291,6 +291,12 @@ def validate(root, plugins, release, committed):
             dest = os.path.join(tmp, "repo")
             with tarfile.open(archive) as t:
                 t.extractall(dest)
+            # The validator finds the repository root by its .git; without one,
+            # files at the root (such as a README) are missed for plugins in sub-folders.
+            init = run(["git", "init", "-q"], dest)
+            if not init or init.returncode != 0:
+                err("git init in the archive copy failed: " + (init.stderr.strip() if init else "git not found"))
+                return
             base = Path(dest)
         else:
             base = root
