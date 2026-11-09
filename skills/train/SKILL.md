@@ -35,7 +35,7 @@ Decide the kind first, because it sets how much of the form runs:
 | **Description change** (what triggers the skill) | yes | yes | `sweeper` | trigger suite |
 | **New skill or full rewrite** | yes | yes | `examiner` and `sweeper` | cold reader and trigger suite |
 
-When in doubt between two kinds, take the heavier one and say so. A skill that only the user can invoke (`disable-model-invocation: true`) has no triggering to test: it skips the trigger suite and gets the cold reader. A change to an agent, hook or command follows the row of the change it makes. Read `references/modes.md` for those.
+When in doubt between two kinds, take the heavier one and say so. A skill that only the user can invoke (`disable-model-invocation: true`) has no triggering to test: it skips the trigger suite and gets the cold reader. A change to an agent, hook, command or the target's `docs/principles.md` follows the row of the change it makes. Read `references/modes.md` for those.
 
 For a wording fix, check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../log/references/changelog.md`). Commit on main, then run the check script; if it fails, fix and amend.
 
@@ -102,4 +102,4 @@ Read `references/modes.md` for:
 - a contributor's issue or pull request;
 - a consistency audit of the plugin;
 - recreating a skill from an old one;
-- a change to something that isn't a skill (a hook, an agent, an MCP server).
+- a change to something that isn't a skill (a hook, an agent, an MCP server, the target's principles).
