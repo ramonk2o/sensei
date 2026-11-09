@@ -33,3 +33,18 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 - **Open questions:**
   - Whether `Bash(python3 */plugins/cache/*/sensei/*/scripts/check.py*)` matches the command a real session runs, and whether Claude Code warns about it at startup.
   - Whether `claude plugin eval` with a branch checkout target behaves as `testing.md` assumes.
+
+### Plan a new plugin from an idea
+- **Type:** Idea
+- **Motivation:** the maintainer asked (2026-11-09) whether sensei has something like minidev's `brainstorm`, which takes a new project from an idea to a working skeleton: a product interview, the architecture decided with the user, the first feature picked and the rest in the backlog. Sensei has no such step. For a folder with no plugin, `prepare` proposes only a name, the first skill's purpose in one sentence and the skeleton, and its rounds settle the principles, not the product. `train` designs one skill at a time and starts from a real case, which a plugin that is still an idea doesn't have.
+- **Description:** When a plugin is still an idea, interview the maintainer before the skeleton:
+  - who it's for and what problem it solves;
+  - what the first version does and what it leaves out;
+  - which skills it has and where each one's scope ends;
+  - whether the skills stand alone, and whether it needs agents, hooks or scripts;
+  - which skill comes first.
+
+  The rest go to BACKLOG.md.
+- **Open questions:**
+  - Whether this extends `prepare`'s new-plugin path or becomes a skill of its own.
+  - What counts as the real case for a skill that has never been used: the request it must serve, stated in the interview.
