@@ -60,6 +60,7 @@ Build the zips from the tagged commit, in a temporary folder outside the reposit
   It holds every tracked file except paths marked `export-ignore` in `.gitattributes`. Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
 
 If the session can publish a release on GitHub (`gh` is available and signed in), offer to create it with the version's changelog entries as notes and the zips attached, and do it only on the OK. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
+
 ## 6. Close
 
 Say what was released, the version, the tag, the hash, and what's still for the user to do (publishing the release page, if it wasn't done). Remind them that users who installed the plugin get the update when Claude Code next refreshes the marketplace, or when they update by hand.
