@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Fixed
+
+- The check script's release validation no longer reports a missing README for a plugin in a sub-folder whose README is at the repository root.
+
 ## [0.5.0] - 2026-11-08
 
 Principle conflicts are weighed instead of defaulting to an exception, and releases of plugins whose skills don't stand alone ship a zip of the whole plugin.
