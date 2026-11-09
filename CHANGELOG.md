@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `graduate` creates the GitHub release page with the zips attached as part of the release, instead of offering it, and leaves the zips or the page out only when the user asks.
+
 ## [0.5.1] - 2026-11-09
 
 The check script's release validation finds the repository root again for plugins in sub-folders.

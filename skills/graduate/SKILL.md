@@ -28,9 +28,9 @@ Show in one message:
 - **The date:** today.
 - **The summary sentence** for the version's heading.
 - **The entries** that go into it.
-- **What will happen:** the commit, the tag, the push, and the zips.
+- **What will happen:** the commit, the tag, the push, and the release page with the zips attached.
 
-The user's OK to the number and the summary covers the whole release flow below. Anything else they change goes back to this step.
+The user's OK to the number and the summary covers the whole release flow below, the release page included. If they asked for no zips or no release page, when invoking or here, leave that part out. Anything else they change goes back to this step.
 
 ## 4. Release
 
@@ -47,6 +47,8 @@ The user's OK to the number and the summary covers the whole release flow below.
 
 ## 5. Zips and the release page
 
+The release page carries the zips by default. Leave the zips out only when the user explicitly asked for that; if they asked for no release page, skip this step.
+
 Build the zips from the tagged commit, in a temporary folder outside the repository:
 - **When the skills stand alone** (CLAUDE.md says so): one zip per skill, named `<skill>.zip`, with the skill's folder at the root of the zip:
   ```
@@ -59,7 +61,7 @@ Build the zips from the tagged commit, in a temporary folder outside the reposit
   ```
   It holds every tracked file except paths marked `export-ignore` in `.gitattributes`. Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
 
-If the session can publish a release on GitHub (`gh` is available and signed in), offer to create it with the version's changelog entries as notes and the zips attached, and do it only on the OK. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
+If the session can publish a release on GitHub (`gh` is available and signed in), create it with the version's changelog entries as notes and the zips attached. If a release for the tag already exists, attach the zips to it with `gh release upload <tag> <zips>` instead. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
 
 ## 6. Close
 
