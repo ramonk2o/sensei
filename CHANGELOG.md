@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-11-09
+
+The check script's release validation finds the repository root again for plugins in sub-folders.
+
 ### Fixed
 
 - The check script's release validation no longer reports a missing README for a plugin in a sub-folder whose README is at the repository root.
