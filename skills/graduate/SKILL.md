@@ -47,9 +47,9 @@ The user's OK to the number and the summary covers the whole release flow below,
 
 ## 5. Zips and the release page
 
-The release page carries the zips by default. Leave the zips out only when the user explicitly asked for that; if they asked for no release page, skip this step.
+The release page carries the zips by default. Leave the zips out only when the user explicitly asked for that: then build none and publish the page with the notes alone. If they asked for no release page, skip this step.
 
-Build the zips from the tagged commit, in a temporary folder outside the repository:
+Unless the zips were declined, build them from the tagged commit, in a temporary folder outside the repository:
 - **When the skills stand alone** (CLAUDE.md says so): one zip per skill, named `<skill>.zip`, with the skill's folder at the root of the zip:
   ```
   git archive --format=zip --prefix=<skill>/ -o <tmp>/<skill>.zip <tag>:skills/<skill>
@@ -61,8 +61,8 @@ Build the zips from the tagged commit, in a temporary folder outside the reposit
   ```
   It holds every tracked file except paths marked `export-ignore` in `.gitattributes`. Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
 
-If the session can publish a release on GitHub (`gh` is available and signed in), create it with the version's changelog entries as notes and the zips attached. If a release for the tag already exists, attach the zips to it with `gh release upload <tag> <zips>` instead. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
+If the session can publish a release on GitHub (`gh` is available and signed in), publish it with the version's changelog entries as notes and the zips attached. If a release for the tag already exists, attach the zips to it with `gh release upload <tag> <zips>` instead. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
 
 ## 6. Close
 
-Say what was released, the version, the tag, the hash, and what's still for the user to do (publishing the release page, if it wasn't done). Remind them that users who installed the plugin get the update when Claude Code next refreshes the marketplace, or when they update by hand.
+Say what was released, the version, the tag, the hash, and what's still for the user to do (publishing the release page, if it wasn't done and they didn't decline it). Remind them that users who installed the plugin get the update when Claude Code next refreshes the marketplace, or when they update by hand.
