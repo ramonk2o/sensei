@@ -31,6 +31,6 @@ description_chars: 600
 
 1. Which real case does it come from?
 2. Does it change behavior, or only wording?
-3. Does it conflict with a principle? If so, is the case strong enough to change the principle?
+3. Does it conflict with a principle? If so, what should change: the proposal, the principle, or neither, as a true exception?
 4. Does it fit an existing skill, or does it need a new one?
 5. Does it add size, turns or approvals without a visible gain?

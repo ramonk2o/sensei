@@ -51,7 +51,12 @@ Ask in rounds of up to five numbered questions, each with the answer you recomme
 Present one message with:
 - **What changes,** and in which files.
 - **Why:** the case, and the root it points to, not just the example.
-- **Principle touched:** which of the target's principles the change touches. If it goes against one, say which and why, and treat it as the maintainer's design decision.
+- **Principle touched:** which of the target's principles the change touches. If it goes against one, find what the principle protects, then weigh three ways out by what each does for the plugin, not by what the maintainer seems to prefer:
+  - **change the proposal** when the principle's reason holds for this case and the deviation gives up what it protects;
+  - **change the principle** when its wording misses its own reason (it measures the wrong thing, so taken literally it forbids what it should allow), or when several siblings deviate from it the same way on purpose;
+  - **an exception** only when the principle stays right everywhere else and this case differs in a way the principle's reason explains. An exception a second case would also need means the principle should change.
+
+  Recommend one, with its reason. The choice is the maintainer's design decision.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
 - **Effect on the version** (`../log/references/changelog.md`, The version number).
 - **Sample text:** for a new rule or section, the actual wording, so the maintainer judges text, not a description of it.

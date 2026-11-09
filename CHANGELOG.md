@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- When a change goes against a principle, `train` weighs changing the proposal, changing the principle or an exception by what the principle protects, and recommends one, instead of defaulting to an exception. Audits and contributor reviews weigh their principle conflicts the same way.
+
 ## [0.4.0] - 2026-11-08
 
 Reviews and audits report only what changes how a skill runs, and an audit can review architecture too.
