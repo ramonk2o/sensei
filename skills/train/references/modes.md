@@ -6,7 +6,7 @@
 - Judge it with the target's questions for judging a proposal (`docs/principles.md`):
   - which real case it comes from;
   - whether it changes behavior or only wording;
-  - whether it conflicts with a principle;
+  - whether it conflicts with a principle, and if so which way out fits (SKILL.md, step 3, Principle touched);
   - whether it fits an existing skill;
   - what it costs in size or turns.
 - Say what's missing for a decision: the case, the version where it happened, an example.
@@ -21,7 +21,7 @@ When the maintainer asks to check the whole plugin ("audit the plugin", "is ever
 1. Run the check script (its path is in SKILL.md, step 5), plain and with `--scope-map`.
 2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them). When the maintainer also asks about architecture or design ("cohesion and architecture", "is it well built?"), start `sensei:examiner` on each skill too: base "none", that skill's files, the other skills as siblings, and the writing guide (path in SKILL.md, step 6).
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
-4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each. Edit nothing before the maintainer picks what to fix.
+4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each. For a conflict with a principle, the fix is the way out weighed as in SKILL.md, step 3 (Principle touched). Edit nothing before the maintainer picks what to fix.
 
 Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1).
 
@@ -36,4 +36,4 @@ Then it's a new skill: plan, edit, check, both reviews, the cold reader and the 
 
 ## Something that isn't a skill
 
-For a hook, an agent, a command or an MCP server, load the matching skill of Anthropic's official plugin-dev when the session has it (hook-development, agent-development, command-development, mcp-integration), for the format and its rules. Keep the target's principles above its style advice. The form is the same: case, plan, branch, checks (validate covers these components), review by `sweeper`, and a test that fits the component. A change to the README or the manifests alone is a wording fix, or a behavior change when it alters what the plugin promises. When plugin-dev isn't available, use the current Claude Code documentation for the format, never memory.
+For a hook, an agent, a command or an MCP server, load the matching skill of Anthropic's official plugin-dev when the session has it (hook-development, agent-development, command-development, mcp-integration), for the format and its rules. Keep the target's principles above its style advice. The form is the same: case, plan, branch, checks (validate covers these components), review by `sweeper`, and a test that fits the component. A change to the README or the manifests alone is a wording fix, or a behavior change when it alters what the plugin promises. A change to the target's `docs/principles.md` is a behavior change: plan, branch and the sweeper's review, since every skill is judged by it. It gets the cold reader only when a skill's text changes with it. When plugin-dev isn't available, use the current Claude Code documentation for the format, never memory.

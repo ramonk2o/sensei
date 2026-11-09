@@ -29,7 +29,7 @@ Each agent returns findings ranked by severity, each with:
 
 Before showing them, read the bar ("What to leave out" in the sweeper's briefing, path in SKILL.md, step 6; the examiner's briefing holds the same text, and a change to it reaches both). Drop every finding that fails it, even when an agent reported it, and don't list or count what you dropped. When both agents ran, show the remaining findings together, merging duplicates. For each one, say whether you agree and what you'd do:
 - **Fixes that change no decision:** a leftover, a broken reference, a term made consistent, a sibling the plan missed. These go straight to the branch.
-- **Fixes that add a rule or change a decision:** proposals, applied only on the maintainer's OK.
+- **Fixes that add a rule or change a decision:** proposals, applied only on the maintainer's OK. For a conflict with a principle, propose the way out weighed as in SKILL.md, step 3 (Principle touched).
 - **Findings you disagree with:** say why. The maintainer decides.
 
 After a fix round, commit, run the check script, and rerun only the review whose findings led to changes in behavior. Don't loop over wording.
