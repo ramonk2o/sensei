@@ -23,35 +23,23 @@ Read the repository before proposing anything:
 
 Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .` to see where it stands.
 
-If the folder isn't a plugin and the user wants one, it's a new plugin: propose its name, its first skill's purpose in one sentence, and the skeleton. If it's an existing plugin, everything below adapts to what's there.
+If the folder isn't a plugin and the user wants one, it's a new plugin:
+- When `docs/principles.md` and BACKLOG.md hold a plan from `/sensei:meditate`, take the name, the purpose and the skills from them, without asking again.
+- Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, propose its name, that purpose and the skeleton.
+
+If it's an existing plugin, everything below adapts to what's there.
 
 ## 2. Skeleton and principles
 
 Propose only what's missing:
 - `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license);
 - `.claude-plugin/marketplace.json` with an entry whose `source` is `./`, so the plugin installs from its own repository;
-- README (what it is, the skills, install, how it's built, contributing, license);
+- README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists;
 - LICENSE (MIT unless the user says otherwise);
 - CHANGELOG.md and BACKLOG.md, in the formats of `../log/references/changelog.md` and `../log/references/backlog.md`;
 - `docs/principles.md`.
 
-**Principles,** when missing, are settled with the user in rounds of up to five numbered questions, each with a recommended answer and a one-line reason:
-- what every skill does before writing;
-- how results are checked;
-- whether each skill stands alone (reads nothing outside its folder);
-- the size limits;
-- the language rule.
-
-Run these rounds now, before drafting anything else. Write the principles as checkable statements, and end the file with the questions for judging a proposal. Put the limits agreed in the rounds in a machine-readable block, which the check script reads:
-
-```
-<!-- sensei:limits
-skill_tokens: <agreed limit for a SKILL.md, in tokens>
-description_chars: <agreed limit for a description, in characters>
--->
-```
-
-When principles exist, propose only that block, from the limits they already state.
+**Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states.
 
 **Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
 

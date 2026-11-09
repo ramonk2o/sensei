@@ -39,7 +39,7 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
   - Idea: new behavior.
   - Bug: a skill does something wrong; the Description says how to reproduce it.
   - Debt: a change that keeps behavior, such as trimming, reorganizing or aligning skills.
-- **Motivation** is the case, condensed: the request, what happened, what should have happened. Quote only key phrases. If no case exists, write "no case recorded", which is itself a reason to ask before doing it.
+- **Motivation** is the case, condensed: the request, what happened, what should have happened. For a skill not built yet, it's the concrete requests the skill must serve and what a good result looks like for each. Quote only key phrases. If no case exists, write "no case recorded", which is itself a reason to ask before doing it.
 - **Write only what the maintainer said or decided.** An assumption is an open question.
 
 ## Operations
@@ -52,4 +52,4 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 - **Discard:** only on the maintainer's word. Move the entry to Discarded, keeping its Description and adding a Why discarded line with the reason and the date.
 - **Clean up:** look for entries that are duplicated, already done (check the skills and CHANGELOG.md) or dropped. Show the plan and wait for the OK.
 - **Done:** when `train` finishes a change that came from an entry, the entry leaves the file in that change's commit. `train` does this.
-- **Create:** `prepare` creates the file with the title and the legend. `log` creates it when it's missing and the maintainer asks for it.
+- **Create:** `meditate` or `prepare` creates the file with the title and the legend. `log` creates it when it's missing and the maintainer asks for it.
