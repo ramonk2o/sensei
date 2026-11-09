@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-08
+
+Principle conflicts are weighed instead of defaulting to an exception, and releases of plugins whose skills don't stand alone ship a zip of the whole plugin.
+
 ### Changed
 
 - When a change goes against a principle, `train` weighs changing the proposal, changing the principle or an exception by what the principle protects, and recommends one, instead of defaulting to an exception. Audits, contributor reviews and the reviews of a change weigh their principle conflicts the same way, and a change to the target's principles goes through a plan, a branch and the sweeper's review.
