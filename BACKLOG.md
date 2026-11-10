@@ -4,13 +4,6 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 
 ## prepare
 
-### Git permissions allow destructive variants
-- **Type:** Bug
-- **Motivation:** a cold reader of `prepare` (2026-11-07) found that allowing whole commands lets their destructive forms through without a prompt: `git tag*` allows `git tag -d`, `git switch*` allows `--discard-changes`, `git commit*` allows `--amend`, `git archive*` writes files with `-o`. Step 4 says deleting branches or files keeps asking.
-- **Description:** Narrow the allowed patterns or add `permissions.deny` rules for the destructive forms, keeping what the cycle uses (`train` amends a wording fix; `graduate` runs `git tag -a`).
-- **Open questions:**
-  - Narrower allow rules or deny rules.
-
 ### Re-run on an already set-up repository is underspecified
 - **Type:** Debt
 - **Motivation:** a cold reader of `prepare` (2026-11-08) was asked to re-run it on a repository set up with an earlier sensei, whose CLAUDE.md still routed to kata, kanban and shodan. It replaced the "Maintenance with sensei" section correctly. But it had to guess several things:

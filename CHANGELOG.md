@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Fixed
+
+- `prepare` adds ask rules for the destructive forms of the git commands it allows (deleting or forcing tags, forcing or discarding changes on switch, amending a commit), so they keep prompting, and no longer allows `git archive`. `graduate`'s release zips and `train`'s amend of a wording fix now ask once.
+
 ### Added
 
 - `meditate` plans a new plugin from an idea: it interviews the user about who the plugin serves and the requests it must answer, decides the skills and their borders, settles the principles and the build order, and writes `docs/principles.md` and one backlog entry per skill. Run it with `/sensei:meditate`.
