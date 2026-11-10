@@ -4,19 +4,6 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 
 ## prepare
 
-### Re-run on an already set-up repository is underspecified
-- **Type:** Debt
-- **Motivation:** a cold reader of `prepare` (2026-11-08) was asked to re-run it on a repository set up with an earlier sensei, whose CLAUDE.md still routed to kata, kanban and shodan. It replaced the "Maintenance with sensei" section correctly. But it had to guess several things:
-  - what counts as "already set up";
-  - which of steps 1 to 8 still run on a re-run;
-  - how to carry over the project's subject wording when the section is refreshed from the template's placeholder;
-  - whether the sensei-owned wording in "Project facts" can be refreshed, such as the Validate line and the "Skills stand alone" note.
-- **Description:** Make `prepare`'s "Re-running" section and `references/claude-md.md` say:
-  - what signals a repository already set up;
-  - which steps run again and which are skipped;
-  - that the project's own subject wording is kept;
-  - how sensei-owned wording in the facts is refreshed.
-
 ### A new plugin's facts have no source
 - **Type:** Debt
 - **Motivation:** a cold reader of `prepare` (2026-11-10), run on a new plugin set up from a `meditate` plan with no git history, had to guess several facts that an existing repository would answer:
@@ -34,7 +21,10 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 - **Motivation:** a cold reader of `prepare` (2026-11-10) found that the main conflict in a typical session, a skill-writing skill shipped inside a large plugin of unrelated skills, can only be handled by turning off the whole plugin (losing the unrelated skills) or by relying on the routing. Step 5 allows `skillOverrides` only for skills with no plugin prefix, and two readers would recommend differently.
 - **Description:** Say how to weigh turning off a whole plugin against relying on the routing, and use a per-skill override for a plugin's skill if Claude Code supports one.
 - **Open questions:**
-  - Whether `skillOverrides` accepts a `plugin:skill` name.
+  - Whether a `plugin:skill` name works anywhere: Claude Code's skills docs (2026-11-10) say plugin skills aren't affected by `skillOverrides`, and don't say whether a `Skill(plugin:skill)` deny rule works.
+  - Whether a conflict also covers skills that overlap the maintained plugin's subject (a slides skill for a deck plugin), or only sensei's own work.
+  - What to do with a prefixed skill whose plugin doesn't appear in `claude plugin list --json` (a bundle that ships with the app).
+  - Whether a re-run proposes again a conflict the user declined before, since nothing records the decline (a cold reader of a re-run, 2026-11-10).
 
 ## Plugin
 
