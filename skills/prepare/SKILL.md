@@ -25,7 +25,7 @@ Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `cla
 
 If the folder isn't a plugin and the user wants one, it's a new plugin:
 - When `docs/principles.md` and BACKLOG.md hold a plan from `/sensei:meditate`, take the name, the purpose and the skills from them, without asking again.
-- Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, propose its name, that purpose and the skeleton.
+- Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, or declines `meditate`, propose its name, its first skill's purpose in one sentence and the skeleton.
 
 If it's an existing plugin, everything below adapts to what's there.
 

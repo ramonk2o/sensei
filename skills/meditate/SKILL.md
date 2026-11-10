@@ -25,7 +25,7 @@ This skill is for a plugin that doesn't exist yet:
 
 Interview in rounds of up to five numbered questions, each with your recommended answer and a one-line reason, riskiest first. Ask only what can be decided now; a question that depends on an open one waits for a later round. Cover:
 - **People and problem:** who will use the plugin, what is hard for them today, and how they cope without it.
-- **Requests:** two or three concrete requests for each kind of use, in the users' own words, and what a good result looks like for each. Ask the user for them; don't invent them. They are the case every skill is built and tested from, since no skill has been used yet.
+- **Requests:** two or three concrete requests for each kind of use, in the users' own words, and what a good result looks like for each. This question has no recommended answer: give the shape (who asks, in what situation) and ask the user for the wording. They are the case every skill is built and tested from, since no skill has been used yet, and an invented case would test only what the model already expects.
 - **Out of scope:** what the plugin deliberately doesn't do.
 
 Look facts up yourself instead of asking: the plugins installed in this session and Anthropic's official ones that already cover part of this ground, and what Claude Code allows (skills, agents, hooks, commands, MCP servers). Name the overlaps you find, so the user decides what the plugin adds.
@@ -57,11 +57,13 @@ Show everything in one message:
 - **Purpose:** the people, the problem and what's out of scope, in a few sentences, plus the overlaps found.
 - **Skills,** in build order: name, purpose, invocation, the requests each takes and what each leaves to its siblings.
 - **Principles:** the draft of `docs/principles.md`.
-- **Files:** what will be written (step 7).
+- **Files:** what will be written (step 7). When `docs/principles.md` or BACKLOG.md already exists, show the changes section by section: what's added, what the new text replaces, what stays.
 
 Wait for the OK; the user may change any part.
 
 ## 7. Write
+
+When a file already exists, merge into it: keep every entry and section the plan doesn't change, so nothing the user or `log` added is lost.
 
 - **`docs/principles.md`:** in the format of `../prepare/references/principles.md`. Its opening states the purpose, the people and what's out of scope from step 2.
 - **`BACKLOG.md`:** in the format of `../log/references/backlog.md`, one Idea per skill, each in an area named after the skill's folder, the areas in build order. Each entry's Motivation is that skill's requests and good results from step 2. Its Description is the skill's purpose and scope, its Decisions what step 3 settled (the borders, the invocation), its Open questions what is still undecided. Later ideas go in a `Plugin` area, after the skills.
