@@ -52,9 +52,9 @@ Read `references/claude-md.md` and write the draft from its template. The fixed 
 Rules that Claude Code can enforce go in settings, not prose.
 - **`.claude/settings.json`,** shared with everyone who clones the repository:
   - `attribution`: `{"commit": "", "pr": ""}` when the project allows no trailers;
-  - permissions under `permissions.allow` for sensei's check script. Permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`, and the installed path changes with each version, so write it with wildcards: `Bash(python3 */plugins/cache/*/sensei/*/scripts/check.py*)`. When the plugin being maintained is sensei itself, add `Bash(python3 scripts/check.py*)` for the working copy's script. Then `Bash(claude plugin validate*)`, `Bash(claude plugin eval*)`, and the local git commands the cycle uses (status, diff, log, show, add, commit, switch, merge, branch --list, tag, merge-base, rev-parse, archive).
+  - permissions under `permissions.allow` and `permissions.ask`: read `references/settings.md` for the exact rules.
   - Never add push, reset, deleting branches or files, or publishing. Those keep asking.
-  - If the file exists, merge: keep every entry and add only what's missing.
+  - If the file exists, merge: keep every entry and add only what's missing, except the removals `references/settings.md` names.
 - **`.claude/settings.local.json`,** personal to this machine and ignored by git:
   - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its `id` from `claude plugin list --json`, as `name@marketplace`), so its released skills don't fire while its source is being changed. When the plugin being maintained is sensei itself (the `name` in its `plugin.json`), write no entry for it, and remove one an earlier run left: there the installed copy is the tool doing the maintenance;
   - the same for each conflicting plugin the user agrees to turn off, and `skillOverrides` for each conflicting skill that has no plugin (step 5).
