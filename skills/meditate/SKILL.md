@@ -42,7 +42,7 @@ With the requests settled, split them into skills, still in rounds with a recomm
 
 ## 4. Principles
 
-Read `../prepare/references/principles.md` and settle the principles in its rounds. Steps 2 and 3 already answer some of them (whether skills stand alone, the language rule); use those answers and say so.
+Read `../prepare/references/principles.md` and settle the principles in its rounds. Step 3 already answers whether skills stand alone; use that answer and say so.
 
 ## 5. Order
 

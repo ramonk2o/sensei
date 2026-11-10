@@ -15,7 +15,7 @@ When the repository or the plan already answers one, use that answer and say whe
 
 ## The file
 
-- **Title:** `# <Plugin name> principles`, so `prepare` can read the name from it.
+- **Title:** `# <plugin-name> principles`, with the name exactly as `plugin.json` will hold it, so `prepare` can read it from there.
 - **Opening:** one paragraph on what the plugin's skills do, for whom, and what they leave out.
 - **Principles:** numbered, each a checkable statement with its reason, so a reviewer can say whether a skill follows it.
 - **Limits:** the limits agreed in the rounds, in a machine-readable block that the check script reads:
