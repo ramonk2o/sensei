@@ -123,6 +123,6 @@ A repository is already set up when its CLAUDE.md has a "Maintenance with sensei
 - CLAUDE.md is refreshed as `references/claude-md.md` says (sensei's own repository keeps its section as it is);
 - both settings files are checked in full, including the removals `references/settings.md` names;
 - the conflicts are listed again from what is installed now;
-- migration runs only for a process document that appeared since.
+- migration runs only for a process document not already migrated (one the user kept as history stays); the overlap and broken-reference checks run again.
 
 Step 7 shows only the differences. When there are none, say so in a line and stop.

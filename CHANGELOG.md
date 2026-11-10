@@ -14,7 +14,7 @@ applied to how the skills behave.
 
 ### Changed
 
-- `prepare` re-runs every step on an already set-up repository and proposes only what differs, including both settings files; it keeps the project's subject wording and fact values while refreshing sensei's wording, and stops in a line when nothing differs.
+- `prepare` re-runs every step on an already set-up repository and proposes only what differs, including both settings files; it keeps the project's subject wording and every fact line as written, proposing only what the current template adds, and stops in a line when nothing differs.
 - `prepare` takes a new plugin's name, purpose and skills from a `meditate` plan when there is one, and recommends `meditate` first for a plugin with more than one skill or an open scope.
 - A skill not built yet starts from concrete requests it must serve, in its users' words: `train` asks for them for a new skill, and backlog entries for planned skills record them as their Motivation.
 
