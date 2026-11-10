@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-10
+
+A new skill, meditate, plans a plugin from an idea, and prepare builds on its plan and handles already set-up repositories and conflicting skills with more care.
+
 ### Added
 
 - `meditate` plans a new plugin from an idea: it interviews the user about who the plugin serves and the requests it must answer, decides the skills and their borders, settles the principles and the build order, and writes `docs/principles.md` and one backlog entry per skill. Run it with `/sensei:meditate`.
