@@ -8,6 +8,15 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- `meditate` plans a new plugin from an idea: it interviews the user about who the plugin serves and the requests it must answer, decides the skills and their borders, settles the principles and the build order, and writes `docs/principles.md` and one backlog entry per skill. Run it with `/sensei:meditate`.
+
+### Changed
+
+- `prepare` takes a new plugin's name, purpose and skills from a `meditate` plan when there is one, and recommends `meditate` first for a plugin with more than one skill or an open scope.
+- A skill not built yet starts from concrete requests it must serve, in its users' words: `train` asks for them for a new skill, and backlog entries for planned skills record them as their Motivation.
+
 ## [0.6.0] - 2026-11-09
 
 Releases publish their GitHub page with the zips attached by default.
