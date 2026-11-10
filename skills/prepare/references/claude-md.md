@@ -40,7 +40,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
   - The README's install section says whether there are per-skill zips.
   - The principles say whether skills stand alone.
 - **A fact the repository doesn't answer** (a new plugin, or one with no tags yet): don't ask a separate round. Give it a recommended value in step 7's review, saying where it came from:
-  - author: `git config user.name` and `user.email`; ask only if they're empty;
+  - author: `git config user.name` and `user.email`; when they're empty, ask for it in that same review;
   - trailers: none, since users read a public plugin's history and a tool's trailer on every commit is noise;
   - tags: `vX.Y.Z`, or `{name}--v{version}` when `marketplace.json` lists more than one plugin;
   - integration: local merge with `--no-ff`, pushing main when the maintainer says so or at release; pull requests only if the user asks;

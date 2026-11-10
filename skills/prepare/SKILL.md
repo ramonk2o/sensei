@@ -45,7 +45,7 @@ Propose only what's missing:
 
 ## 3. CLAUDE.md
 
-Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first and asked only when the repository doesn't answer.
+Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review.
 
 ## 4. Settings
 
