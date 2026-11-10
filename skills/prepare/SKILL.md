@@ -76,7 +76,7 @@ Judge them by what they say they do, never by a fixed list of names. For each, p
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflict still on by name in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. Step 7 always shows that line, even when nothing else differs.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. Step 7 always shows that line, even when nothing else differs. A reply that names one is the OK to turn it off, the way this step says for its kind of skill.
 
 ## 6. Migration and orphans
 
@@ -114,7 +114,7 @@ Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts
 - in existing skills (a description over its limit, a broken reference): offer to record each in BACKLOG.md as Debt, or to fix it with `train`;
 - a changelog in another format: offer the alignment with `log`.
 
-Offer a commit with the setup. Don't commit without the OK.
+When the setup changed files git tracks, offer a commit with it. Don't commit without the OK.
 
 Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
 
