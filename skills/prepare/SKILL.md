@@ -25,7 +25,7 @@ Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `cla
 
 If the folder isn't a plugin and the user wants one, it's a new plugin:
 - When `docs/principles.md` and BACKLOG.md hold a plan from `/sensei:meditate`, take the name (the principles' title), the purpose (its opening) and the skills (the backlog's areas other than `Plugin`) from them, without asking again.
-- Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, or declines `meditate`, propose its name, its first skill's purpose in one sentence and the skeleton.
+- Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, or declines `meditate`, propose its name, its first skill's purpose in one sentence and the skeleton. If they agree, stop here and tell them to run `/sensei:meditate`, then `/sensei:prepare` again.
 
 If it's an existing plugin, everything below adapts to what's there.
 
@@ -34,7 +34,7 @@ If it's an existing plugin, everything below adapts to what's there.
 Propose only what's missing:
 - `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license);
 - `.claude-plugin/marketplace.json` with an entry whose `source` is `./`, so the plugin installs from its own repository;
-- README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists;
+- README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists, listing the skills as planned. Don't create the skills' folders: each one is built with `train`;
 - LICENSE (MIT unless the user says otherwise);
 - CHANGELOG.md and BACKLOG.md, in the formats of `../log/references/changelog.md` and `../log/references/backlog.md`;
 - `docs/principles.md`.
