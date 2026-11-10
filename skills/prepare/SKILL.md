@@ -64,19 +64,19 @@ Rules that Claude Code can enforce go in settings, not prose.
 
 ## 5. Conflicts
 
-Look at the skills available in this session. List those whose descriptions claim sensei's work:
+Look at the skills available in this session, other than sensei's own. List those whose descriptions claim sensei's work:
 - writing or improving skills;
 - managing a BACKLOG or CHANGELOG;
 - releasing versions;
 - reviewing pull requests or changes.
 
 Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file (step 4), or leaving it and relying on the routing in CLAUDE.md. Recommend one and say why.
-- **A plugin's skill** (`plugin:skill`): that skill alone, with a deny rule `Skill(<plugin>:<skill>)` (`references/settings.md`), so the plugin's other skills stay on. Turn off the whole plugin, by the `id` that `claude plugin list --json` gives (`name@marketplace`), only when all its skills conflict; the prefix is the manifest's name and can differ from that id.
+- **A plugin's skill** (`plugin:skill`): that skill alone, with a deny rule `Skill(<plugin>:<skill>)` (`references/settings.md`), so the plugin's other skills stay on. When all of a plugin's skills conflict, turn off the whole plugin instead, by the `id` that `claude plugin list --json` gives (`name@marketplace`); the prefix is the manifest's name and can differ from that id.
 - **A skill with no plugin prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`.
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off. List the ones still on in one line ("still on, relying on the routing: …"), with no new recommendation; that line isn't a difference for step 7.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. List the ones still on in one line ("still on, relying on the routing: …"), with no new recommendation; that line isn't a difference for step 7.
 
 ## 6. Migration and orphans
 
