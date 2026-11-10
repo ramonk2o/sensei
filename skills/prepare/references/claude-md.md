@@ -39,6 +39,10 @@ Other skills or plugins that write skills or manage these files don't apply in t
   - The git log gives the commit author and whether trailers appear.
   - The README's install section says whether there are per-skill zips.
   - The principles say whether skills stand alone.
+- **A new plugin with nothing to read** (no git log, no tags, no remote): don't ask a separate round. Give each fact a recommended value in step 7's review, saying where it came from:
+  - author: `git config user.name` and `user.email`; ask only if they're empty;
+  - tags: `vX.Y.Z`, or `{name}--v{version}` when `marketplace.json` lists more than one plugin;
+  - integration: local merge with `--no-ff`, pushing main when the maintainer says so or at release; pull requests only if the user asks.
 - **Repo-specific rules** come from the old process document, if any: a reference repository to read but never change, a reminder owed to another project, a file that must stay in sync. Keep each one as one line, with its reason when the reason isn't obvious.
 - **Leave out:**
   - the cycle's steps, because the skills own them;
