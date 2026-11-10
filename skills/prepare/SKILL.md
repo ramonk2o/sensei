@@ -118,9 +118,11 @@ Tell the user that a new session in this folder picks up the settings. To try a 
 
 ## Re-running
 
-On a repository already set up, `prepare` refreshes rather than rebuilds:
-- the "Maintenance with sensei" section of CLAUDE.md, as `references/claude-md.md` says (sensei's own repository keeps it as it is);
-- the conflict list;
-- the permissions.
+A repository is already set up when its CLAUDE.md has a "Maintenance with sensei" section, whichever skills it routes to (an earlier sensei used other names). Then every step runs, but proposes only what differs from what's there:
+- the principles rounds run only if `docs/principles.md` is missing;
+- CLAUDE.md is refreshed as `references/claude-md.md` says (sensei's own repository keeps its section as it is);
+- both settings files are checked in full, including the removals `references/settings.md` names;
+- the conflicts are listed again from what is installed now;
+- migration runs only for a process document that appeared since.
 
-It proposes fact changes only where the repository now says something different.
+Step 7 shows only the differences. When there are none, say so in a line and stop.

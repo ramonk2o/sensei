@@ -4,19 +4,6 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
 
 ## prepare
 
-### Re-run on an already set-up repository is underspecified
-- **Type:** Debt
-- **Motivation:** a cold reader of `prepare` (2026-11-08) was asked to re-run it on a repository set up with an earlier sensei, whose CLAUDE.md still routed to kata, kanban and shodan. It replaced the "Maintenance with sensei" section correctly. But it had to guess several things:
-  - what counts as "already set up";
-  - which of steps 1 to 8 still run on a re-run;
-  - how to carry over the project's subject wording when the section is refreshed from the template's placeholder;
-  - whether the sensei-owned wording in "Project facts" can be refreshed, such as the Validate line and the "Skills stand alone" note.
-- **Description:** Make `prepare`'s "Re-running" section and `references/claude-md.md` say:
-  - what signals a repository already set up;
-  - which steps run again and which are skipped;
-  - that the project's own subject wording is kept;
-  - how sensei-owned wording in the facts is refreshed.
-
 ### A new plugin's facts have no source
 - **Type:** Debt
 - **Motivation:** a cold reader of `prepare` (2026-11-10), run on a new plugin set up from a `meditate` plan with no git history, had to guess several facts that an existing repository would answer:
