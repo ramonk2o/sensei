@@ -32,7 +32,7 @@ If it's an existing plugin, everything below adapts to what's there.
 ## 2. Skeleton and principles
 
 Propose only what's missing:
-- `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license). The author, the LICENSE holder and the marketplace's `owner` are the same person: from the git log, or from `git config` for a new plugin;
+- `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license). The author, the LICENSE holder and the marketplace's `owner` are the same person as the Commits fact (`references/claude-md.md`);
 - `.claude-plugin/marketplace.json` with an entry whose `source` is `./`, so the plugin installs from its own repository;
 - README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists, listing the skills as planned. Don't create the skills' folders: each one is built with `train`;
 - LICENSE (MIT unless the user says otherwise);
