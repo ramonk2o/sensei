@@ -32,20 +32,20 @@ If it's an existing plugin, everything below adapts to what's there.
 ## 2. Skeleton and principles
 
 Propose only what's missing:
-- `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license);
-- `.claude-plugin/marketplace.json` with an entry whose `source` is `./`, so the plugin installs from its own repository;
+- `.claude-plugin/plugin.json` (name, version `0.1.0`, description, author, license). The author, the LICENSE holder and the marketplace's `owner` are the same person as the Commits fact (`references/claude-md.md`);
+- `.claude-plugin/marketplace.json`, named after the plugin, with an entry whose `source` is `./`, so the plugin installs from its own repository;
 - README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists, listing the skills as planned. Don't create the skills' folders: each one is built with `train`;
 - LICENSE (MIT unless the user says otherwise);
 - CHANGELOG.md and BACKLOG.md, in the formats of `../log/references/changelog.md` and `../log/references/backlog.md`;
 - `docs/principles.md`.
 
-**Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states.
+**Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states, or the defaults in `references/principles.md` when it states none.
 
 **Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
 
 ## 3. CLAUDE.md
 
-Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first and asked only when the repository doesn't answer.
+Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review.
 
 ## 4. Settings
 

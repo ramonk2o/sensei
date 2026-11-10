@@ -27,4 +27,6 @@ When the repository or the plan already answers one, use that answer and say whe
   -->
   ```
 
+  Recommend `skill_tokens: 4000` and `description_chars: 600` unless the plugin needs otherwise. Claude Code's own limits are looser (SKILL.md under 500 lines; a description up to 1,024 characters in the Agent Skills format), but every skill's description shares one listing budget, about 1% of the context window, so a shorter one is cut less often.
+
 - **Judging a proposal:** the file ends with the questions for judging a proposed change, such as which real case it comes from, whether it conflicts with a principle, and whether it fits an existing skill or needs a new one.
