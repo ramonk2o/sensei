@@ -34,6 +34,7 @@ Look facts up yourself instead of asking: the plugins installed in this session 
 
 With the requests settled, split them into skills, still in rounds with a recommendation each:
 - **The split:** requests that follow the same flow go to one skill. Prefer few skills: each one is a description competing for triggers and a scope to keep apart from its siblings.
+- **The plugin's name:** short, lowercase with hyphens, since it becomes the prefix of every skill (`<plugin>:<skill>`). Settle it with the split, because a name that promises more than the skills do misleads users.
 - **For each skill:** its folder name, its purpose in one line, the requests it takes, and what it leaves to which sibling. The borders are what the descriptions will say, so state them as the requests that fall on each side.
 - **Invocation:** whether the model may start the skill, or only the user (for actions with side effects, or flows the user should choose to begin).
 - **Standing alone:** whether each skill reads nothing outside its folder, so it can ship on its own, or the skills share references and ship as one plugin.
@@ -54,7 +55,7 @@ Ideas that came up for later go after the skills of the first version.
 ## 6. Review the plan
 
 Show everything in one message:
-- **Purpose:** the people, the problem and what's out of scope, in a few sentences, plus the overlaps found.
+- **Purpose:** the plugin's name, the people, the problem and what's out of scope, in a few sentences, plus the overlaps found.
 - **Skills,** in build order: name, purpose, invocation, the requests each takes and what each leaves to its siblings.
 - **Principles:** the draft of `docs/principles.md`.
 - **Files:** what will be written (step 7). When `docs/principles.md` or BACKLOG.md already exists, show the changes section by section: what's added, what the new text replaces, what stays.
@@ -65,8 +66,8 @@ Wait for the OK; the user may change any part.
 
 When a file already exists, merge into it: keep every entry and section the plan doesn't change, so nothing the user or `log` added is lost.
 
-- **`docs/principles.md`:** in the format of `../prepare/references/principles.md`. Its opening states the purpose, the people and what's out of scope from step 2.
-- **`BACKLOG.md`:** in the format of `../log/references/backlog.md`, one Idea per skill, each in an area named after the skill's folder, the areas in build order. Each entry's Motivation is that skill's requests and good results from step 2. Its Description is the skill's purpose and scope, its Decisions what step 3 settled (the borders, the invocation), its Open questions what is still undecided. Later ideas go in a `Plugin` area, after the skills.
+- **`docs/principles.md`:** in the format of `../prepare/references/principles.md`. Its title carries the plugin's name, and its opening states the purpose, the people and what's out of scope from step 2.
+- **`BACKLOG.md`:** in the format of `../log/references/backlog.md`, one Idea per skill, each in an area named after the skill's folder, the areas in build order. Each entry's Motivation is that skill's requests and good results from step 2. Its Description is the skill's purpose and scope, its Decisions what step 3 settled (the borders, the invocation), its Open questions what is still undecided. Components of the first version that belong to no single skill (a shared agent, a hook, a script) get their own Idea in a `Plugin` area, after the skills, each with the request that needs it as its Motivation. Later ideas follow them.
 
 Don't create the skeleton, the CLAUDE.md or the skills: `prepare` and `train` own those, and they read these two files.
 
