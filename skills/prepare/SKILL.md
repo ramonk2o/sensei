@@ -76,7 +76,7 @@ Judge them by what they say they do, never by a fixed list of names. For each, p
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. List the ones still on in one line ("still on, relying on the routing: …"), with no new recommendation; that line isn't a difference for step 7.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflict still on by name in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. Step 7 always shows that line, even when nothing else differs.
 
 ## 6. Migration and orphans
 
@@ -127,4 +127,4 @@ A repository is already set up when its CLAUDE.md has a "Maintenance with sensei
 - the conflicts are listed again from what is installed now, as step 5 says for a re-run;
 - migration runs only for a process document not already migrated (one the user kept as history stays); the overlap and broken-reference checks run again.
 
-Step 7 shows only the differences. When there are none, say so in a line and stop.
+Step 7 shows only the differences, plus step 5's line of conflicts still on. When there are no differences, say so in a line, show that line if there is one, and stop unless the user turns one off.

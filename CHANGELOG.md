@@ -17,7 +17,7 @@ applied to how the skills behave.
 - `prepare` gives each fact the repository doesn't answer a recommended value in its review (the author from git config, no trailers, `vX.Y.Z` tags, local merge) and recommends size limits of 4000 tokens and 600 characters, with the reason.
 - `prepare` re-runs every step on an already set-up repository and proposes only what differs, including both settings files; it keeps the project's subject wording and every fact line as written, proposing only what the current template adds, and stops in a line when nothing differs.
 - `prepare` takes a new plugin's name, purpose and skills from a `meditate` plan when there is one, and recommends `meditate` first for a plugin with more than one skill or an open scope.
-- `prepare` turns off a conflicting skill inside a plugin on its own, with a deny rule in the local settings, instead of the whole plugin; a skill that only overlaps the maintained plugin's subject is mentioned but not a conflict, and a re-run doesn't recommend again a conflict left on.
+- `prepare` turns off a conflicting skill inside a plugin on its own, with a deny rule in the local settings, instead of the whole plugin; a skill that only overlaps the maintained plugin's subject is mentioned but not a conflict, and a re-run lists the conflicts still on by name, without recommending them again, so the user can turn off one installed since.
 - A skill not built yet starts from concrete requests it must serve, in its users' words: `train` asks for them for a new skill, and backlog entries for planned skills record them as their Motivation.
 
 ### Fixed
