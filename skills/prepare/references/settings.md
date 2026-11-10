@@ -1,6 +1,6 @@
-# Permissions in `.claude/settings.json`
+# Permissions in the settings files
 
-The rules `prepare` writes under `permissions` in the shared settings file. Claude Code checks deny rules first, then ask, then allow, and the first match decides, so an ask rule prompts even when a broader allow rule also matches.
+The rules `prepare` writes under `permissions`: allow and ask in the shared `.claude/settings.json`, deny in the local one. Claude Code checks deny rules first, then ask, then allow, and the first match decides, so an ask rule prompts even when a broader allow rule also matches.
 
 ## Allow
 
@@ -19,3 +19,7 @@ The rules `prepare` writes under `permissions` in the shared settings file. Clau
 - `Bash(git commit *--amend*)`.
 
 These rules cover the forms Claude usually writes, not every way to run git (`git -C . tag -d` slips past), so they guard against slips; they aren't a security boundary.
+
+## Local file
+
+`.claude/settings.local.json` holds what turns things off for this machine only (`SKILL.md`, steps 4 and 5). A plugin's single skill is turned off with `permissions.deny: ["Skill(<plugin>:<skill>)"]`: its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. `skillOverrides` doesn't reach plugin skills. Checked with the CLI on 2026-11-10; Claude Code's docs don't state it.
