@@ -45,7 +45,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
   - trailers: none, since users read a public plugin's history and a tool's trailer on every commit is noise;
   - tags: `vX.Y.Z`, or `{name}--v{version}` when `marketplace.json` lists more than one plugin;
   - integration and backlog: from where the repository lives, as `github.md` says: pull requests and GitHub issues on GitHub with `gh` signed in, local merge and BACKLOG.md otherwise;
-  - skills stand alone: what the principles say; when they don't, the value that matches the skills as they are (no, if any reads a sibling's files); with no skills yet, no: one zip of the whole plugin works with one skill or many, while yes forces every shared rule to be copied into each skill, so it is the maintainer's choice, not a default.
+  - skills stand alone: what the principles say; when they don't, the value that matches the skills as they are (no, if any reads a sibling's files); with no skills yet, no: one zip of the whole plugin works with one skill or many, while yes forces every shared rule to be copied into each skill, so recommend no, and the maintainer can change it in the review.
 - **Repo-specific rules** come from the old process document, if any: a reference repository to read but never change, a reminder owed to another project, a file that must stay in sync. Keep each one as one line, with its reason when the reason isn't obvious.
 - **Leave out:**
   - the cycle's steps, because the skills own them;
