@@ -9,6 +9,8 @@ The rules `prepare` writes under `permissions`: allow and ask in the shared `.cl
 - `Bash(claude plugin validate*)` and `Bash(claude plugin eval*)`;
 - the local git commands the cycle uses: `Bash(git status*)`, `Bash(git diff*)`, `Bash(git log*)`, `Bash(git show*)`, `Bash(git add*)`, `Bash(git commit*)`, `Bash(git switch*)`, `Bash(git merge*)`, `Bash(git branch --list*)`, `Bash(git tag*)`, `Bash(git merge-base*)`, `Bash(git rev-parse*)`.
 
+With pull requests, also the read-only `gh` commands: `Bash(gh auth status*)`, `Bash(gh pr view*)`, `Bash(gh pr list*)`, `Bash(gh pr checks*)`. With the backlog in GitHub issues: `Bash(gh issue view*)`, `Bash(gh issue list*)`, `Bash(gh label list*)`, `Bash(gh repo view*)`. Never the commands that write (`gh repo create`, `gh pr create`, `gh pr merge`, `gh issue create`, `edit`, `close`, `comment`, `gh label create`): they publish, so they keep asking.
+
 `git archive` stays out: `graduate` runs it only to write the release zips, with `-o`, which can overwrite any file, so it asks. The check script runs its own archive without going through these rules. On a re-run, propose removing a `Bash(git archive*)` rule an earlier version of sensei added.
 
 ## Ask

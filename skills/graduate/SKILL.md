@@ -38,7 +38,7 @@ The user's OK to the number and the summary covers the whole release flow below,
    - move the entries under `## [X.Y.Z] - YYYY-MM-DD` with the summary, leaving `[Unreleased]` empty above it (changelog reference, Release);
    - bump `version` in `.claude-plugin/plugin.json`.
 
-   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch and bring it in the way the project integrates. Then go on from the merged commit.
+   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch and bring it in as `../train/references/pull-requests.md` says; the OK to the number covers its steps. Then go on from the merged commit, on main updated with `git pull --ff-only`.
 2. **Tag** it in the project's format:
    - `vX.Y.Z` by default, as an annotated tag;
    - `{name}--v{version}`: create it with `claude plugin tag --dry-run` and then `claude plugin tag`, which also checks that the manifests agree.

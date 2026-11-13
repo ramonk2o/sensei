@@ -8,6 +8,17 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- `log` can keep the backlog in the repository's GitHub issues instead of BACKLOG.md: areas and types become labels, discarding closes the issue as not planned, and a done entry closes with `Closes #N`; a contributor's accepted issue is the entry itself.
+- `prepare` offers to create a private GitHub repository when the project has no remote and `gh` is signed in, and moves an existing BACKLOG.md to issues when the backlog goes there.
+- `train` and `graduate` follow a written pull request flow: push the branch, open the pull request and merge it with a merge commit, each step on the maintainer's OK.
+
+### Changed
+
+- `prepare` recommends pull requests and a backlog in GitHub issues when the repository is on GitHub and `gh` is signed in, keeping local merge and BACKLOG.md otherwise; a re-run on a project set up for local merge offers the switch.
+- The principles recommend the remote host's CLI when it's installed and signed in, instead of treating it only as an option.
+
 ## [0.7.0] - 2026-11-10
 
 A new skill, meditate, plans a plugin from an idea, and prepare builds on its plan and handles already set-up repositories and conflicting skills with more care.

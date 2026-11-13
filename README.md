@@ -16,12 +16,12 @@ The names follow a dojo: **meditate** on a new plugin, **prepare** the repositor
   Run it with `/sensei:meditate`.
 - **prepare** sets up a plugin repository, new or existing:
   - what's missing of the skeleton, and the principles your skills follow;
-  - a CLAUDE.md with the project's facts;
+  - a CLAUDE.md with the project's facts, recommending pull requests and a backlog in GitHub issues when `gh` is signed in, and offering to create the GitHub repository when there's none;
   - settings that turn off conflicting plugins and skills, and the installed copy of the plugin itself, in its own repository (except for sensei itself, whose installed copy does the maintenance);
   - the rules of an old process document moved into place.
 
   Run it with `/sensei:prepare`.
-- **log** keeps `BACKLOG.md` (ideas, bugs and debt, each from a real case) and `CHANGELOG.md` (what changed in each version).
+- **log** keeps the backlog (ideas, bugs and debt, each from a real case, in `BACKLOG.md` or GitHub issues) and `CHANGELOG.md` (what changed in each version).
 - **train** creates or changes a skill:
   - the real case, rounds of questions with recommended answers, and a change plan you approve;
   - the edit on a branch, reaching every sibling skill that states the same rule;
