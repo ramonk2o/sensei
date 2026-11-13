@@ -23,7 +23,7 @@ Say the recommendation and its reason in step 7's review, like the other facts. 
 **Create** it in step 8, right after git:
 1. `gh repo create <owner>/<name> --private --source . --remote origin` (`--public` if chosen), without `--push`. Give the user the link.
 2. If it fails (the name is taken, no right to create in that organization), show the error and ask: another name or owner, or local merge and BACKLOG.md. Don't write a pull request CLAUDE.md for a repository that doesn't exist.
-3. The remote has no main branch yet, so setup's commit goes on main. Then push main (`git push -u origin main`) on an OK of its own, apart from the commit's: the first pull request needs it there. If the user declines, say that the first pull request will need main pushed.
+3. The remote has no main branch yet, so setup's commit goes on main. Then push it (`git push -u origin <main branch>`) on an OK of its own, apart from the commit's: the first pull request needs it there. If the user declines, say that the first pull request will need main pushed.
 
 ## Moving the backlog to issues
 

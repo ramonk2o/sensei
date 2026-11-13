@@ -42,7 +42,7 @@ Propose only what's missing:
 
 **Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states, or the defaults in `references/principles.md` when it states none.
 
-**Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
+**Git:** if it isn't a repository, propose `git init -b main` (git's own default name varies with its version and settings) and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
 
 **GitHub:** with no remote and `gh` signed in, propose creating the repository, and when the backlog goes to issues with entries in BACKLOG.md, the issues to create (`references/github.md`).
 
