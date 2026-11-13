@@ -12,7 +12,7 @@ applied to how the skills behave.
 
 - `log` can keep the backlog in the repository's GitHub issues instead of BACKLOG.md: areas and types become labels, discarding closes the issue as not planned, and a done entry closes with `Closes #N`; a contributor's accepted issue is the entry itself.
 - `prepare` offers to create a private GitHub repository when the project has no remote and `gh` is signed in, and moves an existing BACKLOG.md to issues when the backlog goes there.
-- `train` and `graduate` follow a written pull request flow: push the branch, open the pull request and merge it with a merge commit, each step on the maintainer's OK.
+- `train` and `graduate` follow a written pull request flow: push the branch, open the pull request and merge it with a merge commit, each step on the maintainer's OK; `graduate` stops before tagging when a release pull request is left open, and finishes that release on its next run once it's merged.
 
 ### Changed
 
