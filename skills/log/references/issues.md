@@ -14,13 +14,15 @@ Everything in `backlog.md` still holds (each entry starts from a real case, what
 | Discarded | Closed as not planned, with a comment giving the reason and the date |
 | Done: the entry leaves the file | `Closes #<number>` in the pull request's body, or in the merge commit's message with local merge, so the issue closes when the change reaches the default branch |
 
-A label that doesn't exist yet is created on first use (`gh label create <name>`).
+A label that doesn't exist yet (`gh label list`) is created on first use (`gh label create <name>`).
 
 ## Writing to issues
 
-Everyone who can see the repository sees an issue as soon as it's written. The table in SKILL.md ("What needs an OK first") applies as it does to BACKLOG.md: an entry the maintainer dictated is the OK to create its issue, and a capture that interprets the conversation shows the draft first. Changing the body of an issue someone else opened shows the change and waits for the OK, since it rewrites their text.
+Everyone who can see the repository sees an issue as soon as it's written. The table in `log`'s SKILL.md ("What needs an OK first") applies as it does to BACKLOG.md: an entry the maintainer dictated is the OK to create its issue, and a capture that interprets the conversation shows the draft first. Changing the body of an issue someone else opened shows the change and waits for the OK, since it rewrites their text.
 
 Read an issue again before using it (`gh issue view <number> --comments`): others comment on it. When a newer comment changes what the body says (a decision, the scope), ask the maintainer which holds, then update the body so it stays the entry.
+
+Write issues and comments in the documents' language (`log`'s SKILL.md), as BACKLOG.md is.
 
 Nothing about the backlog is committed in this mode: the issue is the record.
 
@@ -36,6 +38,6 @@ Nothing about the backlog is committed in this mode: the issue is the record.
 ## Migrate from BACKLOG.md
 
 When a project moves its backlog to issues and BACKLOG.md has entries (a plan from `meditate`, or an older backlog):
-1. List the issues to create, one per entry, with title and labels. Say that they become visible to everyone who can see the repository as soon as they're created. Wait for the OK.
+1. List the issues to create, one per entry, with title and labels. Say that they become visible to everyone who can see the repository as soon as they're created. Wait for the OK, which also covers creating the labels they need.
 2. Create them in the file's order, so a `meditate` plan keeps its build order in the issue numbers. Entries under Discarded become issues closed as not planned, with their Why discarded as the comment.
 3. Once every issue exists, remove BACKLOG.md, in the commit of the change that moved the backlog. If a creation fails, stop with BACKLOG.md still in place and say which issues exist, so the backlog isn't left in two places.
