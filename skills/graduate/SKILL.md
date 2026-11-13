@@ -15,7 +15,7 @@ Talk to the user in their language. Write the changelog and commit messages in t
 - Read the project's CLAUDE.md for its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
 - Read `CHANGELOG.md` and `../log/references/changelog.md`.
-- If `[Unreleased]` is empty, say there is nothing to release and stop.
+- If `[Unreleased]` is empty, look at the newest version in the changelog. When its tag doesn't exist yet, a release pull request was left open and has since been merged: say so and go on with that version from step 4.2 (tag, push, zips and release page), on the user's OK. Otherwise, say there is nothing to release and stop.
 
 ## 2. Check
 
