@@ -2,13 +2,6 @@
 
 Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each entry starts from a real case. Done work leaves this file: what changed goes to CHANGELOG.md.
 
-## graduate
-
-### Open feature pull requests at release
-- **Type:** Idea
-- **Motivation:** cold reader on `graduate` in pull request mode (2026-11-13): with a feature pull request still open, the release is proposed without it, or stops with nothing to release, and nothing tells the maintainer.
-- **Description:** in pull request mode, list the open pull requests at step 1 so the maintainer decides whether to wait for them before releasing.
-
 ## Discarded
 
 ### A CLAUDE.md under .claude/
