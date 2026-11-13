@@ -11,9 +11,11 @@
   - what it costs in size or turns.
 - Say what's missing for a decision: the case, the version where it happened, an example.
 
+When the backlog lives in GitHub issues, an issue the maintainer accepts becomes the backlog entry as it is (`../../log/references/issues.md`, A contributor's issue).
+
 Draft the reply in the repository's documents language (English by default). Publish nothing (comment, label, close, merge) without the maintainer's OK to that exact text and action.
 
-An accepted pull request still goes through the form from step 3: the plan lists the siblings its change must reach, then come the checks, the reviews and the test for its kind. When it lacks a changelog entry or misses a sibling, add a commit on top of it with what's missing. Bring it in the way the project integrates (local merge with `--no-ff` by default), keeping its author. The project's commit-author rule applies only to commits made here.
+An accepted pull request still goes through the form from step 3: the plan lists the siblings its change must reach, then come the checks, the reviews and the test for its kind. When it lacks a changelog entry or misses a sibling, add a commit on top of it with what's missing. Bring it in the way the project integrates (local merge with `--no-ff`, or `pull-requests.md`), keeping its author. The project's commit-author rule applies only to commits made here.
 
 ## Consistency audit
 

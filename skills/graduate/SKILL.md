@@ -15,7 +15,7 @@ Talk to the user in their language. Write the changelog and commit messages in t
 - Read the project's CLAUDE.md for its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
 - Read `CHANGELOG.md` and `../log/references/changelog.md`.
-- If `[Unreleased]` is empty, say there is nothing to release and stop.
+- If `[Unreleased]` is empty, look at the newest version in the changelog. When its tag doesn't exist yet, a release pull request was left open and has since been merged: say so and go on with that version from step 4.2 (tag, push, zips and release page), on the user's OK. Otherwise, say there is nothing to release and stop.
 
 ## 2. Check
 
@@ -38,7 +38,7 @@ The user's OK to the number and the summary covers the whole release flow below,
    - move the entries under `## [X.Y.Z] - YYYY-MM-DD` with the summary, leaving `[Unreleased]` empty above it (changelog reference, Release);
    - bump `version` in `.claude-plugin/plugin.json`.
 
-   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch and bring it in the way the project integrates. Then go on from the merged commit.
+   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch and bring it in as `../train/references/pull-requests.md` says; the OK to the number covers its steps. Then go on from the merged commit, on main updated with `git pull --ff-only`. If the pull request is left open (a required review, or the maintainer merges on GitHub), stop before tagging and say what's left: a tag on a commit main doesn't have publishes a version main never had.
 2. **Tag** it in the project's format:
    - `vX.Y.Z` by default, as an annotated tag;
    - `{name}--v{version}`: create it with `claude plugin tag --dry-run` and then `claude plugin tag`, which also checks that the manifests agree.

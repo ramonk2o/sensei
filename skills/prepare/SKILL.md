@@ -19,7 +19,8 @@ Read the repository before proposing anything:
 - **Skills:** `skills/*/SKILL.md`, their `references/`, and any agents, hooks or commands.
 - **Documents:** README, LICENSE, CHANGELOG, BACKLOG, `docs/principles.md`, CLAUDE.md.
 - **Old process documents:** a pasted project prompt kept in the repo, CONTRIBUTING, or a maintenance doc.
-- **Git:** whether it's a repository, its tags, its git log (authors, trailers), its remote.
+- **Git:** whether it's a repository, its tags, its git log (authors, trailers).
+- **GitHub:** its remote, whether `gh` is signed in and whether issues are on, as `references/github.md` says. They set the integration and where the backlog lives.
 
 Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .` to see where it stands.
 
@@ -36,16 +37,18 @@ Propose only what's missing:
 - `.claude-plugin/marketplace.json`, named after the plugin, with an entry whose `source` is `./`, so the plugin installs from its own repository;
 - README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists, listing the skills as planned. Don't create the skills' folders: each one is built with `train`;
 - LICENSE (MIT unless the user says otherwise);
-- CHANGELOG.md and BACKLOG.md, in the formats of `../log/references/changelog.md` and `../log/references/backlog.md`;
+- CHANGELOG.md, in the format of `../log/references/changelog.md`, and BACKLOG.md in that of `../log/references/backlog.md` unless the backlog goes to GitHub issues;
 - `docs/principles.md`.
 
 **Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states, or the defaults in `references/principles.md` when it states none.
 
-**Git:** if it isn't a repository, propose `git init` and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
+**Git:** if it isn't a repository, propose `git init -b main` (git's own default name varies with its version and settings) and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
+
+**GitHub:** with no remote and `gh` signed in, propose creating the repository, and when the backlog goes to issues with entries in BACKLOG.md, the issues to create (`references/github.md`).
 
 ## 3. CLAUDE.md
 
-Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review.
+Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review. The integration and the backlog are recommended from where the repository lives (`references/github.md`).
 
 ## 4. Settings
 
@@ -94,6 +97,7 @@ On a re-run, skip skills already turned off: a skill still shows in the session 
 
 Show everything in one message:
 - the skeleton and principles (or their rounds, first);
+- the GitHub repository to create and the issues to migrate, if any;
 - the CLAUDE.md draft or its changes;
 - both settings files;
 - the conflicts;
@@ -104,17 +108,18 @@ Wait for the OK. The user may approve parts.
 ## 8. Apply
 
 Apply what was approved, in this order:
-1. git;
+1. git, then the GitHub repository if one was approved;
 2. skeleton and principles;
 3. CLAUDE.md;
 4. settings;
-5. removals.
+5. the backlog's move to issues, if approved;
+6. removals.
 
 Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .`. The script's own validate checks the last commit, which doesn't hold the setup yet. Failures aren't fixed here:
-- in existing skills (a description over its limit, a broken reference): offer to record each in BACKLOG.md as Debt, or to fix it with `train`;
+- in existing skills (a description over its limit, a broken reference): offer to record each in the backlog as Debt, or to fix it with `train`;
 - a changelog in another format: offer the alignment with `log`.
 
-When the setup changed files git tracks, offer a commit with it. Don't commit without the OK.
+When the setup changed files git tracks, offer a commit with it, on main or on a branch as `references/github.md` says (Setup's own commit). Don't commit without the OK.
 
 Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
 
@@ -122,7 +127,7 @@ Tell the user that a new session in this folder picks up the settings. To try a 
 
 A repository is already set up when its CLAUDE.md has a "Maintenance with sensei" section, whichever skills it routes to (an earlier sensei used other names). Then every step runs, but proposes only what differs from what's there:
 - the principles rounds run only if `docs/principles.md` is missing;
-- CLAUDE.md is refreshed as `references/claude-md.md` says (sensei's own repository keeps its section as it is);
+- CLAUDE.md is refreshed as `references/claude-md.md` says (sensei's own repository keeps its section as it is), and a project on local merge is offered pull requests and issues when `references/github.md` (Re-running) says so;
 - both settings files are checked in full, including the removals `references/settings.md` names;
 - the conflicts are listed again from what is installed now, as step 5 says for a re-run;
 - migration runs only for a process document not already migrated (one the user kept as history stays); the overlap and broken-reference checks run again.

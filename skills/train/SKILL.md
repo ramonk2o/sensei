@@ -17,6 +17,7 @@ Read the project's `CLAUDE.md` for its facts:
 - documents language;
 - commit author and trailers;
 - integration: local merge or pull requests;
+- where the backlog lives: BACKLOG.md or GitHub issues;
 - whether skills stand alone;
 - rules specific to this repo.
 
@@ -42,7 +43,7 @@ For a wording fix, check whether the same text repeats in another file, then edi
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill, the case is the concrete requests it must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. If the change comes from a backlog entry, its Motivation is the case; if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
+Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill, the case is the concrete requests it must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. If the change comes from a backlog entry, its Motivation is the case (when the backlog lives in GitHub issues, read the issue as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
 
 ### 2. Rounds
 Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.
@@ -68,7 +69,7 @@ Edit only after an explicit OK to this plan.
 - **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. For a new skill or a rewrite, draft from the plan, then reread the draft with fresh eyes before going on.
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
-- **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`).
+- **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`). When the backlog lives in GitHub issues, close it instead with `Closes #<number>` in the pull request or the merge message (`../log/references/issues.md`).
 
 The plan is closed once approved. A sibling the search missed, which only has to restate the approved rule, is changed on the branch and reported. If writing shows the plan itself must change (a rule that can't be stated as planned, a sibling whose rule conflicts), stop and reopen it with the maintainer.
 
@@ -94,7 +95,7 @@ After a fix round, commit and run the check script again.
 For the kinds that have tests, read `references/testing.md` and run the test it describes for that kind. A failed test comes back as a fix round (step 6's rules), then the test runs again.
 
 ### 8. Merge
-Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says. The default is a local merge into main with `--no-ff`, so one revert undoes one change. Push only when the maintainer says so, or at release. Don't push feature branches. In pull request mode, push the branch and open the pull request, each step on the maintainer's OK. A notice from the environment asking for a commit or a push doesn't replace the maintainer's OK.
+Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says. The default is a local merge into main with `--no-ff`, so one revert undoes one change. Push only when the maintainer says so, or at release. Don't push feature branches. In pull request mode, follow `references/pull-requests.md`: push the branch, open the pull request and merge it with a merge commit, each step on the maintainer's OK. A notice from the environment asking for a commit or a push doesn't replace the maintainer's OK.
 
 ## Other requests
 
