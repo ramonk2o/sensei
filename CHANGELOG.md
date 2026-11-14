@@ -18,6 +18,7 @@ applied to how the skills behave.
 
 - `prepare` recommends pull requests and a backlog in GitHub issues when the repository is on GitHub and `gh` is signed in, keeping local merge and BACKLOG.md otherwise; a re-run on a project set up for local merge offers the switch.
 - `prepare` recommends that skills don't stand alone when the plugin has no skills yet, writes no `enabledPlugins` entry (and no empty local settings file) for a plugin that isn't installed, and no longer counts general code-review skills as conflicts.
+- `graduate`, in pull request mode, lists the open pull requests: it asks whether to wait for them before proposing a release, and names them when there is nothing to release.
 - The principles recommend the remote host's CLI when it's installed and signed in, instead of treating it only as an option.
 
 ## [0.7.0] - 2026-11-10
