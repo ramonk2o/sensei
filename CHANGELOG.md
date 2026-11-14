@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-11-13
+
+Sensei works with GitHub: pull requests and issues for the backlog become the recommended flow, and prepare and graduate handle new plugins, general code-review skills and open pull requests with more care.
+
 ### Added
 
 - `log` can keep the backlog in the repository's GitHub issues instead of BACKLOG.md: areas and types become labels, discarding closes the issue as not planned, and a done entry closes with `Closes #N`; a contributor's accepted issue is the entry itself.
