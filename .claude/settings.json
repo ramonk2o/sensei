@@ -20,7 +20,15 @@
       "Bash(git branch --list*)",
       "Bash(git tag*)",
       "Bash(git merge-base*)",
-      "Bash(git rev-parse*)"
+      "Bash(git rev-parse*)",
+      "Bash(gh auth status*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr list*)",
+      "Bash(gh pr checks*)",
+      "Bash(gh issue view*)",
+      "Bash(gh issue list*)",
+      "Bash(gh label list*)",
+      "Bash(gh repo view*)"
     ],
     "ask": [
       "Bash(git tag -d*)",
