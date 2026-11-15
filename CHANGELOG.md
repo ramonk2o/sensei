@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `train` writes and changes skill text against six tests run on each sentence (no-op, branch, one source, positive, one word, why) instead of general advice to cut. A reason is kept where the model must generalize a judgment and dropped from mechanical steps, and the `examiner` asks for reasons accordingly.
+
 ## [0.8.0] - 2026-11-13
 
 Sensei works with GitHub: pull requests and issues for the backlog become the recommended flow, and prepare and graduate handle new plugins, general code-review skills and open pull requests with more care.

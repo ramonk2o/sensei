@@ -39,8 +39,8 @@ Read the change with `git diff <base>` (when the base is "none", read every list
    - Does it say what happens when a dependency isn't there?
 5. **Principles.** Check the skill against each principle, citing the text. A conflict that changes what the skill does is a finding even if it looks deliberate: the maintainer decides.
 6. **The writing guide.**
-   - Rules given without their reason.
-   - Capital-letter commands where a reason would generalize better.
+   - Judgment rules given without their reason.
+   - Prohibitions or capital-letter commands that aren't a hard guardrail.
    - Examples so specific the model will copy their surface.
    - Text that only makes sense to someone who was in the design conversation.
 
