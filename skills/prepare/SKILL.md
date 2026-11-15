@@ -1,6 +1,6 @@
 ---
 name: prepare
-description: Sets up a Claude Code skill plugin repository, new or existing, for maintenance with sensei. It creates what's missing of the skeleton and the principles, writes the CLAUDE.md, turns off conflicting plugins and skills and the installed copy of the plugin itself for this project (except for sensei itself), adds permissions, and moves an old process document's rules into place. Safe to re-run to refresh. Not for changing skills (train) or releasing (graduate). Run only when the user invokes it.
+description: Sets up a skill plugin repository, new or existing, for maintenance with sensei. Safe to re-run.
 disable-model-invocation: true
 ---
 

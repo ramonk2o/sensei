@@ -32,7 +32,7 @@ Read the change with `git diff <base>` (when the base is "none", read every list
 3. **The description.**
    - Would it fire on the requests the skill is for, phrased as real users phrase them?
    - Does it stay silent on the requests the scope map gives to siblings?
-   - Does it say when not to use the skill, and stay within the principles' length limit?
+   - Does it name the sibling that takes neighboring requests, when one exists, without reciting the flow, and stay within the principles' length limit?
    - Name two or three concrete requests it would likely mishandle, if any.
 4. **Dependencies.**
    - Does the skill rely on anything that may be missing: files outside its folder when the principles say skills stand alone, a tool or product named where the principles ask for capabilities, a sibling assumed to be installed?

@@ -1,6 +1,6 @@
 ---
 name: train
-description: In a skill plugin repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command from a real case: question rounds, a plan the maintainer approves, the edit with every sibling stating the same rule, checks, independent reviews, tests, changelog and merge. Also judges a contributor's issue or pull request, audits consistency, or recreates a skill. E.g. 'the deck skill did X, it should do Y', 'add a skill for…', 'review the PR to the email skill'. Not for noting an idea for later (log); releases are /sensei:graduate.
+description: In a repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command, judges an issue or pull request, audits consistency or recreates a skill, e.g. 'the deck skill did X, it should do Y'. Not for noting an idea (log) or releasing (/sensei:graduate).
 ---
 
 # Train

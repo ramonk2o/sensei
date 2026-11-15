@@ -1,6 +1,6 @@
 ---
 name: meditate
-description: Plans a new Claude Code skill plugin from an idea, before any skill exists. It interviews the user about who the plugin serves and the requests it must answer, decides with them which skills it has and where each one's scope ends, settles its principles and picks the first skill, then writes docs/principles.md and BACKLOG.md for prepare and train to pick up. Not for a plugin that already exists (prepare sets it up, train changes or audits it). Run only when the user invokes it.
+description: Plans a new skill plugin from an idea: who it serves, its skills and their borders, its principles.
 disable-model-invocation: true
 ---
 
