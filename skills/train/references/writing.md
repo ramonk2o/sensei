@@ -5,7 +5,6 @@ How to write or change a skill's text. The target plugin's `docs/principles.md` 
 ## The reader
 
 A skill is read by a model that has only the text and the user's request. It never saw the conversation where the skill was designed, and it will run in thousands of situations nobody tested. Write for that reader:
-- **Say why, not just what.** A model that understands the reason for a rule applies it to cases the rule didn't name. If you find yourself writing ALWAYS or NEVER in capitals, or a rigid structure, treat it as a warning sign: say what's at stake instead. Keep a hard rule for what truly has no exception, and give its reason.
 - **Use the imperative** for instructions ("Ask for the case before proposing"), and plain statements for facts.
 - **Don't name the tools of one surface.** Describe what the session can do ("if the session can start an agent"), unless the target's principles say otherwise.
 
@@ -18,8 +17,15 @@ The change starts from one real case, but the skill must work for every case lik
 
 ## Lean
 
-`SKILL.md` loads in full on every use. Every sentence costs on every run, so each one has to change the result.
-- **Cut what doesn't pull its weight:** restated rules, explanations of what any capable model does anyway, history ("this used to…"), hedges.
+`SKILL.md` loads in full on every use, and a reference on every run that reaches it, so each sentence has to change what the model does. Run these tests on every sentence the change writes or alters, in `SKILL.md` and in references:
+- **No-op:** would the model act differently without it? If not, delete the whole sentence. Typical no-ops: history ("this used to…"), hedges, what the model does anyway. Judge for a capable current model, unless the target's principles name a weaker one its users run. When in doubt, delete, except a gate before a costly or irreversible action: that failure can't be learned from.
+- **Branch** (`SKILL.md` only): does every run need it? What one branch needs goes to a reference (Layers).
+- **One source:** does CLAUDE.md, the principles, a config file or a command's output already say it? Then don't restate it.
+- **Positive:** does it state the target behavior? Keep a prohibition, or ALWAYS and NEVER in capitals, only for a hard guardrail.
+- **One word:** name a recurring thing with one strong word and repeat it, instead of a phrase explained again at each use.
+- **Why:** give the reason, as a clause, where the model must generalize a judgment: it then applies the rule to cases the rule didn't name. A mechanical step gets none.
+
+Beyond the sentence:
 - **Read what the model did, not just what it answered.** When a test or a real case shows the model spending turns on something unproductive, find the text that sends it there and remove or narrow it.
 - **Bundle repeated work.** When every test run writes the same helper, or a step is mechanical (counting, formatting, checking files), put a script in the skill's `scripts/` and tell the skill when to run it. A script runs without being read into context.
 
