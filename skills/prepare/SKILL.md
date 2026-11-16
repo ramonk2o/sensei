@@ -30,6 +30,10 @@ If the folder isn't a plugin and the user wants one, it's a new plugin:
 
 If it's an existing plugin, everything below adapts to what's there.
 
+**Already set up:** when its CLAUDE.md has a "Maintenance with sensei" section, whichever skills it routes to (an earlier sensei used other names), this is a re-run. Every step still runs, but proposes only what differs from what's there.
+
+**Sensei itself:** when the `name` in `plugin.json` is `sensei`, read `references/sensei-itself.md`, which says where steps 3, 4 and 8 differ.
+
 ## 2. Skeleton and principles
 
 Propose only what's missing:
@@ -48,20 +52,11 @@ Propose only what's missing:
 
 ## 3. CLAUDE.md
 
-Read `references/claude-md.md` and write the draft from its template. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review. The integration and the backlog are recommended from where the repository lives (`references/github.md`).
+Read `references/claude-md.md` and write the draft from its template, or the changes to an existing CLAUDE.md. The fixed parts are the routing to sensei's skills and the rule that the skills are the object of the work. The facts are discovered first; what the repository doesn't answer gets a recommended value in step 7's review. The integration and the backlog are recommended from where the repository lives, and on a re-run offered again, as `references/github.md` says.
 
 ## 4. Settings
 
-Rules that Claude Code can enforce go in settings, not prose.
-- **`.claude/settings.json`,** shared with everyone who clones the repository:
-  - `attribution`: `{"commit": "", "pr": ""}` when the project allows no trailers;
-  - permissions under `permissions.allow` and `permissions.ask`: read `references/settings.md` for the exact rules.
-  - Never add push, reset, deleting branches or files, or publishing. Those keep asking.
-  - If the file exists, merge: keep every entry and add only what's missing, except the removals `references/settings.md` names.
-- **`.claude/settings.local.json`,** personal to this machine and ignored by git:
-  - `enabledPlugins` set to `false` for the installed copy of the plugin being maintained (its `id` from `claude plugin list --json`, as `name@marketplace`), so its released skills don't fire while its source is being changed. When the plugin being maintained is sensei itself (the `name` in its `plugin.json`), write no entry for it, and remove one an earlier run left: there the installed copy is the tool doing the maintenance. When the plugin isn't installed (a new plugin: `claude plugin list --json` doesn't list it), write no entry either. Create the local file only when something goes in it; never write it empty;
-  - what step 5 turns off with the user's agreement: a plugin's skill by a `permissions.deny` rule (`references/settings.md`), a whole plugin in `enabledPlugins`, a skill with no plugin in `skillOverrides`.
-  - Turning a plugin off in the shared file would turn it off for every contributor, so it goes here.
+Rules that Claude Code can enforce go in settings, not prose. Read `references/settings.md` and propose both files from it: the shared `.claude/settings.json` (attribution and permissions) and the local `.claude/settings.local.json` (the installed copy of the plugin being maintained, and what step 5 turns off).
 
 **Git identity:** when the project fixes a commit author and the environment has none, propose a repo-local `git config user.name` and `user.email`.
 
@@ -73,17 +68,15 @@ Look at the skills available in this session, other than sensei's own. List thos
 - releasing versions;
 - reviewing or judging changes to skills, or contributions to a skill plugin.
 
-Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file (step 4), or leaving it and relying on the routing in CLAUDE.md. Recommend one and say why.
-- **A plugin's skill** (`plugin:skill`): that skill alone, with a deny rule `Skill(<plugin>:<skill>)` (`references/settings.md`), so the plugin's other skills stay on. When all of a plugin's skills conflict, turn off the whole plugin instead, by the `id` that `claude plugin list --json` gives (`name@marketplace`); the prefix is the manifest's name and can differ from that id.
-- **A skill with no plugin prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`.
+Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file, as `references/settings.md` says for its kind (a plugin's skill alone, a whole plugin when all its skills conflict, a skill with no plugin prefix), or leaving it and relying on the routing in CLAUDE.md. Recommend one and say why.
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) or reviews code in general (`code-review`, `simplify`, `security-review`) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. Step 7 always shows that line, even when nothing else differs. A reply that names one is the OK to turn it off, the way this step says for its kind of skill.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. A reply that names one is the OK to turn it off.
 
 ## 6. Migration and orphans
 
-- **Old process document:** move each rule that still holds:
+- **Old process document** (one the user kept as history on an earlier run stays as it is): move each rule that still holds:
   - a project fact goes to CLAUDE.md;
   - a principle goes to `docs/principles.md`, with the user's OK;
   - a cycle step is left to sensei's skills, and you say which one owns it;
@@ -103,6 +96,8 @@ Show everything in one message:
 - the conflicts;
 - the migration.
 
+On a re-run, show only the differences, plus step 5's line of conflicts still on. When there are no differences, say so in a line, show that line if there is one, and stop unless the user turns one off.
+
 Wait for the OK. The user may approve parts.
 
 ## 8. Apply
@@ -121,15 +116,4 @@ Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts
 
 When the setup changed files git tracks, offer a commit with it, on main or on a branch as `references/github.md` says (Setup's own commit). Don't commit without the OK.
 
-Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, and needs no other setting. When the plugin being maintained is sensei itself, never use it for the session doing the maintenance: a broken change would break the tool making it.
-
-## Re-running
-
-A repository is already set up when its CLAUDE.md has a "Maintenance with sensei" section, whichever skills it routes to (an earlier sensei used other names). Then every step runs, but proposes only what differs from what's there:
-- the principles rounds run only if `docs/principles.md` is missing;
-- CLAUDE.md is refreshed as `references/claude-md.md` says (sensei's own repository keeps its section as it is), and a project on local merge is offered pull requests and issues when `references/github.md` (Re-running) says so;
-- both settings files are checked in full, including the removals `references/settings.md` names;
-- the conflicts are listed again from what is installed now, as step 5 says for a re-run;
-- migration runs only for a process document not already migrated (one the user kept as history stays); the overlap and broken-reference checks run again.
-
-Step 7 shows only the differences, plus step 5's line of conflicts still on. When there are no differences, say so in a line, show that line if there is one, and stop unless the user turns one off.
+Tell the user that a new session in this folder picks up the settings. To try a change before releasing it, they can start a separate session from another folder, so this repository's CLAUDE.md doesn't steer it: `claude --plugin-dir <this repository>`. For that session it replaces the installed copy, and needs no other setting.
