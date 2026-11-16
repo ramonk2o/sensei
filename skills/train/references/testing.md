@@ -20,7 +20,11 @@ The cold reader runs in step 4, on the minimal draft (`writing.md`, A new skill 
 - Only a failed request earns text, written as `writing.md` says (Fix the case, not the example).
 - Rerun only the requests that failed. After the second round, show the maintainer what still fails and let them decide.
 
-In step 7 the cold reader runs again only when a review fix changed what the skill does. A skill that arrives already written (a contributor's pull request) gets its cold reader in step 7, on the text as it is.
+In step 7 the cold reader runs again only when a review fix changed what the skill does or a cut removed text. A skill that arrives already written (a contributor's pull request) gets its cold reader in step 7, on the text as it is.
+
+### Cuts from an audit
+
+Cuts are meant to change nothing, so their cold reader compares instead of judging against a plan. Write one request per main path of the skill and run each twice, in parallel: on the skill's files as cut, plus any file a One source cut points to, and on the same files from main. It passes when both answers do the same. When they differ, put back the cut that caused the difference and run that request again.
 
 ## New skill or description change: the trigger suite
 

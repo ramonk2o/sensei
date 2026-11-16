@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Added
 
 - The check script prints each changed SKILL.md's and description's size and growth against main, and `train`'s change plan states the size effect and, when text is added, what was considered for removal.
+- The `examiner` lists, apart from its findings, the sentences that fail the writing guide's no-op or one-source test, and `train` shows them as cuts the maintainer picks. Every consistency audit runs the `examiner` on each skill as a pruning pass; the cuts picked for a skill are their own case and plan, and go through a branch, the sweeper's review and a cold reader that compares the cut text with main, putting back a cut that changed the answer.
 
 ### Changed
 
