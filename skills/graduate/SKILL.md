@@ -12,7 +12,7 @@ Talk to the user in their language.
 
 ## 1. Read the state
 
-- Read the project's CLAUDE.md for its documents language (for the changelog and commit messages), its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
+- Read the project's CLAUDE.md for its documents language (for the changelog and commit messages; English if it names none), its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
 - In pull request mode, list the open pull requests (`gh pr list --state open`).
 - Read `CHANGELOG.md` and `../log/references/changelog.md`.
