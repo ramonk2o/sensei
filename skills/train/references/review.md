@@ -27,9 +27,9 @@ Each agent returns findings ranked by severity, each with:
 - what is wrong;
 - a suggested fix.
 
-Before showing them, read the bar ("What to leave out" in the sweeper's briefing, path in SKILL.md, step 6; the examiner's briefing holds the same text, and a change to it reaches both). Drop every finding that fails it, even when an agent reported it, and don't list or count what you dropped. When both agents ran, show the remaining findings together, merging duplicates. For each one, say whether you agree and what you'd do:
+Before showing them, read the bar ("What to leave out" in the sweeper's briefing, path in SKILL.md, step 6; the examiner's briefing holds the same text, and a change to it reaches both). Drop every finding that fails it, even when an agent reported it, and don't list or count what you dropped. When both agents ran, show the remaining findings together, ranked, merging duplicates. For each one, say whether you agree and what you'd do:
 - **Fixes that change no decision:** a leftover, a broken reference, a term made consistent, a sibling the plan missed. These go straight to the branch.
-- **Fixes that add a rule or change a decision:** proposals, applied only on the maintainer's OK. For a conflict with a principle, propose the way out weighed as in SKILL.md, step 3 (Principle touched).
+- **Fixes that add a rule or change a decision:** proposals, applied only on the maintainer's OK. For a conflict with a principle, propose the way out weighed as in `conflicts.md`.
 - **Findings you disagree with:** say why. The maintainer decides.
 
 The examiner also returns a list of cuts: sentences that fail the writing guide's No-op or One source test. The bar doesn't apply to them. When a finding and a cut point at the same text, keep it only as the finding: its fix already changes that text. Show the cuts after the findings, as their own list, saying for each whether you agree. In a new skill or a rewrite, recommend declining a cut of a sentence that a cold reader earned in step 4 (`testing.md`, A new skill or a rewrite), and say so. Every cut is a proposal the maintainer picks, because a wrong one changes what the skill does.

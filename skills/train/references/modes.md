@@ -1,4 +1,13 @@
-# Other requests
+# Other kinds and requests
+
+## A wording fix
+
+Check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../../log/references/changelog.md`). Commit on main, then run the check script (its path is in SKILL.md, step 5); if it fails, fix and amend.
+
+## A new skill or a rewrite
+
+- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the real case behind each old rule worth keeping: a rule with no case stays out.
+- **The draft (step 4):** write it as `writing.md` says (A new skill starts minimal), then, before the commit, run the cold reader on the plan's requests (`testing.md`, A new skill or a rewrite), so the text is reinforced where it fails.
 
 ## A contributor's issue or pull request
 
@@ -6,7 +15,7 @@
 - Judge it with the target's questions for judging a proposal (`docs/principles.md`):
   - which real case it comes from;
   - whether it changes behavior or only wording;
-  - whether it conflicts with a principle, and if so which way out fits (SKILL.md, step 3, Principle touched);
+  - whether it conflicts with a principle, and if so which way out fits (`conflicts.md`);
   - whether it fits an existing skill;
   - what it costs in size or turns.
 - Say what's missing for a decision: the case, the version where it happened, an example.
@@ -23,7 +32,7 @@ When the maintainer asks to check the whole plugin ("audit the plugin", "is ever
 1. Run the check script (its path is in SKILL.md, step 5), plain and with `--scope-map`.
 2. Start `sensei:sweeper` on each skill, or on the whole plugin when it is small. The base is "none", the files to read in full are all the skill's files, and the siblings are the other skills (see `review.md`, Starting them). Start `sensei:examiner` on each skill too: base "none", that skill's files, the other skills as siblings, and the writing guide (path in SKILL.md, step 6). Its cuts are the audit's pruning pass.
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
-4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each, then each skill's cuts (`review.md`, Using the findings). For a conflict with a principle, the fix is the way out weighed as in SKILL.md, step 3 (Principle touched). Edit nothing before the maintainer picks what to fix.
+4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each, then each skill's cuts (`review.md`, Using the findings). For a conflict with a principle, the fix is the way out weighed as in `conflicts.md`. Edit nothing before the maintainer picks what to fix.
 
 Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1). The cuts the maintainer picks for one skill go together as one behavior change, and also as a description change when a cut touches the description. The cuts are its case, and the maintainer's pick, which names exactly what to remove, approves its plan, so no rounds follow. Its cold reader compares the cut text with main (`testing.md`, Cuts from an audit).
 
@@ -31,10 +40,10 @@ Each fix then goes through the form for its kind. The finding is its real case (
 
 When the maintainer brings an older skill to rebuild (from another plugin or an earlier design), treat it as a reference, not text to copy.
 - Read all of it. Say what works, what is surplus and what weighs too much.
-- Ask the maintainer which requests the new version serves and for the real case behind each old rule worth keeping, without proposing them (SKILL.md, step 1). Settle the rest in rounds.
+- Ask the maintainer which requests the new version serves and for the real case behind each old rule worth keeping, without proposing them (A new skill or a rewrite, above). Settle the rest in rounds.
 - Settle the new skill's name with them. The name is the `skills/<name>/` folder and the frontmatter `name`, which must match. The new text doesn't mention the old name.
 
-Then it's a new skill, built minimal first (SKILL.md, step 4): plan, edit, check, both reviews and the trigger suite.
+Then it's a new skill, built minimal first (A new skill or a rewrite, above): plan, edit, check, both reviews and the trigger suite.
 
 ## Something that isn't a skill
 

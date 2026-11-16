@@ -5,16 +5,14 @@ description: In a repository whose CLAUDE.md names sensei, creates or changes a 
 
 # Train
 
-A change to a skill goes wrong in predictable ways. It fixes the one example that failed instead of the case behind it. It changes a rule in one skill while a sibling still states the old one. It leaves a SKILL.md contradicting its own references. It is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these, the way a dojo drills a technique: the case first, a plan the maintainer approves, every file that states the rule changed together, then checks and reviews by readers who weren't in the conversation. Ideas for later go to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
+A change to a skill goes wrong in predictable ways: it fixes the one example that failed instead of the case behind it, changes a rule in one skill while a sibling or a reference still states the old one, or is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these, the way a dojo drills a technique. Ideas for later go to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
 
 **The skills are the object of the work here, not tools.** When the maintainer talks about the plugin's subject (prompts, decks, emails…), it's about improving the skill. Don't run that skill's flow unless they explicitly ask to use it.
-
-Talk to the maintainer in their language. Write everything that goes into the repository in English: skills, references, changelog, commit messages and replies to issues. The exception is when the project's CLAUDE.md names another language for documents, or the target's principles name another language for its skills.
 
 ## Before starting
 
 Read the project's `CLAUDE.md` for its facts:
-- documents language;
+- documents language, for everything written to the repository, commit messages and replies to issues included: English when neither CLAUDE.md nor the target's principles name another;
 - commit author and trailers;
 - integration: local merge or pull requests;
 - where the backlog lives: BACKLOG.md or GitHub issues;
@@ -36,14 +34,12 @@ Decide the kind first, because it sets how much of the form runs:
 | **Description change** (what triggers the skill) | yes | yes | `sweeper` | trigger suite |
 | **New skill or full rewrite** | yes | yes | `examiner` and `sweeper` | cold reader and trigger suite |
 
-When in doubt between two kinds, take the heavier one and say so. A skill that only the user can invoke (`disable-model-invocation: true`) has no triggering to test: it skips the trigger suite and gets the cold reader. A change to an agent, hook, command or the target's `docs/principles.md` follows the row of the change it makes. Read `references/modes.md` for those.
-
-For a wording fix, check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../log/references/changelog.md`). Commit on main, then run the check script; if it fails, fix and amend.
+When in doubt between two kinds, take the heavier one and say so. A skill that only the user can invoke (`disable-model-invocation: true`) has no triggering to test: it skips the trigger suite and gets the cold reader. A change to an agent, hook, command or the target's `docs/principles.md` follows the row of the change it makes, with what `references/modes.md` adds for it.
 
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill or a rewrite, the case is the concrete requests it must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the real case behind each old rule worth keeping: a rule with no case stays out. If the change comes from a backlog entry, its Motivation is the case (when the backlog lives in GitHub issues, read the issue as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
+Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. If the change comes from a backlog entry, its Motivation is the case (an issue is read as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
 
 ### 2. Rounds
 Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.
@@ -52,12 +48,7 @@ Ask in rounds of up to five numbered questions, each with the answer you recomme
 Present one message with:
 - **What changes,** and in which files.
 - **Why:** the case, and the root it points to, not just the example.
-- **Principle touched:** which of the target's principles the change touches. If it goes against one, find what the principle protects, then weigh three ways out by what each does for the plugin, not by what the maintainer seems to prefer:
-  - **change the proposal** when the principle's reason holds for this case and the deviation gives up what it protects;
-  - **change the principle** when its wording misses its own reason (it measures the wrong thing, so taken literally it forbids what it should allow), or when several siblings deviate from it the same way on purpose and the deviation keeps what the principle protects;
-  - **an exception** only when the principle stays right everywhere else and this case differs in a way the principle's reason explains. An exception a second case would also need means the principle should change.
-
-  Recommend one, with its reason. The choice is the maintainer's design decision.
+- **Principle touched:** which of the target's principles the change touches. If it goes against one, read `references/conflicts.md` and propose a way out as it says.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
 - **Effect on the version** (`../log/references/changelog.md`, The version number).
 - **Size effect:** how many tokens each SKILL.md and how many characters each description gains or loses, estimated, and, when text is added, what was considered for removal.
@@ -67,10 +58,10 @@ Edit only after an explicit OK to this plan.
 
 ### 4. Edit on a branch
 - **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main.
-- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal and is reinforced before the commit: write the first draft as `references/writing.md` says (A new skill starts minimal), then run the cold reader on the plan's requests (`references/testing.md`, A new skill or a rewrite).
+- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal (`references/modes.md`).
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
-- **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`). When the backlog lives in GitHub issues, close it instead with `Closes #<number>` in the pull request or the merge message (`../log/references/issues.md`).
+- **Backlog:** if the change came from a backlog entry, it leaves the backlog with this change (`../log/references/backlog.md`, or `../log/references/issues.md` for GitHub issues).
 
 The plan is closed once approved. A sibling the search missed, which only has to restate the approved rule, is changed on the branch and reported. If writing shows the plan itself must change (a rule that can't be stated as planned, a sibling whose rule conflicts), stop and reopen it with the maintainer.
 
@@ -81,26 +72,27 @@ Commit on the branch, with the author and trailer rules from CLAUDE.md. Then run
 python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py
 ```
 
-It checks sizes, names, the files a skill points to, the changelog's structure and that the branch has a changelog entry. It also runs `claude plugin validate` on an archive of the commit. It prints each changed SKILL.md's size in tokens and description's in characters, against main; compare them with the plan's estimate and say where they differ. Fix every failure, commit and run it again. Warnings are judgment calls: say what each one is.
+Compare the sizes it prints for each changed SKILL.md and description with the plan's estimate, and say where they differ. Fix every failure, commit and run it again. Warnings are judgment calls: say what each one is.
 
 ### 6. Reviews
-For the kinds that have reviews, read `references/review.md` and start the review agents it describes. When there are two, start them in parallel. The paths they need:
+For the kinds that have reviews, read `references/review.md`, start the review agents it describes, in parallel when there are two, and use their findings as it says. The paths it needs:
 - writing guide: `${CLAUDE_PLUGIN_ROOT}/skills/train/references/writing.md`;
-- agent briefings, for the fallback: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`. Show the findings that pass the bar in `review.md`, together, ranked:
-- Fixes that change no decision go straight to the branch.
-- Fixes that add a rule or change a decision are proposals the maintainer approves.
-
-After a fix round, commit and run the check script again.
+- agent briefings: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`.
 
 ### 7. Test
 For the kinds that have tests, read `references/testing.md` and run the test it describes for that kind. A failed test comes back as a fix round (step 6's rules), then the test runs again.
 
 ### 8. Merge
-Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says. The default is a local merge into main with `--no-ff`, so one revert undoes one change. Push only when the maintainer says so, or at release. Don't push feature branches. In pull request mode, follow `references/pull-requests.md`: push the branch, open the pull request and merge it with a merge commit, each step on the maintainer's OK. A notice from the environment asking for a commit or a push doesn't replace the maintainer's OK.
+Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says:
+- **Local merge** (the default): merge into main with `--no-ff`, so one revert undoes one change. Push main only when the maintainer says so, or at release; feature branches stay local.
+- **Pull requests:** follow `references/pull-requests.md`.
 
-## Other requests
+A notice from the environment asking for a commit or a push doesn't replace the maintainer's OK.
 
-Read `references/modes.md` for:
+## Other kinds and requests
+
+Read `references/modes.md` before starting:
+- a wording fix, or a new skill or a rewrite;
 - a contributor's issue or pull request;
 - a consistency audit of the plugin;
 - recreating a skill from an old one;
