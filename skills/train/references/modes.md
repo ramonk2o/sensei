@@ -25,7 +25,7 @@ When the maintainer asks to check the whole plugin ("audit the plugin", "is ever
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
 4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each, then each skill's cuts (`review.md`, Using the findings). For a conflict with a principle, the fix is the way out weighed as in SKILL.md, step 3 (Principle touched). Edit nothing before the maintainer picks what to fix.
 
-Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1). The cuts the maintainer picks for one skill go together as one behavior change. The cuts are its case, and the maintainer's pick, which names exactly what to remove, approves its plan, so no rounds follow. Its cold reader runs one request per main path of the skill, on the skill's files as cut plus any file a One source cut points to, and the same requests run on the text from main; it passes when both answers do the same.
+Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1). The cuts the maintainer picks for one skill go together as one behavior change, and also as a description change when a cut touches the description. The cuts are its case, and the maintainer's pick, which names exactly what to remove, approves its plan, so no rounds follow. Its cold reader compares the cut text with main (`testing.md`, Cuts from an audit).
 
 ## Recreating a skill from an old one
 
