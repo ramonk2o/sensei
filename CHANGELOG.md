@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-11-16
+
+Skills get leaner: train writes and checks text against sentence-level tests and proposes cuts from the examiner, and every SKILL.md is shorter with the same behavior.
+
 ### Added
 
 - The check script prints each changed SKILL.md's and description's size and growth against main, and `train`'s change plan states the size effect and, when text is added, what was considered for removal.
