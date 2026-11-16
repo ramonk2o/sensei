@@ -4,7 +4,7 @@ A skill is read by a model whose failures its author can't see from inside the c
 
 ## Behavior change or new skill: the cold reader
 
-The cold reader tests what happens once the skill is running; the trigger suite below tests only whether it starts. A new skill or a full rewrite gets both, the cold reader first, so the description is tested on a flow that already works. Use one case per main path of the skill; for a new skill, the plan's requests are the cases (below).
+The cold reader tests what happens once the skill is running; the trigger suite below tests only whether it starts. A new skill or a full rewrite gets both, the cold reader first, so the description is tested on a flow that already works. Use one case per main path of the skill; for a new skill or a rewrite, the plan's requests are the cases (below).
 
 Start a fresh agent with no access to this conversation, on the session's model. When the target's principles name a weaker model its users run, start it on that one if the session can choose an agent's model. Give it only:
 - the changed `SKILL.md` and every changed reference (most contradictions are between a SKILL.md and a reference);
