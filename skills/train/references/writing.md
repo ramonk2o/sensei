@@ -31,7 +31,7 @@ Beyond the sentence:
 
 ## Layers
 
-- **Description:** always in context, and triggering comes from it. It says what the skill does and gives one trigger per kind of request it takes, in the user's words, not categories. The flow belongs in `SKILL.md`. When a sibling has neighboring scope, one short clause names it ("Not for X (sibling)"). A skill only the user can invoke (`disable-model-invocation: true`) never reaches the model: its description is one short line saying what the skill does, for the person reading the menu.
+- **Description:** always in context, and triggering comes from it. It says what the skill does and gives one trigger per kind of request it takes: a request quoted in the user's words, or, when quotes for every kind won't fit the limit, a short phrase naming the kind. The flow belongs in `SKILL.md`. When a sibling has neighboring scope, one short clause names it ("Not for X (sibling)"). A skill only the user can invoke (`disable-model-invocation: true`) never reaches the model: its description is one short line saying what the skill does, for the person reading the menu.
 - **`SKILL.md`:** the flow, and what every step needs. It opens with what the skill is for and, when siblings exist, what it leaves to them.
 - **`references/`:** what only one step, case or kind of input needs. SKILL.md names each reference at the step that uses it, and says when to read it ("read `references/<name>.md` before step 3"). A reference over about 300 lines gets a short table of contents at the top.
 - **`scripts/`:** mechanical work, run rather than read.
