@@ -17,6 +17,7 @@ applied to how the skills behave.
 
 - `train` writes and changes skill text against six tests run on each sentence (no-op, branch, one source, positive, one word, why) instead of general advice to cut. A reason is kept where the model must generalize a judgment and dropped from mechanical steps, and the `examiner` asks for reasons accordingly.
 - Descriptions are shorter: what the skill does, one trigger per kind of request and the sibling that takes neighboring requests, without the flow; a skill only the user can invoke gets one line for the menu. `prepare` now recommends a 300-character limit instead of 600, and sensei's own five descriptions follow the rule.
+- `train`'s SKILL.md is over a fifth shorter, with the same behavior: the steps for a wording fix and for a new skill or a rewrite moved to its `modes.md` reference, the ways out of a conflict with a principle to a new `conflicts.md`, and text that restated its references or the project's CLAUDE.md was removed.
 - `train` builds a new skill or a rewrite minimal first: the first draft holds only the flow, the gates before costly or irreversible actions, what the model can't know and a step that checks the result, and a cold reader run on each request from the plan decides what else earns text. After a failure, it sharpens or replaces the sentence that is there before adding one.
 
 ## [0.8.0] - 2026-11-13
