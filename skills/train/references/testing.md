@@ -20,7 +20,7 @@ The cold reader runs in step 4, on the minimal draft (`writing.md`, A new skill 
 - Only a failed request earns text, written as `writing.md` says (Fix the case, not the example).
 - Rerun only the requests that failed. After the second round, show the maintainer what still fails and let them decide.
 
-In step 7 the cold reader runs again only when a review fix changed what the skill does. A skill that arrives already written (a contributor's pull request) gets its cold reader in step 7, on the text as it is.
+In step 7 the cold reader runs again only when a review fix changed what the skill does or a cut removed text. A skill that arrives already written (a contributor's pull request) gets its cold reader in step 7, on the text as it is.
 
 ## New skill or description change: the trigger suite
 

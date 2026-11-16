@@ -31,7 +31,7 @@ The names follow a dojo: **meditate** on a new plugin, **prepare** the repositor
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise. Run it with `/sensei:graduate`.
 
 Two read-only agents review changes for `train`:
-- **examiner** judges a new skill's architecture, or any skill's in an audit that asks for it;
+- **examiner** judges a new skill's architecture, or every skill's in an audit, and lists the sentences that can be cut;
 - **sweeper** finds leftovers, contradictions, redundancy, drift between skills, broken references, inconsistent terms, vague instructions and scope overlap.
 
 `scripts/check.py` checks:
