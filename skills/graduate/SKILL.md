@@ -1,6 +1,6 @@
 ---
 name: graduate
-description: Releases a version of a Claude Code skill plugin maintained with sensei. It proposes the number from the changelog's unreleased entries, runs the release checks, then moves the entries, bumps plugin.json, tags, pushes and builds the release zips: one per skill when the skills stand alone, one of the whole plugin otherwise. Not for changing skills (train) or editing the changelog (log). Run only when the user invokes it.
+description: Releases a version of a skill plugin maintained with sensei: number, checks, tag and release zip.
 disable-model-invocation: true
 ---
 

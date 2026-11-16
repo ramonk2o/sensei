@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Changed
 
 - `train` writes and changes skill text against six tests run on each sentence (no-op, branch, one source, positive, one word, why) instead of general advice to cut. A reason is kept where the model must generalize a judgment and dropped from mechanical steps, and the `examiner` asks for reasons accordingly.
+- Descriptions are shorter: what the skill does, one trigger per kind of request and the sibling that takes neighboring requests, without the flow; a skill only the user can invoke gets one line for the menu. `prepare` now recommends a 300-character limit instead of 600, and sensei's own five descriptions follow the rule.
 
 ## [0.8.0] - 2026-11-13
 

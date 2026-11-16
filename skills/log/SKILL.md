@@ -1,6 +1,6 @@
 ---
 name: log
-description: In a skill plugin repository whose CLAUDE.md names sensei, keeps the backlog (ideas, bugs and debt left for later, each from a real case, in BACKLOG.md or the repository's GitHub issues) and CHANGELOG.md (what changed in each version) when the maintainer asks directly, e.g. 'note this idea for the deck skill', 'what's in the backlog?', 'discard that idea', 'fix the changelog'. Not for changing a skill (that's train, which writes its own changelog entry) or releasing a version (the user runs /sensei:graduate), and not for repositories that aren't set up for sensei.
+description: In a repository whose CLAUDE.md names sensei, keeps the backlog (BACKLOG.md or GitHub issues) and CHANGELOG.md, e.g. 'note this idea for the deck skill', 'what's in the backlog?', 'fix the changelog'. Not for changing a skill (train) or releasing (/sensei:graduate).
 ---
 
 # Log
