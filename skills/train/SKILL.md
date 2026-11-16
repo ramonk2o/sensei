@@ -66,7 +66,7 @@ Edit only after an explicit OK to this plan.
 
 ### 4. Edit on a branch
 - **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main.
-- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. For a new skill or a rewrite, draft from the plan, then reread the draft with fresh eyes before going on.
+- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal and is reinforced before the commit: write the first draft as `references/writing.md` says (A new skill starts minimal), then run the cold reader on the plan's requests (`references/testing.md`, A new skill or a rewrite).
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
 - **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`). When the backlog lives in GitHub issues, close it instead with `Closes #<number>` in the pull request or the merge message (`../log/references/issues.md`).

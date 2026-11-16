@@ -4,14 +4,23 @@ A skill is read by a model whose failures its author can't see from inside the c
 
 ## Behavior change or new skill: the cold reader
 
-The cold reader tests what happens once the skill is running; the trigger suite below tests only whether it starts. A new skill or a full rewrite gets both, the cold reader first, so the description is tested on a flow that already works. Use one case per main path of the skill.
+The cold reader tests what happens once the skill is running; the trigger suite below tests only whether it starts. A new skill or a full rewrite gets both, the cold reader first, so the description is tested on a flow that already works. Use one case per main path of the skill; for a new skill, the plan's requests are the cases (below).
 
-Start a fresh agent with no access to this conversation. Give it only:
+Start a fresh agent with no access to this conversation, on the session's model. When the target's principles name a weaker model its users run, start it on that one if the session can choose an agent's model. Give it only:
 - the changed `SKILL.md` and every changed reference (most contradictions are between a SKILL.md and a reference);
 - the real case, written as the user's request, with any material the user gave;
 - the question: "Following only these files, what do you do with this request, step by step? Where did you have to guess, or could two readings lead you to different results? Name only the gaps that change or could change what you do."
 
-The test passes when its answer does what the plan said the skill should do in that case. When it goes another way, the text doesn't say what the plan decided: fix the text, not the reader. If the session can't start an agent, give the maintainer that prompt and the files, ready to run in a new conversation.
+The test passes when its answer does what the plan said the skill should do in that case, without guessing between readings that lead to different results. When it goes another way, the text doesn't say what the plan decided: fix the text, not the reader. If the session can't start an agent, give the maintainer that prompt and the files, ready to run in a new conversation.
+
+### A new skill or a rewrite
+
+The cold reader runs in step 4, on the minimal draft (`writing.md`, A new skill starts minimal), before the commit and the reviews, so they judge the reinforced text:
+- Start one cold reader per request in the plan, in parallel.
+- Only a failed request earns text, written as `writing.md` says (Fix the case, not the example).
+- Rerun only the requests that failed. After the second round, show the maintainer what still fails and let them decide.
+
+In step 7 the cold reader runs again only when a review fix changed what the skill does.
 
 ## New skill or description change: the trigger suite
 
