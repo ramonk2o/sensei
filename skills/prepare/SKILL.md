@@ -32,7 +32,7 @@ If it's an existing plugin, everything below adapts to what's there.
 
 **Already set up:** when its CLAUDE.md has a "Maintenance with sensei" section, whichever skills it routes to (an earlier sensei used other names), this is a re-run. Every step still runs, but proposes only what differs from what's there.
 
-**Sensei itself:** when the `name` in `plugin.json` is `sensei`, read `references/sensei-itself.md`, which says where steps 3, 4 and 8 differ.
+**Sensei itself:** when the `name` in `plugin.json` is `sensei`, read `references/sensei-itself.md`, which says where steps 3, 4 and 8 differ. Where it disagrees with another reference, it wins.
 
 ## 2. Skeleton and principles
 
