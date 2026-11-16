@@ -43,7 +43,7 @@ For a wording fix, check whether the same text repeats in another file, then edi
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill, the case is the concrete requests it must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. If the change comes from a backlog entry, its Motivation is the case (when the backlog lives in GitHub issues, read the issue as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
+Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill or a rewrite, the case is the concrete requests it must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the real case behind each old rule worth keeping: a rule with no case stays out. If the change comes from a backlog entry, its Motivation is the case (when the backlog lives in GitHub issues, read the issue as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
 
 ### 2. Rounds
 Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.
@@ -66,7 +66,7 @@ Edit only after an explicit OK to this plan.
 
 ### 4. Edit on a branch
 - **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main.
-- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. For a new skill or a rewrite, draft from the plan, then reread the draft with fresh eyes before going on.
+- **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal and is reinforced before the commit: write the first draft as `references/writing.md` says (A new skill starts minimal), then run the cold reader on the plan's requests (`references/testing.md`, A new skill or a rewrite).
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
 - **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`). When the backlog lives in GitHub issues, close it instead with `Closes #<number>` in the pull request or the merge message (`../log/references/issues.md`).

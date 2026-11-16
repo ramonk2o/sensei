@@ -12,6 +12,7 @@ A skill is read by a model that has only the text and the user's request. It nev
 
 The change starts from one real case, but the skill must work for every case like it.
 - **Find the root.** Ask what made the skill fail there: a missing step, an ambiguous rule, a wrong default. Write the fix at that level, not as a patch for the exact words of the example.
+- **Sharpen before adding.** Find the sentence that already covers the failure and sharpen or replace it. Add one only when none exists: a skill that only gains sentences grows a clause per case.
 - **Change the approach when a problem persists.** If a rule was already tightened once and the failure came back, more emphasis rarely helps. Try another framing, an example of the reasoning, or moving the step earlier.
 - **Keep examples general.** An example pulls the model toward its surface. Use examples for formats, tones and borderline cases, and make sure they don't become the only shape the skill produces.
 
@@ -35,6 +36,16 @@ Beyond the sentence:
 - **`SKILL.md`:** the flow, and what every step needs. It opens with what the skill is for and, when siblings exist, what it leaves to them.
 - **`references/`:** what only one step, case or kind of input needs. SKILL.md names each reference at the step that uses it, and says when to read it ("read `references/<name>.md` before step 3"). A reference over about 300 lines gets a short table of contents at the top.
 - **`scripts/`:** mechanical work, run rather than read.
+
+## A new skill starts minimal
+
+Beyond the description and the opening (Layers), the first draft of a new skill or a rewrite holds only:
+- the flow;
+- the gates before costly or irreversible actions;
+- what the model can't know: formats, project facts;
+- a step that checks the result against what a good result looks like, written into the skill from the plan, because a mediocre result doesn't show as a failure and nobody reports it.
+
+Everything else is earned: the cold reader runs on the plan's requests (`testing.md`, A new skill or a rewrite), and only what fails gets text. In a rewrite, the old text is earned the same way.
 
 ## Draft, then reread
 
