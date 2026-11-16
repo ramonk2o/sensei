@@ -39,7 +39,7 @@ Beyond the sentence:
 
 ## A new skill starts minimal
 
-The first draft of a new skill or a rewrite holds only:
+Beyond the description and the opening (Layers), the first draft of a new skill or a rewrite holds only:
 - the flow;
 - the gates before costly or irreversible actions;
 - what the model can't know: formats, project facts;

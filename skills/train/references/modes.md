@@ -31,7 +31,7 @@ Each fix then goes through the form for its kind. The finding is its real case (
 
 When the maintainer brings an older skill to rebuild (from another plugin or an earlier design), treat it as a reference, not text to copy.
 - Read all of it. Say what works, what is surplus and what weighs too much.
-- Decide with the maintainer, in rounds, which requests the new version serves, with the real case behind each old rule worth keeping (SKILL.md, step 1).
+- Ask the maintainer which requests the new version serves and for the real case behind each old rule worth keeping, without proposing them (SKILL.md, step 1). Settle the rest in rounds.
 - Settle the new skill's name with them. The name is the `skills/<name>/` folder and the frontmatter `name`, which must match. The new text doesn't mention the old name.
 
 Then it's a new skill, built minimal first (SKILL.md, step 4): plan, edit, check, both reviews and the trigger suite.
