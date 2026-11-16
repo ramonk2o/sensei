@@ -8,20 +8,20 @@ disable-model-invocation: true
 
 Releases what has reached main since the last version. People who installed the plugin get an update only when the version number in `plugin.json` goes up, so a release is what turns merged changes into something users receive.
 
-Talk to the user in their language. Write the changelog and commit messages in the project's documents language (English unless its CLAUDE.md says otherwise).
+Talk to the user in their language.
 
 ## 1. Read the state
 
-- Read the project's CLAUDE.md for its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
+- Read the project's CLAUDE.md for its documents language (for the changelog and commit messages; English if it names none), its tag format, its integration (local merge or pull requests), its commit rules and whether skills stand alone.
 - Switch to main and make sure it's clean and up to date with its remote, if it has one.
 - In pull request mode, list the open pull requests (`gh pr list --state open`).
 - Read `CHANGELOG.md` and `../log/references/changelog.md`.
-- If `[Unreleased]` is empty, look at the newest version in the changelog. When its tag doesn't exist yet, a release pull request was left open and has since been merged: say so and go on with that version from step 4.2 (tag, push, zips and release page), on the user's OK. Otherwise, say there is nothing to release and stop, naming the open pull requests, whose entries will count once they are merged.
-- If `[Unreleased]` has entries and pull requests are open (a feature still in review, or a release pull request left open), show them and ask whether to wait before releasing. Go on only on the maintainer's OK; if they wait, stop here.
+- If `[Unreleased]` is empty and the newest version's tag doesn't exist yet, that release stopped before tagging (a release pull request left open and merged since): say so and, on the user's OK, go on with that version from step 4.2. If the tag exists, say there is nothing to release, name the open pull requests, and stop.
+- If `[Unreleased]` has entries and pull requests are open, show them and ask whether to wait for them before releasing. Go on only on the maintainer's OK.
 
 ## 2. Check
 
-Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --release`. Besides the usual checks, it requires a non-empty `[Unreleased]` and runs `claude plugin validate --profile directory`, which catches what the plugin directory would refuse. Fix failures through `train`, or for a changelog structure problem through `log`'s format, before going on. Don't release over a failure.
+Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --release`. Fix failures through `train`, or for a changelog structure problem through `log`'s format, before going on. Don't release over a failure.
 
 ## 3. Propose
 
@@ -32,7 +32,7 @@ Show in one message:
 - **The entries** that go into it.
 - **What will happen:** the commit, the tag, the push, and the release page with the zips attached.
 
-The user's OK to the number and the summary covers the whole release flow below, the release page included. If they asked for no zips or no release page, when invoking or here, leave that part out. Anything else they change goes back to this step.
+The user's OK to the number and the summary covers the whole release flow below, the release page included. If they asked for no zips or no release page, when invoking or here, leave that part out; anything else they change goes back to this step.
 
 ## 4. Release
 
@@ -40,18 +40,18 @@ The user's OK to the number and the summary covers the whole release flow below,
    - move the entries under `## [X.Y.Z] - YYYY-MM-DD` with the summary, leaving `[Unreleased]` empty above it (changelog reference, Release);
    - bump `version` in `.claude-plugin/plugin.json`.
 
-   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch and bring it in as `../train/references/pull-requests.md` says; the OK to the number covers its steps. Then go on from the merged commit, on main updated with `git pull --ff-only`. If the pull request is left open (a required review, or the maintainer merges on GitHub), stop before tagging and say what's left: a tag on a commit main doesn't have publishes a version main never had.
+   Message: `Release X.Y.Z`. In pull request mode, make the commit on a `release-X.Y.Z` branch, bring it in as `../train/references/pull-requests.md` says, and go on from the merged commit. If the pull request is left open (a required review, or the maintainer merges on GitHub), stop before tagging and say what's left: a tag on a commit main doesn't have publishes a version main never had.
 2. **Tag** it in the project's format:
    - `vX.Y.Z` by default, as an annotated tag;
    - `{name}--v{version}`: create it with `claude plugin tag --dry-run` and then `claude plugin tag`, which also checks that the manifests agree.
-3. **Push** main and the tag (`git push`, `git push origin <tag>`). The push asks for permission. If it's refused, stop and give the user the commands.
+3. **Push** main and the tag (`git push`, `git push origin <tag>`). If the push is refused, stop and give the user the commands.
 4. **Confirm** with `git log origin/main -1` and `git ls-remote --tags origin <tag>`, and give the hash.
 
 ## 5. Zips and the release page
 
-The release page carries the zips by default. Leave the zips out only when the user explicitly asked for that: then build none and publish the page with the notes alone. If they asked for no release page, skip this step.
+Skip this step if the release page was left out (step 3). If only the zips were, publish the page with the notes alone.
 
-Unless the zips were declined, build them from the tagged commit, in a temporary folder outside the repository:
+Otherwise, build the zips from the tagged commit, in a temporary folder outside the repository:
 - **When the skills stand alone** (CLAUDE.md says so): one zip per skill, named `<skill>.zip`, with the skill's folder at the root of the zip:
   ```
   git archive --format=zip --prefix=<skill>/ -o <tmp>/<skill>.zip <tag>:skills/<skill>
@@ -61,7 +61,7 @@ Unless the zips were declined, build them from the tagged commit, in a temporary
   ```
   git archive --format=zip -o <tmp>/<plugin>.zip <tag>
   ```
-  It holds every tracked file except paths marked `export-ignore` in `.gitattributes`. Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
+  Check that it lists `.claude-plugin/plugin.json` and every `skills/<skill>/SKILL.md`.
 
 If the session can publish a release on GitHub (`gh` is available and signed in), publish it with the version's changelog entries as notes and the zips attached. If a release for the tag already exists, attach the zips to it with `gh release upload <tag> <zips>` instead. Otherwise, deliver the notes ready to paste, the command, and the zips' paths.
 
