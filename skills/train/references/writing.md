@@ -45,7 +45,7 @@ The first draft of a new skill or a rewrite holds only:
 - what the model can't know: formats, project facts;
 - a step that checks the result against what a good result looks like, written into the skill from the plan, because a mediocre result doesn't show as a failure and nobody reports it.
 
-Everything else is earned: the cold reader runs on the plan's requests (`testing.md`, A new skill or a rewrite), and only what fails gets text. In a rewrite, the old text is earned the same way, so a real case behind one of its rules joins the plan's requests.
+Everything else is earned: the cold reader runs on the plan's requests (`testing.md`, A new skill or a rewrite), and only what fails gets text. In a rewrite, the old text is earned the same way.
 
 ## Draft, then reread
 
