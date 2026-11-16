@@ -35,7 +35,7 @@ Two read-only agents review changes for `train`:
 - **sweeper** finds leftovers, contradictions, redundancy, drift between skills, broken references, inconsistent terms, vague instructions and scope overlap.
 
 `scripts/check.py` checks:
-- sizes and description lengths against your principles;
+- sizes and description lengths against your principles, and, on a branch, each changed SKILL.md's and description's size and growth against main (information only);
 - names across folders, README and manifests;
 - the files each skill points to;
 - the changelog's structure, and that each branch changing the plugin has a changelog entry;

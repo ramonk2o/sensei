@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- The check script prints each changed SKILL.md's and description's size and growth against main, and `train`'s change plan states the size effect and, when text is added, what was considered for removal.
+
 ### Changed
 
 - `train` writes and changes skill text against six tests run on each sentence (no-op, branch, one source, positive, one word, why) instead of general advice to cut. A reason is kept where the model must generalize a judgment and dropped from mechanical steps, and the `examiner` asks for reasons accordingly.

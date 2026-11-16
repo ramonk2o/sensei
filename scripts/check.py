@@ -6,7 +6,8 @@ Usage:
              [--skill-tokens N] [--description-chars N]
 
 ROOT defaults to the current directory. Exit code 1 when any check fails;
-warnings are printed but don't fail. Standard library only.
+warnings are printed but don't fail. On a branch, it also prints the size of each
+SKILL.md and description changed against main, as information only. Standard library only.
 """
 
 import argparse
@@ -276,6 +277,51 @@ def check_git(root):
     return committed
 
 
+def growth_lines(root, skills, limits):
+    """Size of each SKILL.md and description changed on the branch, against the merge base with main.
+
+    Information only: it never warns or fails. Prints nothing on main or without git.
+    """
+    if not (root / ".git").exists():
+        return []
+    branch = run(["git", "rev-parse", "--abbrev-ref", "HEAD"], root)
+    branch = branch.stdout.strip() if branch and branch.returncode == 0 else None
+    main = main_branch(root)
+    if not branch or not main or branch in (main, "HEAD"):
+        return []
+    mb = run(["git", "merge-base", main, "HEAD"], root)
+    if not mb or mb.returncode != 0:
+        return []
+    base = mb.stdout.strip()
+
+    def share(n, key):
+        return f", {n * 100 // limits[key]}% of {limits[key]}" if limits[key] else ""
+
+    lines = []
+    for s in skills:
+        old = run(["git", "show", f"{base}:./{s['path']}"], root)
+        text = (root / s["path"]).read_text(encoding="utf-8")
+        if old is None or old.returncode != 0:
+            lines.append(f"{s['path']}: new, ~{s['tokens']} tokens{share(s['tokens'], 'skill_tokens')}")
+            continue
+        if old.stdout == text:
+            continue
+        old_fm, _ = parse_frontmatter(old.stdout)
+        old_tokens = len(old.stdout) // 4
+        lines.append(f"{s['path']}: ~{s['tokens']} tokens ({s['tokens'] - old_tokens:+d})"
+                     f"{share(s['tokens'], 'skill_tokens')}")
+        old_desc = (old_fm or {}).get("description", "")
+        if old_desc != s["description"]:
+            n = len(s["description"])
+            lines.append(f"{s['path']} description: {n} characters ({n - len(old_desc):+d})"
+                         f"{share(n, 'description_chars')}")
+    gone = run(["git", "diff", "--relative", "--name-only", "--diff-filter=D", base, "--", "."], root)
+    for f in (gone.stdout.split() if gone and gone.returncode == 0 else []):
+        if re.search(r"(^|/)skills/[^/]+/SKILL\.md$", f):
+            lines.append(f"{f}: removed")
+    return lines
+
+
 def validate(root, plugins, release, committed):
     if shutil.which("claude") is None:
         warn("claude CLI not found: validate skipped")
@@ -366,6 +412,11 @@ def main():
         print(f"warning: {w}")
     for e in errors:
         print(f"FAIL: {e}")
+    growth = growth_lines(root, skills, limits)
+    if growth:
+        print("size against main:")
+        for line in growth:
+            print(f"  {line}")
     total = sum(s["tokens"] for s in skills)
     print(f"{len(skills)} skills, ~{total} tokens in SKILL.md files; "
           f"{len(errors)} failures, {len(warnings)} warnings")
