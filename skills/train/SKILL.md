@@ -39,7 +39,7 @@ When in doubt between two kinds, take the heavier one and say so. A skill that o
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. If the change comes from a backlog entry, its Motivation is the case (an issue is read as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
+Start from what happened: what the skill was asked, what it did and what it should have done. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. For a new skill or a rewrite, the case is as `references/modes.md` says. If the change comes from a backlog entry, its Motivation is the case (an issue is read as `../log/references/issues.md` says, Writing to issues); if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
 
 ### 2. Rounds
 Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.
@@ -61,7 +61,7 @@ Edit only after an explicit OK to this plan.
 - **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal (`references/modes.md`).
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).
-- **Backlog:** if the change came from a backlog entry, it leaves the backlog with this change (`../log/references/backlog.md`, or `../log/references/issues.md` for GitHub issues).
+- **Backlog:** if the change came from a backlog entry, remove it (`../log/references/backlog.md`); in GitHub issues, close it with `Closes #<number>` in the pull request or the merge message (`../log/references/issues.md`).
 
 The plan is closed once approved. A sibling the search missed, which only has to restate the approved rule, is changed on the branch and reported. If writing shows the plan itself must change (a rule that can't be stated as planned, a sibling whose rule conflicts), stop and reopen it with the maintainer.
 
@@ -80,7 +80,7 @@ For the kinds that have reviews, read `references/review.md`, start the review a
 - agent briefings: `${CLAUDE_PLUGIN_ROOT}/agents/sweeper.md` and `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`.
 
 ### 7. Test
-For the kinds that have tests, read `references/testing.md` and run the test it describes for that kind. A failed test comes back as a fix round (step 6's rules), then the test runs again.
+For the kinds that have tests, read `references/testing.md` and run the test it describes for that kind. A failed test comes back as a fix round (`references/review.md`, Using the findings), then the test runs again.
 
 ### 8. Merge
 Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says:
