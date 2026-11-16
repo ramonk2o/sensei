@@ -1,15 +1,25 @@
-# Permissions in the settings files
+# The settings files
 
-The rules `prepare` writes under `permissions`: allow and ask in the shared `.claude/settings.json`, deny in the local one. Claude Code checks deny rules first, then ask, then allow, and the first match decides, so an ask rule prompts even when a broader allow rule also matches.
+What `prepare` writes in the two settings files (`SKILL.md`, steps 4 and 5):
+- **`.claude/settings.json`,** shared with everyone who clones the repository: the attribution and the permissions that allow and ask.
+- **`.claude/settings.local.json`,** personal to this machine and ignored by git: what is turned off. Turning a plugin off in the shared file would turn it off for every contributor, so it goes here. Create it only when something goes in it; never write it empty.
+
+If a file exists, merge: keep every entry and add only what's missing, except the removals this file names.
+
+## Attribution
+
+`"attribution": {"commit": "", "pr": ""}` in the shared file when the project allows no trailers.
 
 ## Allow
 
+Claude Code checks deny rules first, then ask, then allow, and the first match decides, so an ask rule prompts even when a broader allow rule also matches.
+
 `permissions.allow` lets the commands the cycle runs on every change go through without a prompt:
-- sensei's check script. Permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`, and the installed path changes with each version, so write it with wildcards: `Bash(python3 */plugins/cache/*/sensei/*/scripts/check.py*)`. When the plugin being maintained is sensei itself, add `Bash(python3 scripts/check.py*)` for the working copy's script;
+- sensei's check script. Permission rules don't expand `${CLAUDE_PLUGIN_ROOT}`, and the installed path changes with each version, so write it with wildcards: `Bash(python3 */plugins/cache/*/sensei/*/scripts/check.py*)`;
 - `Bash(claude plugin validate*)` and `Bash(claude plugin eval*)`;
 - the local git commands the cycle uses: `Bash(git status*)`, `Bash(git diff*)`, `Bash(git log*)`, `Bash(git show*)`, `Bash(git add*)`, `Bash(git commit*)`, `Bash(git switch*)`, `Bash(git merge*)`, `Bash(git branch --list*)`, `Bash(git tag*)`, `Bash(git merge-base*)`, `Bash(git rev-parse*)`.
 
-With pull requests, also the read-only `gh` commands: `Bash(gh auth status*)`, `Bash(gh pr view*)`, `Bash(gh pr list*)`, `Bash(gh pr checks*)`. With the backlog in GitHub issues: `Bash(gh issue view*)`, `Bash(gh issue list*)`, `Bash(gh label list*)`, `Bash(gh repo view*)`. Never the commands that write (`gh repo create`, `gh pr create`, `gh pr merge`, `gh issue create`, `edit`, `close`, `comment`, `gh label create`): they publish, so they keep asking.
+With pull requests, also the read-only `gh` commands: `Bash(gh auth status*)`, `Bash(gh pr view*)`, `Bash(gh pr list*)`, `Bash(gh pr checks*)`. With the backlog in GitHub issues: `Bash(gh issue view*)`, `Bash(gh issue list*)`, `Bash(gh label list*)`, `Bash(gh repo view*)`. Never the commands that write (`gh repo create`, `gh pr create`, `gh pr merge`, `gh issue create`, `edit`, `close`, `comment`, `gh label create`): they publish, so they keep asking. Never allow push, reset, deleting branches or files, or publishing either: they keep asking too.
 
 `git archive` stays out: `graduate` runs it only to write the release zips, with `-o`, which can overwrite any file, so it asks. The check script runs its own archive without going through these rules. On a re-run, propose removing a `Bash(git archive*)` rule an earlier version of sensei added.
 
@@ -24,4 +34,8 @@ These rules cover the forms Claude usually writes, not every way to run git (`gi
 
 ## Local file
 
-`.claude/settings.local.json` holds what turns things off for this machine only (`SKILL.md`, steps 4 and 5). A plugin's single skill is turned off with `permissions.deny: ["Skill(<plugin>:<skill>)"]`: its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. `skillOverrides` doesn't reach plugin skills. Checked with the CLI on 2026-11-10; Claude Code's docs don't state it.
+- **The plugin being maintained:** `enabledPlugins` set to `false` for its installed copy, by its `id` from `claude plugin list --json` (`name@marketplace`), so its released skills don't fire while its source is being changed. When that list doesn't include it (a new plugin), write no entry.
+- **Conflicts** (step 5), on the user's agreement:
+  - **a plugin's skill** (`plugin:skill`) alone: `permissions.deny: ["Skill(<plugin>:<skill>)"]`, so the plugin's other skills stay on. Its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. The prefix is the manifest's name and can differ from the plugin's `id`. Checked with the CLI on 2026-11-10; Claude Code's docs don't state it;
+  - **a whole plugin,** when all its skills conflict: `false` in `enabledPlugins`, by its `id`;
+  - **a skill with no plugin prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`. `skillOverrides` doesn't reach plugin skills.
