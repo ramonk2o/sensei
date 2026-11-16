@@ -28,7 +28,7 @@ Interview in rounds of up to five numbered questions, each with your recommended
 - **Requests:** two or three concrete requests for each kind of use, in the users' own words, and what a good result looks like for each. This question has no recommended answer: give only the shape (who asks, in what situation), because these requests are the case every skill is built and tested from, and an invented one tests only what the model already expects. For a kind of use with no request yet, recommend leaving its skill for later (step 5), with "no case recorded" as its Motivation and any request you suggest under its Open questions.
 - **Out of scope:** what the plugin deliberately doesn't do.
 
-Look facts up yourself instead of asking: the plugins installed in this session and Anthropic's official ones that already cover part of this ground, and what Claude Code allows (skills, agents, hooks, commands, MCP servers). Name the overlaps you find, so the user decides what the plugin adds.
+Look facts up yourself instead of asking: the plugins installed in this session and Anthropic's official ones that already cover part of this ground, and what Claude Code allows. Name the overlaps you find, so the user decides what the plugin adds.
 
 ## 3. Skills
 
@@ -64,7 +64,7 @@ Wait for the OK.
 
 When a file already exists, merge into it: keep every entry and section the plan doesn't change, so nothing the user or `log` added is lost.
 
-- **`docs/principles.md`:** in the format of `../prepare/references/principles.md`. Its title carries the plugin's name, and its opening states the purpose, the people and what's out of scope from step 2.
+- **`docs/principles.md`:** in the format of `../prepare/references/principles.md`.
 - **`BACKLOG.md`:** in the format of `../log/references/backlog.md`, one Idea per skill of the first version, in its skill's area, the areas in build order. Each entry's Motivation is the skill's requests and good results from step 2, its Description the skill's purpose and scope, its Decisions what step 3 settled (the borders, the invocation, the shared references it keeps). Components of the first version that belong to no single skill (a shared agent, a hook, a script) get their own Idea under `Plugin`, with the request that needs it as its Motivation. Ideas for later follow them under `Plugin`, one entry each, not an area of their own. Write it as a file even when the backlog will live in GitHub issues: `prepare` moves the entries there.
 
 Write only these two files: `prepare` and `train` create the skeleton, the CLAUDE.md and the skills from them.
