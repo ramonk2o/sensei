@@ -60,7 +60,7 @@ Present one message with:
   Recommend one, with its reason. The choice is the maintainer's design decision.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
 - **Effect on the version** (`../log/references/changelog.md`, The version number).
-- **Size effect:** how many tokens each SKILL.md and description gains or loses, estimated, and, when text is added, what was considered for removal.
+- **Size effect:** how many tokens each SKILL.md and how many characters each description gains or loses, estimated, and, when text is added, what was considered for removal.
 - **Sample text:** for a new rule or section, the actual wording, so the maintainer judges text, not a description of it.
 
 Edit only after an explicit OK to this plan.
@@ -81,7 +81,7 @@ Commit on the branch, with the author and trailer rules from CLAUDE.md. Then run
 python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py
 ```
 
-It checks sizes, names, the files a skill points to, the changelog's structure and that the branch has a changelog entry. It also runs `claude plugin validate` on an archive of the commit. It also prints each changed SKILL.md's and description's size against main; compare it with the plan's estimate and say where it differs. Fix every failure, commit and run it again. Warnings are judgment calls: say what each one is.
+It checks sizes, names, the files a skill points to, the changelog's structure and that the branch has a changelog entry. It also runs `claude plugin validate` on an archive of the commit. It prints each changed SKILL.md's size in tokens and description's in characters, against main; compare them with the plan's estimate and say where they differ. Fix every failure, commit and run it again. Warnings are judgment calls: say what each one is.
 
 ### 6. Reviews
 For the kinds that have reviews, read `references/review.md` and start the review agents it describes. When there are two, start them in parallel. The paths they need:
