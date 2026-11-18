@@ -80,7 +80,7 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.
 - **What's next:** read the open entries and show, without changing anything:
   1. a table of the ready ones in the order to take them: first those with no open blocker, then those still blocked, each after its blockers; within each group, bugs, then ideas, then debt, oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers;
-  2. the entries that need clarification, oldest first, each with what it lacks;
+  2. the entries that need clarification, oldest first, each with what it lacks and the ready entries it blocks;
   3. the one to take next: the first in the table with no open blocker, with its tier's model (`models.md`). When there's none, the entry to clarify first: one that blocks a ready entry, or else the oldest.
 
   Place an entry with no readiness label by the Ready test, say which ones they are, and offer to label them (Clean up).
