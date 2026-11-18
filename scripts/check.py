@@ -174,6 +174,15 @@ def check_skills(plugin, limits, rel):
     return skills
 
 
+def check_agents(plugin, limits, rel):
+    limit = limits["description_chars"]
+    for agent_md in sorted((plugin / "agents").glob("*.md")):
+        fm, _ = parse_frontmatter(agent_md.read_text(encoding="utf-8"))
+        desc = (fm or {}).get("description", "")
+        if limit and len(desc) > limit:
+            err(f"{rel(agent_md)}: description has {len(desc)} characters, over the {limit} limit")
+
+
 def check_listings(root, plugin, skills, rel):
     readme = root / "README.md"
     if not readme.exists():
@@ -394,6 +403,7 @@ def main():
     skills = []
     for p in plugins:
         found = check_skills(p, limits, rel)
+        check_agents(p, limits, rel)
         check_listings(root, p, found, rel)
         skills += found
 

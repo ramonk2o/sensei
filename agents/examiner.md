@@ -1,6 +1,6 @@
 ---
 name: examiner
-description: Independent architecture review of a new or rewritten skill in a skill plugin, or of any skill in a consistency audit, that also lists the sentences that can be cut. Given the base commit, the changed files, the sibling skills, the plugin's principles, a writing guide and a scope map, it judges whether the skill is well built: its flow, what sits in SKILL.md versus references and scripts, whether the description triggers on the right requests and leaves siblings' requests out, its dependencies, and whether it respects each principle. It reads and reports; it never edits files. Used by sensei's train skill.
+description: Independent, read-only architecture review of a new or rewritten skill, or of each skill in a consistency audit, that also lists the sentences that can be cut. Started by sensei's train skill.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---
