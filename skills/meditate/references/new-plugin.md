@@ -1,7 +1,5 @@
 # A new plugin
 
-Takes a plugin from an idea to a plan: the people it serves and the requests they'll make are understood, the skills are split with clear borders, the principles are agreed, and the skills are lined up in the order to build them. From there, sensei's cycle takes over: `prepare` sets up the repository from the plan, and `train` builds each skill from its backlog entry.
-
 The order matters. The requests come before the skills, because a skill is a group of requests that share a flow, not a topic. The borders come before the first skill, because a border moved later means rewriting two descriptions and the skills that point to each other.
 
 ## What to settle

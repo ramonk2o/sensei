@@ -1,15 +1,15 @@
 # A change to a plugin
 
-The plugin exists, and the change is planned here and built by `train`, one issue at a time. An issue is ready when `train` can write its change plan without asking the user for a decision (`../log/references/backlog.md`, Ready), so the rounds settle every decision that plan would need.
+The plugin exists, and the change is planned here and built by `train`, one issue at a time. The rounds settle every decision `train`'s change plan would otherwise ask the user for (`../log/references/backlog.md`, Ready).
 
 ## Before the first round
 
-Read, in an agent if the session can start one:
+Read:
 - the project's CLAUDE.md, for its facts (the documents' language, where the backlog lives), and its `docs/principles.md`;
 - the skills the change touches, and every other skill or listing (README, manifests) that states the same rule: search for its key terms;
 - the backlog entries about it, including any the change came from. In GitHub issues, find them and read them as `../log/references/issues.md` says (Operations, Check for duplicates; Writing to issues).
 
-When the CLAUDE.md doesn't name sensei, say that `/sensei:prepare` sets the project up for `train`, which builds the issues. Until then, they go to `backlog/`.
+When the CLAUDE.md doesn't name sensei, say that `/sensei:prepare` sets the project up for `train`, which builds the issues. While it gives no Backlog fact, they go to `backlog/`.
 
 ## What to settle
 
