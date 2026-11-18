@@ -47,7 +47,7 @@ It also prints a scope map of your skills.
 
 | Kind | Plan | Branch | Reviews | Test |
 |---|---|---|---|---|
-| Wording fix | no | no | none | none |
+| Wording fix | no | with pull requests | none | none |
 | Behavior change | yes | yes | sweeper | a cold reader |
 | Description change | yes | yes | sweeper | trigger suite (`claude plugin eval`) |
 | New skill or rewrite | yes | yes | examiner and sweeper | a cold reader and the trigger suite |

@@ -29,7 +29,7 @@ Decide the kind first, because it sets how much of the form runs:
 
 | Kind | Rounds and plan | Branch | Reviews | Test |
 |---|---|---|---|---|
-| **Wording fix** (typo, confusing sentence; no behavior change, not a description) | no | no: commit on main | none | none |
+| **Wording fix** (typo, confusing sentence; no behavior change; in a description, a typo only) | no | only with pull requests | none | none |
 | **Behavior change** to an existing skill | yes | yes | `sweeper` | cold reader |
 | **Description change** (what triggers the skill) | yes | yes | `sweeper` | trigger suite |
 | **New skill or full rewrite** | yes | yes | `examiner` and `sweeper` | cold reader and trigger suite |
