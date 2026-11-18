@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- The `sweeper`'s and `examiner`'s descriptions say only what each agent does and when it's used (149 and 192 characters, down from 528 and 613); what each review checks stays in its body. The check script now holds agent descriptions to the same `description_chars` limit as skills, and `train`'s writing guide states the rule for the agents of maintained plugins.
+
 ## [0.9.0] - 2026-11-16
 
 Skills get leaner: train writes and checks text against sentence-level tests and proposes cuts from the examiner, and every SKILL.md is shorter with the same behavior.
