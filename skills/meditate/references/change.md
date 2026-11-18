@@ -1,6 +1,6 @@
 # A change to a plugin
 
-The plugin exists, and the change is planned here and built by `train`, one issue at a time. The rounds settle every decision `train`'s change plan would otherwise ask the user for (`../log/references/backlog.md`, Ready).
+The plugin exists, and the change is planned here and built by `train`, one issue at a time. The rounds settle every decision `train` would otherwise have to ask the user for before planning (`../log/references/backlog.md`, Ready).
 
 ## Before the first round
 
