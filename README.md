@@ -17,6 +17,7 @@ The names follow a dojo: **meditate** on a new plugin, **prepare** the repositor
 - **prepare** sets up a plugin repository, new or existing:
   - what's missing of the skeleton, and the principles your skills follow;
   - a CLAUDE.md with the project's facts, recommending pull requests and a backlog in GitHub issues when `gh` is signed in, and offering to create the GitHub repository when there's none;
+  - the backlog's home: the `ready` and `needs-clarification` labels in GitHub issues, or a `backlog/` folder, with an existing BACKLOG.md moved into it;
   - settings that turn off conflicting plugins and skills, and the installed copy of the plugin itself, in its own repository (except for sensei itself, whose installed copy does the maintenance);
   - the rules of an old process document moved into place.
 

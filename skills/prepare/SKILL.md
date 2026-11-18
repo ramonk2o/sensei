@@ -17,7 +17,7 @@ Nothing is written before the user's OK. When principles are missing, settle the
 Read the repository before proposing anything:
 - **Manifests:** `.claude-plugin/plugin.json`, `marketplace.json`.
 - **Skills:** `skills/*/SKILL.md`, their `references/`, and any agents, hooks or commands.
-- **Documents:** README, LICENSE, CHANGELOG, BACKLOG, `docs/principles.md`, CLAUDE.md.
+- **Documents:** README, LICENSE, CHANGELOG, the backlog (`backlog/`, or an older BACKLOG.md), `docs/principles.md`, CLAUDE.md.
 - **Old process documents:** a pasted project prompt kept in the repo, CONTRIBUTING, or a maintenance doc.
 - **Git:** whether it's a repository, its tags, its git log (authors, trailers).
 - **GitHub:** its remote, whether `gh` is signed in and whether issues are on, as `references/github.md` says. They set the integration and where the backlog lives.
@@ -25,7 +25,7 @@ Read the repository before proposing anything:
 Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .` to see where it stands.
 
 If the folder isn't a plugin and the user wants one, it's a new plugin:
-- When `docs/principles.md` and BACKLOG.md hold a plan from `/sensei:meditate`, take the name (the principles' title), the purpose (its opening) and the skills (the backlog's areas other than `Plugin`) from them, without asking again.
+- When `docs/principles.md` and a backlog hold a plan from `/sensei:meditate`, take the name (the principles' title), the purpose (its opening) and the skills from them, without asking again. The skills are the areas (each entry's first label) of the `backlog/` entries other than `plugin`, in the order the entries are numbered; in an older plan's BACKLOG.md, its areas other than `Plugin`.
 - Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, or declines `meditate`, propose its name, its first skill's purpose in one sentence and the skeleton. If they agree, stop here and tell them to run `/sensei:meditate`, then `/sensei:prepare` again.
 
 If it's an existing plugin, everything below adapts to what's there.
@@ -41,14 +41,15 @@ Propose only what's missing:
 - `.claude-plugin/marketplace.json`, named after the plugin, with an entry whose `source` is `./`, so the plugin installs from its own repository;
 - README (what it is, the skills, install, how it's built, contributing, license), drawn from the principles' opening and the backlog's entries when a plan exists, listing the skills as planned. Don't create the skills' folders: each one is built with `train`;
 - LICENSE (MIT unless the user says otherwise);
-- CHANGELOG.md, in the format of `../log/references/changelog.md`, and BACKLOG.md in that of `../log/references/backlog.md` unless the backlog goes to GitHub issues;
+- CHANGELOG.md, in the format of `../log/references/changelog.md`;
+- the backlog's home, and an existing BACKLOG.md's move into it: read `references/backlog.md`;
 - `docs/principles.md`.
 
 **Principles,** when `docs/principles.md` is missing, are settled with the user in rounds: read `references/principles.md` and run them now, before drafting anything else. When the file exists, propose only its limits block if it lacks one, from the limits it already states, or the defaults in `references/principles.md` when it states none.
 
 **Git:** if it isn't a repository, propose `git init -b main` (git's own default name varies with its version and settings) and a `.gitignore` with OS files (`.DS_Store` and the like), `.claude/settings.local.json` and `evals/**/results/`. If it is, propose only the lines its `.gitignore` is missing.
 
-**GitHub:** with no remote and `gh` signed in, propose creating the repository, and when the backlog goes to issues with entries in BACKLOG.md, the issues to create (`references/github.md`).
+**GitHub:** with no remote and `gh` signed in, propose creating the repository. When the backlog goes to issues, propose the readiness labels it lacks and, when `backlog/` or BACKLOG.md has entries, the issues to create (`references/github.md`).
 
 ## 3. CLAUDE.md
 
@@ -64,7 +65,7 @@ Rules that Claude Code can enforce go in settings, not prose. Read `references/s
 
 Look at the skills available in this session, other than sensei's own. List those whose descriptions claim sensei's work:
 - writing or improving skills;
-- managing a BACKLOG or CHANGELOG;
+- managing a backlog or CHANGELOG;
 - releasing versions;
 - reviewing or judging changes to skills, or contributions to a skill plugin.
 
@@ -83,18 +84,18 @@ On a re-run, skip skills already turned off: a skill still shows in the session 
   - a personal preference is pointed to the user-level CLAUDE.md.
 
   Show where each rule goes. Then propose removing the document, or keeping it as history if the user prefers.
-- **Documents that overlap** BACKLOG or CHANGELOG (TODO.md, ROADMAP.md, HISTORY.md): point them out. Aligning them is `log`'s job.
+- **Documents that overlap** the backlog or CHANGELOG (TODO.md, ROADMAP.md, HISTORY.md): point them out. Aligning them is `log`'s job.
 - **Broken references** in CLAUDE.md or the README: point them out.
 
 ## 7. Review
 
 Show everything in one message:
 - the skeleton and principles (or their rounds, first);
-- the GitHub repository to create and the issues to migrate, if any;
+- the GitHub repository to create, the labels and the issues to create, if any;
 - the CLAUDE.md draft or its changes;
 - both settings files;
 - the conflicts;
-- the migration.
+- the migration: old process documents, and a BACKLOG.md's entries as the files or issues they become.
 
 On a re-run, show only the differences, plus step 5's line of conflicts still on. When there are no differences, say so in a line, show that line if there is one, and stop unless the user turns one off.
 
@@ -107,7 +108,7 @@ Apply what was approved, in this order:
 2. skeleton and principles;
 3. CLAUDE.md;
 4. settings;
-5. the backlog's move to issues, if approved;
+5. the backlog: its labels or folder, its entries' move if approved, then the CLAUDE.md's Backlog fact if it changes;
 6. removals.
 
 Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .`. The script's own validate checks the last commit, which doesn't hold the setup yet. Failures aren't fixed here:
