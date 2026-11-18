@@ -6,14 +6,14 @@ The skills are written in English and talk to you in your own language. Everythi
 
 ## Skills
 
-The names follow a dojo: **meditate** on a new plugin, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
+The names follow a dojo: **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
-- **meditate** plans a new plugin from an idea, before any skill exists:
-  - who it serves and the concrete requests it must answer;
-  - which skills it has, where each one's scope ends, and which comes first;
-  - its principles, written to `docs/principles.md`, and one backlog entry per skill, for `prepare` and `train` to pick up.
+- **meditate** plans a new plugin from an idea, or a change to an existing one, before anything is built:
+  - for a new plugin, who it serves, the concrete requests it must answer, its skills and their borders, and its principles, written to `docs/principles.md` for `prepare` to pick up;
+  - for a change, its case and every decision it needs;
+  - in both, rounds of questions with a recommended answer each, then the work split into ready backlog issues that `train` builds one at a time, each with its acceptance criteria, blockers and model tier.
 
-  Run it with `/sensei:meditate`.
+  Run it with `/sensei:meditate`, or ask to plan a plugin or a change.
 - **prepare** sets up a plugin repository, new or existing:
   - what's missing of the skeleton, and the principles your skills follow;
   - a CLAUDE.md with the project's facts, recommending pull requests and a backlog in GitHub issues when `gh` is signed in, and offering to create the GitHub repository when there's none;
