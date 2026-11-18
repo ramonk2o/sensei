@@ -7,7 +7,7 @@ A skill is read by a model whose failures its author can't see from inside the c
 The cold reader tests what happens once the skill is running; the trigger suite below tests only whether it starts. A new skill or a full rewrite gets both, the cold reader first, so the description is tested on a flow that already works. Use one case per main path of the skill; for a new skill or a rewrite, the plan's requests are the cases (below).
 
 Start a fresh agent with no access to this conversation, on the session's model. When the target's principles name a weaker model its users run, start it on that one if the session can choose an agent's model. Give it only:
-- the changed `SKILL.md` and every changed reference (most contradictions are between a SKILL.md and a reference);
+- every changed file of the skill (most contradictions are between a SKILL.md and a reference), and what the model running it has on the case's path (`writing.md`, One source), as the case's project has it. Nothing more: a file the text doesn't send the model to would hide a gap where the text relies on it;
 - the real case, written as the user's request, with any material the user gave;
 - the question: "Following only these files, what do you do with this request, step by step? Where did you have to guess, or could two readings lead you to different results? Name only the gaps that change or could change what you do."
 
@@ -24,7 +24,7 @@ In step 7 the cold reader runs again only when a review fix changed what the ski
 
 ### Cuts from an audit
 
-Cuts are meant to change nothing, so their cold reader compares instead of judging against a plan. Write one request per main path of the skill and run each twice, in parallel: on the skill's files as cut, plus any file a One source cut points to, and on the same files from main. It passes when both answers do the same. When they differ, put back the cut that caused the difference and run that request again.
+Cuts are meant to change nothing, so their cold reader compares instead of judging against a plan. Write one request per main path of the skill and run each twice, in parallel: on the skill's files as cut, and on the same files from main. It passes when both answers do the same. When they differ, put back the cut that caused the difference and run that request again.
 
 ## New skill or description change: the trigger suite
 

@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `train` settles once what the model running a skill has: the skill's SKILL.md and what its text sends the model to read, with a project's CLAUDE.md counting only for the facts the skill names there, never the plugin repository's own. The one-source test uses it, so a cut no longer leans on a CLAUDE.md the skill's users don't have, and the cold reader gets it for the case's path, so a change to a reference alone is tested with the SKILL.md that routes to it and the project facts it reads, nothing more. The `sweeper` also reads the SKILL.md of every skill whose references changed.
+
 ## [0.9.0] - 2026-11-16
 
 Skills get leaner: train writes and checks text against sentence-level tests and proposes cuts from the examiner, and every SKILL.md is shorter with the same behavior.
