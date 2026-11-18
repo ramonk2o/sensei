@@ -1,6 +1,6 @@
 ---
 name: train
-description: In a repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command, judges an issue or pull request, audits consistency or recreates a skill, e.g. 'the deck skill did X, it should do Y'. Not for noting an idea (log) or releasing (/sensei:graduate).
+description: In a repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command, judges an issue or PR, or audits consistency, e.g. 'the deck skill did X, it should do Y'; an unclear request goes on to meditate. Not for noting an idea (log) or releasing (/sensei:graduate).
 ---
 
 # Train

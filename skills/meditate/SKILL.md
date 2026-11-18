@@ -5,7 +5,7 @@ description: Plans a new skill plugin, or a change to one that's unsettled or sp
 
 # Meditate
 
-Takes an idea to issues ready to build, for a new plugin or a change to an existing one: it asks until the user and the agent share an understanding of what must be done, splits that understanding into issues `train` builds one at a time, and writes them to the backlog. It doesn't change skills (`train` does, from these issues), note a stray idea (`log`) or set up a repository (`/sensei:prepare`).
+Takes a new plugin, or a change to one that isn't settled, to issues ready to build: it settles every decision in rounds, splits what it settled into issues `train` builds one at a time, and writes them to the backlog. `train` starts it on a request that needs clarifying. It doesn't change skills (`train` does, from these issues), note a stray idea (`log`) or set up a repository (`/sensei:prepare`).
 
 Talk to the user in their language. Write in English, unless the project's CLAUDE.md names another language or, for a new plugin, the user asks for one.
 

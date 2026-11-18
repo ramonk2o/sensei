@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Prepare
 
-Prepares a repository so the plugin it holds can be maintained with sensei's skills: `train` (changing skills), `log` (backlog and changelog) and `graduate` (releases). The cycle lives in those skills. This setup only puts the project's facts and its enforced settings in place, so updating sensei updates every project.
+Prepares a repository so the plugin it holds can be maintained with sensei's skills: `meditate` (planning), `train` (changing skills), `log` (backlog and changelog) and `graduate` (releases). The cycle lives in those skills. This setup only puts the project's facts and its enforced settings in place, so updating sensei updates every project.
 
 Talk to the user in their language. Write every file in English, unless the user explicitly asks for another language for the project's documents. Then record it in CLAUDE.md.
 
