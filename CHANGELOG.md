@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- A wording fix in `train` starts from an up-to-date main. In a project that integrates through pull requests, it goes on a short branch and pull request, and the one OK to the reported fix covers the push, the pull request and the merge. A typo in a description is now a wording fix.
+
 ## [0.9.0] - 2026-11-16
 
 Skills get leaner: train writes and checks text against sentence-level tests and proposes cuts from the examiner, and every SKILL.md is shorter with the same behavior.
