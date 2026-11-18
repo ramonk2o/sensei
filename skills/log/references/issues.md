@@ -13,7 +13,7 @@ Everything in `backlog.md` still holds (each entry starts from its case, what ea
 | The body | The issue's body |
 | `labels`: the area and the readiness | The same labels: the skill's folder name or `plugin`, and `ready` or `needs-clarification` |
 | `type` | A label: `idea`, `bug` or `debt` |
-| Blocked by | GitHub's blocked-by relationship when `gh issue list --limit 1 --json blockedBy` succeeds; otherwise the Blocked by field in the body |
+| Blocked by | GitHub's blocked-by relationship, in place of the body's field, when `gh issue list --limit 1 --json blockedBy` succeeds; otherwise the field |
 | `status: discarded` | Closed as not planned, with a comment giving the reason and the date |
 | Done: the file is removed | `Closes #<number>` in the pull request's body, or in the merge commit's message with local merge, so the issue closes when the change reaches the default branch |
 

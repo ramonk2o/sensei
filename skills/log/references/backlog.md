@@ -38,8 +38,8 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 - **Motivation** is the case, condensed: the request, what happened, what should have happened. For a skill not built yet, it's the concrete requests the skill must serve, quoted whole since they are its test cases. Quote only key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
 - **Acceptance criteria:** what a good result looks like for each request of the case, or another way to tell the change works.
 - **Blocked by:** the entries that must be done before this one.
-- **Model:** the tier of model the change needs, from the kind of change the Description asks for (`models.md`).
-- **Write only what the maintainer said or decided.** An assumption is an open question.
+- **Model:** the tier of model the change needs (`models.md`).
+- **Write only what the maintainer said or decided.** An assumption is an open question. The type, area, readiness and tier are yours to set from what was said.
 
 ## Ready
 
@@ -53,7 +53,7 @@ Any other entry needs clarification. Set the readiness by this test each time an
 
 ## The folder
 
-Each entry is a file `backlog/<number>-<slug>.md`, the slug a few words of the title in lowercase with hyphens (`backlog/7-deck-duration-question.md`). A new entry takes one more than the highest number the folder has ever used, counting files removed since (`git log --format= --name-only -- backlog/`), so a number never points to two entries.
+Each entry is a file `backlog/<number>-<slug>.md`, the slug a few words of the title in lowercase with hyphens (`backlog/7-deck-duration-question.md`). A new entry takes one more than the highest number the folder has ever used, counting files removed since and files on other branches (`git log --all --format= --name-only -- backlog/`), so a number never points to two entries.
 
 ```markdown
 ---
@@ -79,7 +79,7 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
   - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge.
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.
 - **What's next:** read the open entries and show, without changing anything:
-  1. a table of the ready ones in the order to take them: those with no open blocker first, and none before an open entry it's blocked by; then bugs, ideas, debt; then the oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers;
+  1. a table of the ready ones in the order to take them: first those with no open blocker, then those still blocked, each after its blockers; within each group, bugs, then ideas, then debt, oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers;
   2. the entries that need clarification, oldest first, each with what it lacks;
   3. the one to take next: the first in the table with no open blocker, with its tier's model (`models.md`). When there's none, the entry to clarify first: one that blocks a ready entry, or else the oldest.
 

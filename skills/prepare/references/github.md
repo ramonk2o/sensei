@@ -27,7 +27,7 @@ Say the recommendation and its reason in step 7's review, like the other facts. 
 
 ## Moving the backlog to issues
 
-When the backlog goes to issues and BACKLOG.md has entries (a `meditate` plan, or an older backlog), show in step 7 the list of issues to create, as `../log/references/issues.md` says (Migrate from BACKLOG.md). In step 8, migrate after the CLAUDE.md and the settings. Until every issue exists, the CLAUDE.md's Backlog fact stays BACKLOG.md; switch it once the migration is done, so a failed migration doesn't leave the backlog in two places. Take a `meditate` plan's name, purpose and skills from BACKLOG.md before it's removed.
+When the backlog goes to issues and BACKLOG.md has entries (a `meditate` plan, or an older backlog), show in step 7 the list of issues to create, as `../log/references/issues.md` says (Migrate from the repository). In step 8, migrate after the CLAUDE.md and the settings. Until every issue exists, the CLAUDE.md's Backlog fact stays BACKLOG.md; switch it once the migration is done, so a failed migration doesn't leave the backlog in two places. Take a `meditate` plan's name, purpose and skills from BACKLOG.md before it's removed.
 
 ## Setup's own commit
 
