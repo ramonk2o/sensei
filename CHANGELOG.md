@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-11-18
+
+Train settles what a skill's model really has when it runs, and its light paths stay light: wording fixes reach main in pull request mode, and agent descriptions are held to the skills' limit.
+
 ### Changed
 
 - A wording fix in `train` starts from an up-to-date main. In a project that integrates through pull requests, it goes on a short branch and pull request, and the one OK to the reported fix covers the push, the pull request and the merge. A typo in a description is now a wording fix.
