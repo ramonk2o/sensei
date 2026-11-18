@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Changed
 
 - A wording fix in `train` starts from an up-to-date main. In a project that integrates through pull requests, it goes on a short branch and pull request, and the one OK to the reported fix covers the push, the pull request and the merge. A typo in a description is now a wording fix.
+- The `sweeper`'s and `examiner`'s descriptions say only what each agent does and when it's used (149 and 192 characters, down from 528 and 613); what each review checks stays in its body. The check script now holds agent descriptions to the same `description_chars` limit as skills, and `train`'s writing guide states the rule for the agents of maintained plugins.
 - `train` settles once what the model running a skill has: the skill's SKILL.md and what its text sends the model to read, with a project's CLAUDE.md counting only for the facts the skill names there, never the plugin repository's own. The one-source test uses it, so a cut no longer leans on a CLAUDE.md the skill's users don't have, and the cold reader gets it for the case's path, so a change to a reference alone is tested with the SKILL.md that routes to it and the project facts it reads, nothing more. The `sweeper` also reads the SKILL.md of every skill whose references changed.
 
 ## [0.9.0] - 2026-11-16

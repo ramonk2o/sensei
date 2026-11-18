@@ -1,6 +1,6 @@
 ---
 name: sweeper
-description: Independent cohesion review of a change to a skill plugin. Given the base commit, the changed files, the sibling skills and the plugin's principles, it looks for leftovers, contradictions (including between a SKILL.md and its references), redundancy, drift of a shared rule between siblings, broken references, inconsistent terms, instructions too vague to act on, and scope overlap between skills. It reads and reports; it never edits files. Used by sensei's train skill after a change is committed, and for consistency audits.
+description: Independent, read-only cohesion review of a change to a skill plugin, or of the whole plugin in a consistency audit. Started by sensei's train skill.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---
