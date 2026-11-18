@@ -2,7 +2,7 @@
 
 ## A wording fix
 
-Check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../../log/references/changelog.md`). Commit on main, then run the check script (its path is in SKILL.md, step 5); if it fails, fix and amend.
+Switch to an up-to-date main; with pull requests, create a short branch from it named after the fix. Check whether the same text repeats in another file, then edit and add a changelog entry if users could have noticed it (`../../log/references/changelog.md`). Commit, then run the check script (its path is in SKILL.md, step 5); if it fails, fix and amend. Report the fix. With pull requests, bring the branch in as `pull-requests.md` says.
 
 ## A new skill or a rewrite
 
