@@ -25,7 +25,7 @@ Read the repository before proposing anything:
 Then run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .` to see where it stands.
 
 If the folder isn't a plugin and the user wants one, it's a new plugin:
-- When `docs/principles.md` and a backlog hold a plan from `/sensei:meditate`, take the name (the principles' title), the purpose (its opening) and the skills from them, without asking again. The skills are the area labels of the `backlog/` entries other than `plugin`, in the order the entries are numbered; in an older plan's BACKLOG.md, its areas other than `Plugin`.
+- When `docs/principles.md` and a backlog hold a plan from `/sensei:meditate`, take the name (the principles' title), the purpose (its opening) and the skills from them, without asking again. The skills are the areas (each entry's first label) of the `backlog/` entries other than `plugin`, in the order the entries are numbered; in an older plan's BACKLOG.md, its areas other than `Plugin`.
 - Without a plan, recommend running `/sensei:meditate` first when the plugin will have more than one skill or its scope is still open. When the user can state its single skill's purpose in one sentence, or declines `meditate`, propose its name, its first skill's purpose in one sentence and the skeleton. If they agree, stop here and tell them to run `/sensei:meditate`, then `/sensei:prepare` again.
 
 If it's an existing plugin, everything below adapts to what's there.
@@ -95,7 +95,7 @@ Show everything in one message:
 - the CLAUDE.md draft or its changes;
 - both settings files;
 - the conflicts;
-- the migration: old process documents, and a BACKLOG.md's entries as the files they become.
+- the migration: old process documents, and a BACKLOG.md's entries as the files or issues they become.
 
 On a re-run, show only the differences, plus step 5's line of conflicts still on. When there are no differences, say so in a line, show that line if there is one, and stop unless the user turns one off.
 
@@ -108,7 +108,7 @@ Apply what was approved, in this order:
 2. skeleton and principles;
 3. CLAUDE.md;
 4. settings;
-5. the backlog: its labels or folder, then its entries' move, if approved;
+5. the backlog: its labels or folder, its entries' move if approved, then the CLAUDE.md's Backlog fact if it changes;
 6. removals.
 
 Then check the working tree as it now is: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --no-validate` and `claude plugin validate .`. The script's own validate checks the last commit, which doesn't hold the setup yet. Failures aren't fixed here:

@@ -7,7 +7,7 @@ Where the repository lives sets two facts of the CLAUDE.md: the integration and 
 - the remote (`git remote -v`): on GitHub, on another host, or none;
 - whether `gh` is installed and signed in (`gh auth status`);
 - on GitHub, whether issues are on (`gh repo view --json hasIssuesEnabled`). A repository created here has them on;
-- with the backlog in issues, which readiness labels exist (`gh label list --json name`).
+- with the backlog in issues, which readiness labels exist (`gh label list --limit 200 --json name`).
 
 ## The recommendation
 
