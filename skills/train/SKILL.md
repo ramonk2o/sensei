@@ -5,7 +5,7 @@ description: In a repository whose CLAUDE.md names sensei, creates or changes a 
 
 # Train
 
-A change to a skill goes wrong in predictable ways: it fixes the one example that failed instead of the case behind it, changes a rule in one skill while a sibling or a reference still states the old one, or is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these, the way a dojo drills a technique. Ideas for later go to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
+A change to a skill goes wrong in predictable ways: it fixes the one example that failed instead of the case behind it, changes a rule in one skill while a sibling or a reference still states the old one, or is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these. It builds what is ready: a request that needs clarifying goes to `meditate`, ideas for later to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
 
 **The skills are the object of the work here, not tools.** When the maintainer talks about the plugin's subject (prompts, decks, emails…), it's about improving the skill. Don't run that skill's flow unless they explicitly ask to use it.
 
@@ -27,7 +27,7 @@ Sensei's own files are under `${CLAUDE_PLUGIN_ROOT}`. The references below can't
 
 Decide the kind first, because it sets how much of the form runs:
 
-| Kind | Rounds and plan | Branch | Reviews | Test |
+| Kind | Plan | Branch | Reviews | Test |
 |---|---|---|---|---|
 | **Wording fix** (typo, confusing sentence; no behavior change; in a description, a typo only) | no | only with pull requests | none | none |
 | **Behavior change** to an existing skill | yes | yes | `sweeper` | cold reader |
@@ -39,10 +39,12 @@ When in doubt between two kinds, take the heavier one and say so. A skill that o
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done, best from the conversation or an excerpt. When the maintainer has only an account of it, or a request they expect, take it as a hypothetical case and say so in the plan and the commit message, since the first real case can overturn it. Going without any case is the maintainer's explicit decision. If the maintainer brings only an impression ("it's off", "improve it"), ask for the conversation, the excerpt or an example before proposing anything. A change built on an impression becomes rework. Ask for a missing case without proposing one, not even as an example request: an invented case tests only what the model already expects. For a new skill or a rewrite, the case is as `references/modes.md` says. If the change comes from a backlog entry, the entry holds the case (an issue is read as `../log/references/issues.md` says, Writing to issues), and what keeps it from being ready (`../log/references/backlog.md`, Ready) is asked before the plan; if it comes from an audit finding, the finding is, and you ask for another example only when the maintainer doubts it happens.
+Start from what happened: what the skill was asked, what it did and what it should have done, best from the conversation or an excerpt. An account of it, or a request the maintainer expects, counts as a hypothetical case: say so in the plan and the commit message, since the first real case can overturn it. Going without any case is the maintainer's explicit decision. An impression ("it's off", "improve it") isn't a case, and a change built on one becomes rework. For a new skill or a rewrite, the case is as `references/modes.md` says. A backlog entry holds its case (read an issue as `../log/references/issues.md` says, Writing to issues), and an audit finding is its own.
 
-### 2. Rounds
-Ask in rounds of up to five numbered questions, each with the answer you recommend and the reason in one line, so the maintainer only confirms or corrects. Ask first what would change the proposal most if it were wrong. When the repository answers a question, use that answer and say where it came from. Stop when no decision is left open. An "OK" to a round approves its answers, not the plan.
+### 2. Ready?
+Ask: can I write the change plan now without asking the maintainer for a decision, and does it fit one pull request? For a backlog entry, that test is `../log/references/backlog.md`, Ready.
+- **Yes:** go on. A small, clear request needs no entry and doesn't pass through `meditate`.
+- **No:** say it needs clarifying first and what it lacks, then hand it to `meditate`, which settles it and splits it into issues `train` builds one at a time.
 
 ### 3. The change plan
 Present one message with:
@@ -51,7 +53,7 @@ Present one message with:
 - **Principle touched:** which of the target's principles the change touches. If it goes against one, read `references/conflicts.md` and propose a way out as it says.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
 - **Effect on the version** (`../log/references/changelog.md`, The version number).
-- **Size effect:** how many tokens each SKILL.md and how many characters each description gains or loses, estimated, and, when text is added, what was considered for removal.
+- **Size effect:** how many tokens each SKILL.md and how many characters each description gains or loses, estimated, and, before text is added, what can be removed instead.
 - **Sample text:** for a new rule or section, the actual wording, so the maintainer judges text, not a description of it.
 
 Edit only after an explicit OK to this plan.

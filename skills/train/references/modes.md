@@ -6,7 +6,7 @@ Switch to an up-to-date main; with pull requests, create a short branch from it 
 
 ## A new skill or a rewrite
 
-- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the case behind each old rule worth keeping, real or hypothetical as step 1 says: a rule with no case stays out, unless the maintainer explicitly keeps it.
+- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each. In a rewrite they include the case behind each old rule worth keeping, real or hypothetical as step 1 says: a rule with no case stays out, unless the maintainer explicitly keeps it.
 - **The draft (step 4):** write it as `writing.md` says (A new skill starts minimal), then, before the commit, run the cold reader on the plan's requests (`testing.md`, A new skill or a rewrite), so the text is reinforced where it fails.
 
 ## A contributor's issue or pull request
@@ -34,14 +34,13 @@ When the maintainer asks to check the whole plugin ("audit the plugin", "is ever
 3. Read the scope map yourself for overlap: two skills whose descriptions claim the same request, or a skill whose opening doesn't say what it leaves to a sibling.
 4. List what you found that passes the bar in `review.md` (Using the findings), grouped by skill and ranked, with a proposed fix for each, then each skill's cuts (`review.md`, Using the findings). For a conflict with a principle, the fix is the way out weighed as in `conflicts.md`. Edit nothing before the maintainer picks what to fix.
 
-Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1). The cuts the maintainer picks for one skill go together as one behavior change, and also as a description change when a cut touches the description. The cuts are its case, and the maintainer's pick, which names exactly what to remove, approves its plan, so no rounds follow. Its cold reader compares the cut text with main (`testing.md`, Cuts from an audit).
+Each fix then goes through the form for its kind. The finding is its real case (SKILL.md, step 1). The cuts the maintainer picks for one skill go together as one behavior change, and also as a description change when a cut touches the description. The cuts are its case, and the maintainer's pick, which names exactly what to remove, approves its plan. Its cold reader compares the cut text with main (`testing.md`, Cuts from an audit).
 
 ## Recreating a skill from an old one
 
 When the maintainer brings an older skill to rebuild (from another plugin or an earlier design), treat it as a reference, not text to copy.
 - Read all of it. Say what works, what is surplus and what weighs too much.
-- Ask the maintainer which requests the new version serves and for the case behind each old rule worth keeping, without proposing them (A new skill or a rewrite, above). Settle the rest in rounds.
-- Settle the new skill's name with them. The name is the `skills/<name>/` folder and the frontmatter `name`, which must match. The new text doesn't mention the old name.
+- The requests the new version serves, the case behind each old rule worth keeping (A new skill or a rewrite, above) and the new skill's name are decisions: unless they're settled, step 2 sends it to `meditate`. The name is the `skills/<name>/` folder and the frontmatter `name`, which must match. The new text doesn't mention the old name.
 
 Then it's a new skill, built minimal first (A new skill or a rewrite, above): plan, edit, check, both reviews and the trigger suite.
 

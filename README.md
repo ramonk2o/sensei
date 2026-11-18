@@ -24,7 +24,7 @@ The names follow a dojo: **meditate** on a plugin or a change, **prepare** the r
   Run it with `/sensei:prepare`.
 - **log** keeps the backlog (ideas, bugs and debt, each from its case and marked ready or needing clarification, in GitHub issues or a `backlog/` folder), shows what to take next, and keeps `CHANGELOG.md` (what changed in each version).
 - **train** creates or changes a skill:
-  - the real case, rounds of questions with recommended answers, and a change plan you approve;
+  - the real case, a check that the request is ready to plan (one that needs clarifying goes to `meditate`), and a change plan you approve;
   - the edit on a branch, reaching every sibling skill that states the same rule;
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 

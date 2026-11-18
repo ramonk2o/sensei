@@ -1,6 +1,6 @@
 # Testing a change
 
-A skill is read by a model whose failures its author can't see from inside the conversation, so the test always runs where the conversation can't help: a fresh agent or a fresh process. The test is scaled to the kind of change, because most changes are small and a heavy test on each one costs more than it catches. This guidance is adapted in part from Anthropic's skill-creator (Apache 2.0).
+A skill is read by a model whose failures its author can't see from inside the conversation, so the test always runs where the conversation can't help: a fresh agent or a fresh process. The test is scaled to the kind of change, because most changes are small and a heavy test on each one costs more than it catches. When the change came from a backlog entry, its acceptance criteria are part of the test: a case reaches each one, and the test fails when the result doesn't meet it. This guidance is adapted in part from Anthropic's skill-creator (Apache 2.0).
 
 ## Behavior change or new skill: the cold reader
 
