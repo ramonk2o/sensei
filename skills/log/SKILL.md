@@ -9,7 +9,7 @@ Two files describe a plugin over time, like a training log: what is left to prac
 
 | File | Holds | Time |
 |---|---|---|
-| `BACKLOG.md`, or GitHub issues | What may come: ideas, bugs and debt, each from a real case | future |
+| `BACKLOG.md`, or GitHub issues | What may come: ideas, bugs and debt, each from its case | future |
 | `CHANGELOG.md` | What changed in each version, for the plugin's users | past |
 
 The skills themselves are the present: they say how the plugin works today, so no other document repeats them. `train` and `graduate` don't load this skill. They read the formats directly from `references/`, so the formats have one owner and every reader writes the same way.

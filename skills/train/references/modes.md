@@ -6,7 +6,7 @@ Switch to an up-to-date main; with pull requests, create a short branch from it 
 
 ## A new skill or a rewrite
 
-- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the real case behind each old rule worth keeping: a rule with no case stays out.
+- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the case behind each old rule worth keeping, real or hypothetical as step 1 says: a rule with no case stays out, unless the maintainer explicitly keeps it.
 - **The draft (step 4):** write it as `writing.md` says (A new skill starts minimal), then, before the commit, run the cold reader on the plan's requests (`testing.md`, A new skill or a rewrite), so the text is reinforced where it fails.
 
 ## A contributor's issue or pull request
