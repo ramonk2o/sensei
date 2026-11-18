@@ -12,7 +12,7 @@ Two records describe a plugin over time, like a training log: what is left to pr
 | `backlog/`, or GitHub issues | What may come: ideas, bugs and debt, each from its case | future |
 | `CHANGELOG.md` | What changed in each version, for the plugin's users | past |
 
-The skills themselves are the present: they say how the plugin works today, so no other document repeats them. `train` and `graduate` don't load this skill. They read the formats directly from `references/`, so the formats have one owner and every reader writes the same way.
+The skills themselves are the present: they say how the plugin works today, so no other document repeats them. `meditate`, `train` and `graduate` don't load this skill. They read the formats directly from `references/`, so the formats have one owner and every reader writes the same way.
 
 Talk to the maintainer in their language. Write the files in English, unless the project's CLAUDE.md names another language for its documents.
 
