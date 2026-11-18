@@ -28,12 +28,12 @@ Say the recommendation and its reason in step 7's review, like the other facts. 
 
 ## The readiness labels
 
-With the backlog in issues, `ready` and `needs-clarification` must exist, since each issue carries one (`../log/references/backlog.md`, Ready). Step 7 lists those `gh label list` lacks, with these descriptions; step 8 creates them before any issue, with `gh label create <name> --color <color> --description "<description>"`:
+With the backlog in issues, `ready` and `needs-clarification` must exist, since each issue carries one (`../log/references/backlog.md`, Ready). Step 7 lists those `gh label list` lacks (both, for a repository about to be created), with these descriptions; step 8 creates them once the repository exists and before any issue, with `gh label create <name> --color <color> --description "<description>"`:
 
 | Label | Color | Description |
 |---|---|---|
 | `ready` | `0e8a16` | A change plan can be written from this issue |
-| `needs-clarification` | `fbca04` | Lacks a case, the expected behavior, acceptance criteria or an answer to an open question |
+| `needs-clarification` | `fbca04` | Something is missing before a change can be planned from this issue |
 
 A label that exists stays as it is, whatever its color or description. The area and type labels are created when first used (`../log/references/issues.md`). `gh label create` writes to the repository, so it asks (`settings.md`).
 

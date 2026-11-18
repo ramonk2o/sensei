@@ -5,7 +5,7 @@ The CLAUDE.md's Backlog fact says where the backlog lives: GitHub issues, or the
 ## What setup puts in place
 
 - **GitHub issues:** the `ready` and `needs-clarification` labels (`github.md`, The readiness labels).
-- **`backlog/`:** the folder, holding an empty `.gitkeep` while it has no entry, since git doesn't track an empty folder.
+- **`backlog/`,** when the Backlog fact ends as `backlog/`: the folder, holding an empty `.gitkeep` while it has no entry, since git doesn't track an empty folder. A declined move leaves BACKLOG.md and creates no folder; nothing records it, so the next run offers the move again.
 
 When entries move, the Backlog fact stays where they are now (in a new CLAUDE.md too) until every entry has moved, then changes: from BACKLOG.md to `backlog/`, or to GitHub issues. Step 7's draft shows the final value, and step 8 writes it after the move, so a move that fails halfway doesn't leave the backlog in two places.
 
@@ -22,4 +22,4 @@ Once every entry exists, remove BACKLOG.md in setup's commit.
 
 ## A re-run
 
-Look before creating: an existing folder, label or entry stays as it is, and only what's missing is created. An entry has moved when the destination already has one with its exact title: a file of `backlog/`, or an issue, open or closed (`gh issue list --state all --search` finds the candidates). After a move that failed halfway, the re-run creates the rest in BACKLOG.md's order, with the next numbers, and removes BACKLOG.md once every entry exists.
+Look before creating: an existing folder, label or entry stays as it is, and only what's missing is created. An entry has moved when the destination already has one with its exact title: a file of `backlog/`, or an issue, open or closed (`gh issue list --state all --search` finds the candidates); list those in step 7 as already there. After a move that failed halfway, the re-run creates the rest in BACKLOG.md's order, with the next numbers, and removes BACKLOG.md once every entry exists.
