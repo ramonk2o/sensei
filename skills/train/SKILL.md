@@ -15,7 +15,7 @@ Read the project's `CLAUDE.md` for its facts:
 - documents language, for everything written to the repository, commit messages and replies to issues included: English when neither CLAUDE.md nor the target's principles name another;
 - commit author and trailers;
 - integration: local merge or pull requests;
-- where the backlog lives: BACKLOG.md or GitHub issues;
+- where the backlog lives: in the repository or in GitHub issues;
 - whether skills stand alone;
 - rules specific to this repo.
 
