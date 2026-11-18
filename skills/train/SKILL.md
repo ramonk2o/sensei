@@ -39,12 +39,12 @@ When in doubt between two kinds, take the heavier one and say so. A skill that o
 ## The form
 
 ### 1. The real case
-Start from what happened: what the skill was asked, what it did and what it should have done, best from the conversation or an excerpt. An account of it, or a request the maintainer expects, counts as a hypothetical case: say so in the plan and the commit message, since the first real case can overturn it. Going without any case is the maintainer's explicit decision. An impression ("it's off", "improve it") isn't a case, and a change built on one becomes rework. For a new skill or a rewrite, the case is as `references/modes.md` says. A backlog entry holds its case (read an issue as `../log/references/issues.md` says, Writing to issues), and an audit finding is its own.
+Start from what happened: what the skill was asked, what it did and what it should have done, best from the conversation or an excerpt. An account of it, or a request the maintainer expects, counts as a hypothetical case: say so in the plan and the commit message, since the first real case can overturn it. Going without any case is the maintainer's explicit decision. An impression ("it's off", "improve it") isn't a case: a change built on one becomes rework, so step 2 says no. For a new skill or a rewrite, the case is as `references/modes.md` says. A backlog entry holds its case (read an issue as `../log/references/issues.md` says, Writing to issues), and an audit finding is its own.
 
 ### 2. Ready?
-Ask: can I write the change plan now without asking the maintainer for a decision, and does it fit one pull request? For a backlog entry, that test is `../log/references/backlog.md`, Ready.
+Ask: can I write the change plan now without asking the maintainer for a decision, and does it fit one pull request? For a backlog entry, the first question is `../log/references/backlog.md`, Ready.
 - **Yes:** go on. A small, clear request needs no entry and doesn't pass through `meditate`.
-- **No:** say it needs clarifying first and what it lacks, then hand it to `meditate`, which settles it and splits it into issues `train` builds one at a time.
+- **No:** say it needs clarifying first and what it lacks, then start `meditate` on it, which settles it and splits it into issues `train` builds one at a time.
 
 ### 3. The change plan
 Present one message with:
