@@ -5,11 +5,11 @@ description: In a repository whose CLAUDE.md names sensei, keeps the backlog (BA
 
 # Log
 
-Two files describe a plugin over time, like a training log: what is left to practice and what each version earned. `log` owns their formats. A change to a skill belongs to `train`, which writes its own changelog entry. A release belongs to the maintainer, who runs `/sensei:graduate`; `log` doesn't cut versions.
+Two records describe a plugin over time, like a training log: what is left to practice and what each version earned. `log` owns their formats. A change to a skill belongs to `train`, which writes its own changelog entry. A release belongs to the maintainer, who runs `/sensei:graduate`; `log` doesn't cut versions.
 
-| File | Holds | Time |
+| Where | Holds | Time |
 |---|---|---|
-| `BACKLOG.md`, or GitHub issues | What may come: ideas, bugs and debt, each from its case | future |
+| `backlog/`, or GitHub issues | What may come: ideas, bugs and debt, each from its case | future |
 | `CHANGELOG.md` | What changed in each version, for the plugin's users | past |
 
 The skills themselves are the present: they say how the plugin works today, so no other document repeats them. `train` and `graduate` don't load this skill. They read the formats directly from `references/`, so the formats have one owner and every reader writes the same way.
@@ -18,9 +18,9 @@ Talk to the maintainer in their language. Write the files in English, unless the
 
 ## Before writing
 
-- For the backlog, read `references/backlog.md`. When CLAUDE.md gives GitHub issues as its Backlog fact, read `references/issues.md` too: the entries live there instead of BACKLOG.md.
+- For the backlog, read `references/backlog.md`. When CLAUDE.md gives GitHub issues as its Backlog fact, read `references/issues.md` too: the entries live there instead of `backlog/`.
 - For CHANGELOG.md, read `references/changelog.md`.
-- Read the current file before changing it.
+- Read the current entry or file before changing it.
 - If a file follows another structure, don't rewrite it on your own. Show how it differs, propose the alignment and wait for the OK. Until then, follow the structure that's there.
 
 ## What needs an OK first
@@ -38,4 +38,4 @@ Never implement what's recorded. A change to a skill starts with `train`, from t
 
 ## Commits
 
-Backlog changes kept in issues aren't committed. Otherwise, commit the file on its own, on the branch you're on, with a short message ("Backlog: note deck duration idea"). Commit only these files, never other pending changes. When the change is part of `train`'s or `graduate`'s work, it goes in that commit instead.
+Backlog changes kept in issues aren't committed. Otherwise, commit the changed files on their own, on the branch you're on, with a short message ("Backlog: note deck duration idea"). Commit only these files, never other pending changes. When the change is part of `train`'s or `graduate`'s work, it goes in that commit instead.

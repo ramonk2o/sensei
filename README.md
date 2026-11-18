@@ -21,7 +21,7 @@ The names follow a dojo: **meditate** on a new plugin, **prepare** the repositor
   - the rules of an old process document moved into place.
 
   Run it with `/sensei:prepare`.
-- **log** keeps the backlog (ideas, bugs and debt, each from its case, in `BACKLOG.md` or GitHub issues) and `CHANGELOG.md` (what changed in each version).
+- **log** keeps the backlog (ideas, bugs and debt, each from its case and marked ready or needing clarification, in GitHub issues or a `backlog/` folder), shows what to take next, and keeps `CHANGELOG.md` (what changed in each version).
 - **train** creates or changes a skill:
   - the real case, rounds of questions with recommended answers, and a change plan you approve;
   - the edit on a branch, reaching every sibling skill that states the same rule;
