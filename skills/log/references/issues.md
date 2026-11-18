@@ -2,7 +2,7 @@
 
 When the project's CLAUDE.md gives GitHub issues as its Backlog fact, the backlog lives in the repository's issues instead of BACKLOG.md. It shows what's wanted as it changes, without waiting for a merge, and a contributor's report is already in it. CHANGELOG.md stays a file, since it changes in the same commit as the skills.
 
-Everything in `backlog.md` still holds (each entry starts from a real case, what each field is for, write only what the maintainer said) except where entries are stored, which this file replaces. Use `gh`, signed in (`gh auth status`). If it isn't, or the repository has issues turned off, stop and tell the maintainer: falling back to BACKLOG.md would split the backlog in two places.
+Everything in `backlog.md` still holds (each entry starts from its case, what each field is for, when an entry is ready, write only what the maintainer said) except where entries are stored, which this file replaces. Use `gh`, signed in (`gh auth status`). If it isn't, or the repository has issues turned off, stop and tell the maintainer: falling back to BACKLOG.md would split the backlog in two places.
 
 ## Mapping
 

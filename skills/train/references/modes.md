@@ -6,7 +6,7 @@ Switch to an up-to-date main; with pull requests, create a short branch from it 
 
 ## A new skill or a rewrite
 
-- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the real case behind each old rule worth keeping: a rule with no case stays out.
+- **The case (step 1):** the concrete requests the skill must serve, in its users' words, and what a good result looks like for each; ask for them when the maintainer brings only the idea. In a rewrite they include the case behind each old rule worth keeping, real or hypothetical as step 1 says: a rule with no case stays out, unless the maintainer explicitly keeps it.
 - **The draft (step 4):** write it as `writing.md` says (A new skill starts minimal), then, before the commit, run the cold reader on the plan's requests (`testing.md`, A new skill or a rewrite), so the text is reinforced where it fails.
 
 ## A contributor's issue or pull request
@@ -40,7 +40,7 @@ Each fix then goes through the form for its kind. The finding is its real case (
 
 When the maintainer brings an older skill to rebuild (from another plugin or an earlier design), treat it as a reference, not text to copy.
 - Read all of it. Say what works, what is surplus and what weighs too much.
-- Ask the maintainer which requests the new version serves and for the real case behind each old rule worth keeping, without proposing them (A new skill or a rewrite, above). Settle the rest in rounds.
+- Ask the maintainer which requests the new version serves and for the case behind each old rule worth keeping, without proposing them (A new skill or a rewrite, above). Settle the rest in rounds.
 - Settle the new skill's name with them. The name is the `skills/<name>/` folder and the frontmatter `name`, which must match. The new text doesn't mention the old name.
 
 Then it's a new skill, built minimal first (A new skill or a rewrite, above): plan, edit, check, both reviews and the trigger suite.

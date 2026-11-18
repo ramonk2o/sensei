@@ -8,6 +8,14 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- `log`'s backlog format defines when an entry is ready: it has its case (or the maintainer's explicit decision to go without one), the expected behavior, acceptance criteria and no open questions; any other entry needs clarification. `train` asks for what keeps an entry from being ready before its plan, and `meditate` leaves for later a skill whose entry couldn't be ready.
+
+### Changed
+
+- Sensei prefers a real case instead of requiring one. When the maintainer has only an account of what happened or a request they expect, `train`, `log` and `meditate` accept it as a hypothetical case and record it as such, so the first real case can overturn it; going without any case is the maintainer's explicit decision. An impression still only leads to asking for the case, and `train` asks for a missing case without proposing one, not even as an example request.
+
 ## [0.10.0] - 2026-11-18
 
 Train settles what a skill's model really has when it runs, and its light paths stay light: wording fixes reach main in pull request mode, and agent descriptions are held to the skills' limit.
