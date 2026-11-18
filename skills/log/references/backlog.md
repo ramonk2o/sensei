@@ -39,7 +39,7 @@ Ideas, bugs and debt for this plugin, managed with sensei's `log` skill. Each en
   - Idea: new behavior.
   - Bug: a skill does something wrong; the Description says how to reproduce it.
   - Debt: a change that keeps behavior, such as trimming, reorganizing or aligning skills.
-- **Motivation** is the case, condensed: the request, what happened, what should have happened. For a skill not built yet, it's the concrete requests the skill must serve, quoted whole since they are its test cases, and what a good result looks like for each. Quote only key phrases. When the case, or a request in it, is only the maintainer's account of what happened or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
+- **Motivation** is the case, condensed: the request, what happened, what should have happened. For a skill not built yet, it's the concrete requests the skill must serve, quoted whole since they are its test cases, and what a good result looks like for each. Quote only key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
 - **Write only what the maintainer said or decided.** An assumption is an open question.
 
 ## Ready
