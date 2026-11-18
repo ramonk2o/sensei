@@ -22,7 +22,7 @@ The case comes first: the rest depends on it.
 
 ## Writing
 
-Write the issues where the CLAUDE.md's Backlog fact says, as `log` does: in the format of `../log/references/backlog.md`, and through `../log/references/issues.md` (Operations) when they live in GitHub issues. Say before the OK that issues are visible to everyone who can see the repository once created.
+Write the issues where the CLAUDE.md's Backlog fact says, as `log` does: in the format of `../log/references/backlog.md`, and through `../log/references/issues.md` (Operations) when they live in GitHub issues. In issues, say before the OK that they're visible to everyone who can see the repository once created.
 - **An entry the change came from** becomes one of the issues, rewritten in place, so it keeps its number and discussion. When no issue matches it, discard it with "split into #…" as the reason.
 - **In `backlog/`,** commit only the entry files, on the branch you're on ("Backlog: plan <the change>").
 
