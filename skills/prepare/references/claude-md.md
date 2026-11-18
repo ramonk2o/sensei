@@ -28,7 +28,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
 - **Validate:** sensei's check script on every change (it runs `claude plugin validate` on the last commit); `--release` at release, which adds `--profile directory`.
 - **Commits:** <author, if fixed>; <trailers: none | the environment's default>.
 - **Integration:** <pull requests: push the branch, open the pull request and merge it with a merge commit, each on the maintainer's OK | local merge with `--no-ff`; push main when the maintainer says so or at release>
-- **Backlog:** <GitHub issues | BACKLOG.md>
+- **Backlog:** <GitHub issues | backlog/>
 - **Tags:** <`vX.Y.Z` | `{name}--v{version}` with `claude plugin tag`>
 - <Each rule specific to this repository, one line each.>
 ```
@@ -44,7 +44,7 @@ Other skills or plugins that write skills or manage these files don't apply in t
   - author: `git config user.name` and `user.email`; when they're empty, ask for it in that same review;
   - trailers: none, since users read a public plugin's history and a tool's trailer on every commit is noise;
   - tags: `vX.Y.Z`, or `{name}--v{version}` when `marketplace.json` lists more than one plugin;
-  - integration and backlog: from where the repository lives, as `github.md` says: pull requests and GitHub issues on GitHub with `gh` signed in, local merge and BACKLOG.md otherwise;
+  - integration and backlog: from where the repository lives, as `github.md` says: pull requests and GitHub issues on GitHub with `gh` signed in, local merge and `backlog/` otherwise;
   - skills stand alone: what the principles say; when they don't, the value that matches the skills as they are (no, if any reads a sibling's files); with no skills yet, no: one zip of the whole plugin works with one skill or many, while yes forces every shared rule to be copied into each skill, so recommend no, and the maintainer can change it in the review.
 - **Repo-specific rules** come from the old process document, if any: a reference repository to read but never change, a reminder owed to another project, a file that must stay in sync. Keep each one as one line, with its reason when the reason isn't obvious.
 - **Leave out:**
@@ -54,4 +54,4 @@ Other skills or plugins that write skills or manage these files don't apply in t
 
 ## An existing CLAUDE.md
 
-Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of `prepare`, refresh the "Maintenance with sensei" section from the template above, carrying over the project's own subject wording in place of the placeholder. In "Project facts", keep each line as the project wrote it: never remove a path, a reason or a clause from it, because what looks like sensei's wording may be the project's own rule. Propose only two kinds of change, and show each in step 7 (the switch to pull requests and issues that `github.md` offers is a value change): an addition, meaning information the current template's line holds and the project's line doesn't state in any wording (such as `--release` on the Validate line, or the author's name from the git log), since the same fact in other words is not a difference; and a value change where the repository now says something different.
+Don't overwrite it. Show what changes, section by section: what's added, what the new text replaces, what stays. Keep everything project-specific that's still true. On a re-run of `prepare`, refresh the "Maintenance with sensei" section from the template above, carrying over the project's own subject wording in place of the placeholder. In "Project facts", keep each line as the project wrote it: never remove a path, a reason or a clause from it, because what looks like sensei's wording may be the project's own rule. Propose only two kinds of change, and show each in step 7 (the switches that `github.md` and `backlog.md` offer, to pull requests, to issues and to `backlog/`, are value changes): an addition, meaning information the current template's line holds and the project's line doesn't state in any wording (such as `--release` on the Validate line, or the author's name from the git log), since the same fact in other words is not a difference; and a value change where the repository now says something different.
