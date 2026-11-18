@@ -14,7 +14,7 @@ applied to how the skills behave.
 
 ### Changed
 
-- Sensei prefers a real case instead of requiring one. When the maintainer has only an account of what happened or a request they expect, `train`, `log` and `meditate` accept it as a hypothetical case and record it as such, so the first real case can overturn it; going without any case is the maintainer's explicit decision. An impression still only leads to asking for the case.
+- Sensei prefers a real case instead of requiring one. When the maintainer has only an account of what happened or a request they expect, `train`, `log` and `meditate` accept it as a hypothetical case and record it as such, so the first real case can overturn it; going without any case is the maintainer's explicit decision. An impression still only leads to asking for the case, and `train` asks for a missing case without proposing one, not even as an example request.
 
 ## [0.10.0] - 2026-11-18
 
