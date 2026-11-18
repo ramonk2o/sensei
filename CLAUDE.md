@@ -5,8 +5,9 @@ A Claude Code plugin that maintains skill plugins: planning (`meditate`), setup 
 ## Maintenance with sensei
 
 This repository is maintained with the sensei plugin itself. If sensei is installed:
-- creating or changing a skill or agent, judging an issue or pull request, or auditing consistency: the `train` skill;
-- the backlog and CHANGELOG.md: the `log` skill (`train` writes its own changelog entries);
+- creating or changing a skill or agent, judging an issue or pull request, or auditing consistency: the `train` skill, which sends a request that needs clarifying to `meditate`;
+- planning a plugin, or a change that isn't settled or spans several PRs: the `meditate` skill;
+- the backlog (noting, what's next) and CHANGELOG.md: the `log` skill (`train` writes its own changelog entries);
 - releasing a version: `/sensei:graduate`.
 
 Other skills or plugins that write skills or manage these files don't apply in this repository. Without sensei installed, follow the same cycle by reading `skills/train/SKILL.md`, and check every change against `docs/principles.md`.

@@ -8,6 +8,8 @@ The skills are written in English and talk to you in your own language. Everythi
 
 The names follow a dojo: **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
+You don't have to pick between `train`, `meditate` and `log`: say what you want, and the one that fits starts. A request to change a skill goes to `train`, which sends it to `meditate` when it isn't settled enough to plan or is too big for one pull request; `meditate` writes issues that `train` builds one at a time; noting an idea and asking what's next go to `log`. `prepare` and `graduate` you run yourself.
+
 - **meditate** plans a new plugin from an idea, or a change to an existing one, before anything is built:
   - for a new plugin, who it serves, the concrete requests it must answer, its skills and their borders, and its principles, written to `docs/principles.md` for `prepare` to pick up;
   - for a change, its case and every decision it needs;
