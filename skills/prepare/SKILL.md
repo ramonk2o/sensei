@@ -69,11 +69,11 @@ Look at the skills available in this session, other than sensei's own. List thos
 - releasing versions;
 - reviewing or judging changes to skills, or contributions to a skill plugin.
 
-Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file, as `references/settings.md` says for its kind (a plugin's skill alone, a whole plugin when all its skills conflict, a skill with no plugin prefix), or leaving it and relying on the routing in CLAUDE.md. Recommend one and say why.
+Judge them by what they say they do, never by a fixed list of names. For each, propose turning it off for this project in the local file, as `references/settings.md` says for its kind (a prefixed skill alone, a whole plugin when all its skills conflict, a skill with no prefix), or leaving it and relying on the routing in CLAUDE.md. Recommend turning off one that claims writing or improving skills: its description competes with `train`'s on every change, and a setting holds where the routing may not. For the others, recommend one and say why.
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) or reviews code in general (`code-review`, `simplify`, `security-review`) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. A reply that names one is the OK to turn it off.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. A `skillOverrides` entry for a prefixed name doesn't count as turned off: propose its replacement from `references/settings.md`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. A reply that names one is the OK to turn it off.
 
 ## 6. Migration and orphans
 
