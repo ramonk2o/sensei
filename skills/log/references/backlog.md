@@ -41,7 +41,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
   - in GitHub issues, an open issue in the entry's blocked-by relationship (`gh issue view <number> --json blockedBy`); the body's field counts only where `issues.md`'s Mapping says the relationship isn't available;
   - in `backlog/`, an entry named in the field whose file exists with `status: open`.
 
-  A discarded blocker (closed as not planned, as `gh issue view <number> --json stateReason` shows, or `status: discarded`) doesn't block, but say it was discarded, since the entry may need revisiting.
+  A discarded blocker (closed as not planned, as `gh issue view <number> --json stateReason,comments` shows, or `status: discarded`) doesn't block. Say it was discarded and why, since its reason may change whether the entry is still ready.
 - **Model:** the tier of model the change needs (`models.md`).
 - **Write only what the maintainer said or decided.** An assumption is an open question. The type, area, readiness and tier are yours to set from what was said.
 
