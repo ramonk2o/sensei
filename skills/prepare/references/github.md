@@ -28,22 +28,22 @@ Say the recommendation and its reason in step 7's review, like the other facts. 
 
 ## The readiness labels
 
-With the backlog in issues, `ready` and `needs-clarification` must exist, since each issue carries one (`../log/references/backlog.md`, Ready). Step 7 lists those `gh label list` lacks (both, for a repository about to be created), with these descriptions; step 8 creates them once the repository exists and before any issue, with `gh label create <name> --color <color> --description "<description>"`:
+With the backlog in issues, `ready` and `needs-clarification` must exist, since each issue carries one (`../../log/references/backlog.md`, Ready). Step 7 lists those `gh label list` lacks (both, for a repository about to be created), with these descriptions; step 8 creates them once the repository exists and before any issue, with `gh label create <name> --color <color> --description "<description>"`:
 
 | Label | Color | Description |
 |---|---|---|
 | `ready` | `0e8a16` | A change plan can be written from this issue |
 | `needs-clarification` | `fbca04` | Something is missing before a change can be planned from this issue |
 
-A label that exists stays as it is, whatever its color or description. The area and type labels are created when first used (`../log/references/issues.md`). `gh label create` writes to the repository, so it asks (`settings.md`).
+A label that exists stays as it is, whatever its color or description. The area and type labels are created when first used (`../../log/references/issues.md`). `gh label create` writes to the repository, so it asks (`settings.md`).
 
 ## Moving the backlog to issues
 
-When the backlog goes to issues and `backlog/` or BACKLOG.md has entries (a `meditate` plan, or an older backlog), show in step 7 the list of issues to create, as `../log/references/issues.md` says (Migrate from the repository). A BACKLOG.md's entries are first converted as `backlog.md` says. In step 8, migrate after the CLAUDE.md, the settings and the labels, and switch the Backlog fact as `backlog.md` says. Take a `meditate` plan's name, purpose and skills from the entries before they're removed.
+When the backlog goes to issues and `backlog/` or BACKLOG.md has entries (a `meditate` plan, or an older backlog), show in step 7 the list of issues to create, as `../../log/references/issues.md` says (Migrate from the repository). A BACKLOG.md's entries are first converted as `backlog.md` says. In step 8, migrate after the CLAUDE.md, the settings and the labels, and switch the Backlog fact as `backlog.md` says. Take a `meditate` plan's name, purpose and skills from the entries before they're removed.
 
 ## Setup's own commit
 
-Setup's commit goes on main when the repository is new or the remote was just created. When it uses pull requests and main already exists on the remote, main only takes pull requests: start a `sensei-setup` branch (`git switch -c`, which carries the uncommitted changes), commit there and bring it in as `../train/references/pull-requests.md` says, each step on the user's OK.
+Setup's commit goes on main when the repository is new or the remote was just created. When it uses pull requests and main already exists on the remote, main only takes pull requests: start a `sensei-setup` branch (`git switch -c`, which carries the uncommitted changes), commit there and bring it in as `../../train/references/pull-requests.md` says, each step on the user's OK.
 
 ## Re-running on a repository already set up
 

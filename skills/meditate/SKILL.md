@@ -1,11 +1,11 @@
 ---
 name: meditate
-description: Plans a new skill plugin, or a change to one that's unsettled or spans several PRs, in rounds of decisions, then splits it into ready backlog issues, e.g. 'help me plan a plugin for teachers', 'think this through and break it into issues'. Not for a clear change (train) or noting an idea (log).
+description: Plans a new skill plugin, or a change to one that needs clarification, in rounds of decisions, then splits it into ready backlog issues, e.g. 'help me plan a plugin for teachers', 'think this through and break it into issues'. Not for a ready change (train) or noting an idea (log).
 ---
 
 # Meditate
 
-Takes a new plugin, or a change to one that isn't settled or spans several PRs, to issues ready to build: it settles every decision in rounds, splits what it settled into issues `train` builds one at a time, and writes them to the backlog. `train` starts it on a request that needs clarifying. It doesn't change skills (`train` does, from these issues), note a stray idea (`log`) or set up a repository (`/sensei:prepare`).
+Takes a new plugin, or a change to one that needs clarification (`../log/references/backlog.md`, Ready), to issues ready to build: it settles every decision in rounds, splits what it settled into issues `train` builds one at a time, and writes them to the backlog. `train` starts it on a request that needs clarification. It doesn't change skills (`train` does, from these issues), note a stray idea (`log`) or set up a repository (`/sensei:prepare`).
 
 Talk to the user in their language. Write in English, unless the project's CLAUDE.md names another language or, for a new plugin, the user asks for one.
 

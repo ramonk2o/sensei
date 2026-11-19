@@ -124,7 +124,7 @@ def read_limits(root, args):
 
 # ---------- checks ----------
 
-REF_RE = re.compile(r"(?<![\w/.-])((?:\.\./[\w-]+/)?(?:references|scripts|assets|agents)/[\w./-]*[\w-]\.[a-z]{1,5})")
+REF_RE = re.compile(r"(?<![\w/.-])((?:(?:\.\./)+[\w-]+/)?(?:references|scripts|assets|agents)/[\w./-]*[\w-]\.[a-z]{1,5})")
 
 
 def check_skills(plugin, limits, rel):
@@ -158,17 +158,24 @@ def check_skills(plugin, limits, rel):
           for ref in sorted(set(REF_RE.findall(text_))):
             if "<" in ref or "*" in ref:
                 continue
-            if here is not None and (here / ref).exists():
+            # A path resolves from its own file: a reference's from its folder, SKILL.md's from the skill's.
+            base = here if here is not None else folder
+            if (base / ref).exists():
                 continue
             if (plugin / ref).exists():
                 continue
-            if not (folder / ref).exists():
-                owners = [d.name for d in sdir.iterdir() if d.is_dir() and d != folder and (d / ref).exists()]
-                if owners:
-                    warn(f"{src}: names {ref}, which exists only in {', '.join(owners)} "
-                         f"(fine if the text says whose it is; a path to read is ../{owners[0]}/{ref})")
-                else:
-                    err(f"{src}: names {ref}, which doesn't exist")
+            if here is not None and (folder / ref).exists():
+                fixed = os.path.relpath(os.path.normpath(folder / ref), here)
+                err(f"{src}: names {ref}, which resolves only from the skill's folder; "
+                    f"from this file it's {fixed}")
+                continue
+            owners = [d for d in sdir.iterdir() if d.is_dir() and d != folder and (d / ref).exists()]
+            if owners:
+                path = os.path.relpath(owners[0] / ref, base)
+                warn(f"{src}: names {ref}, which exists only in {', '.join(d.name for d in owners)} "
+                     f"(fine if the text says whose it is; a path to read is {path})")
+            else:
+                err(f"{src}: names {ref}, which doesn't exist")
         skills.append({"name": name or folder.name, "description": desc, "body": body,
                        "tokens": tokens, "path": where, "manual": fm.get("disable-model-invocation") == "true"})
     return skills

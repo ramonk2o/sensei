@@ -14,6 +14,8 @@ applied to how the skills behave.
 
 ### Changed
 
+- The skills name what goes to `meditate` instead of being built with one term, "needs clarification", the readiness label's: a change plan can't be written without a decision of the maintainer's, or the change doesn't fit one pull request. `log`'s Ready test defines it, now for a request with no entry as well as for an entry, and an entry too big for one pull request needs clarification too. `train`'s gate points to it; `train`'s and `meditate`'s descriptions and openings, `log`'s opening, the README and the CLAUDE.md that `prepare` writes use it.
+- A path in a skill's `references/` file resolves from that file (`../../log/references/…`), as one in SKILL.md resolves from the skill's folder. Sensei's references follow this, and the check script fails a path in `references/` that resolves only from the skill's folder, in any plugin it checks, giving the path to write instead.
 - `log` defines an open blocker once. In GitHub issues it is an open issue in GitHub's blocked-by relationship, and a Blocked by line in the body counts only when that relationship isn't available. In `backlog/` it is an entry file that exists with `status: open`. "What's next" and `train` both use this definition.
 
 ### Fixed

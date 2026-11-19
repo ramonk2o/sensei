@@ -1,6 +1,6 @@
 # The backlog's home
 
-The CLAUDE.md's Backlog fact says where the backlog lives: GitHub issues, or the `backlog/` folder (`github.md` says which to recommend). The formats are `log`'s (`../log/references/backlog.md`, and `../log/references/issues.md` in issues). This file says what setup puts in place and how an older BACKLOG.md moves.
+The CLAUDE.md's Backlog fact says where the backlog lives: GitHub issues, or the `backlog/` folder (`github.md` says which to recommend). The formats are `log`'s (`../../log/references/backlog.md`, and `../../log/references/issues.md` in issues). This file says what setup puts in place and how an older BACKLOG.md moves.
 
 ## What setup puts in place
 
@@ -15,8 +15,8 @@ The same conversion serves the move into `backlog/` and into issues (`github.md`
 
 - **Title, area, type:** the `###` title, the `##` heading as the area in a skill's folder-name form (`Plugin` becomes `plugin`), the Type bullet in lowercase.
 - **Body:** each field bullet becomes the body's field of that name, its text unchanged. Where an entry names another by its title, write the number once numbers exist.
-- **Readiness and tier:** the readiness by the Ready test (`../log/references/backlog.md`), showing what each entry that needs clarification lacks, and the tier by `../log/references/models.md`, from its Description. A field the old entry lacks and these don't set (acceptance criteria, blocked by) stays out, because the move records what was written.
-- **Discarded:** an entry under `## Discarded` becomes `status: discarded` with its Why discarded line ending the body, or an issue closed as not planned (`../log/references/issues.md`). The old file gives it no area, type or Motivation: take the area and type from its Description, write "No case recorded" as its Motivation, and give it no readiness label or tier, since it won't be worked.
+- **Readiness and tier:** the readiness by the Ready test (`../../log/references/backlog.md`), showing what each entry that needs clarification lacks, and the tier by `../../log/references/models.md`, from its Description. A field the old entry lacks and these don't set (acceptance criteria, blocked by) stays out, because the move records what was written.
+- **Discarded:** an entry under `## Discarded` becomes `status: discarded` with its Why discarded line ending the body, or an issue closed as not planned (`../../log/references/issues.md`). The old file gives it no area, type or Motivation: take the area and type from its Description, write "No case recorded" as its Motivation, and give it no readiness label or tier, since it won't be worked.
 
 Once every entry exists, remove BACKLOG.md in setup's commit.
 

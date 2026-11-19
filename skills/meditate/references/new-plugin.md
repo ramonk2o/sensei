@@ -20,7 +20,7 @@ Most decisions depend on those of the groups above them.
 - **Standing alone:** whether each skill reads nothing outside its folder, so it can ship on its own, or the skills share references and ship as one plugin. A shared reference belongs to one skill, the one that keeps it up to date.
 - **Other components:** an agent, hook, command, script or MCP server only where a request needs it, with the reason.
 
-**Principles:** read `../prepare/references/principles.md` and settle them in its rounds.
+**Principles:** read `../../prepare/references/principles.md` and settle them in its rounds.
 
 **First version and order:** which skills make the first version: the smallest set already useful to someone. The rest become ideas for later, since what the first version teaches may move their borders. Then the first version's build order:
 1. **First:** the skill that answers the plugin's central request, or the one the others depend on (a shared reference, a format they read). It proves the plugin's idea while changing it is still cheap.
@@ -28,8 +28,8 @@ Most decisions depend on those of the groups above them.
 
 ## Writing
 
-- **`docs/principles.md`:** in the format of `../prepare/references/principles.md`.
-- **`backlog/`:** the issues, one file each, in the format of `../log/references/backlog.md` (The folder), numbered from 1 in build order:
+- **`docs/principles.md`:** in the format of `../../prepare/references/principles.md`.
+- **`backlog/`:** the issues, one file each, in the format of `../../log/references/backlog.md` (The folder), numbered from 1 in build order:
   - one entry per skill of the first version, labeled with its folder name and its readiness. Its Motivation is the skill's requests, its Acceptance criteria the good result for each, its Description the skill's purpose and scope, its Decisions what was settled for it (the borders, the invocation, the shared references it keeps), and its Blocked by the entries whose skill or component it reads;
   - a component of the first version that belongs to no single skill (a shared agent, a hook, a script) gets its own entry labeled `plugin`, numbered before the first entry that needs it, with that request as its Motivation;
   - the ideas for later come last, labeled `plugin`, one entry each, with what was settled for them under Decisions.

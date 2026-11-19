@@ -8,7 +8,7 @@ The skills are written in English and talk to you in your own language. Everythi
 
 The names follow a dojo: **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
-You don't have to pick between `train`, `meditate` and `log`: say what you want, and the one that fits starts. A request to change a skill goes to `train`, which sends it to `meditate` when it isn't settled enough to plan or is too big for one pull request; `meditate` writes issues that `train` builds one at a time; noting an idea and asking what's next go to `log`. `prepare` and `graduate` you run yourself.
+You don't have to pick between `train`, `meditate` and `log`: say what you want, and the one that fits starts. A request to change a skill goes to `train`, which sends it to `meditate` when it needs clarification: it isn't settled enough to plan, or is too big for one pull request; `meditate` writes issues that `train` builds one at a time; noting an idea and asking what's next go to `log`. `prepare` and `graduate` you run yourself.
 
 - **meditate** plans a new plugin from an idea, or a change to an existing one, before anything is built:
   - for a new plugin, who it serves, the concrete requests it must answer, its skills and their borders, and its principles, written to `docs/principles.md` for `prepare` to pick up;
@@ -26,7 +26,7 @@ You don't have to pick between `train`, `meditate` and `log`: say what you want,
   Run it with `/sensei:prepare`.
 - **log** keeps the backlog (ideas, bugs and debt, each from its case and marked ready or needing clarification, in GitHub issues or a `backlog/` folder), shows what to take next, and keeps `CHANGELOG.md` (what changed in each version).
 - **train** creates or changes a skill:
-  - the real case, a check that the request is ready to plan (one that needs clarifying goes to `meditate`), and a change plan you approve;
+  - the real case, a check that the request is ready to plan (one that needs clarification goes to `meditate`), and a change plan you approve;
   - the edit on a branch, reaching every sibling skill that states the same rule;
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
@@ -40,7 +40,7 @@ Two read-only agents review changes for `train`:
 `scripts/check.py` checks:
 - sizes and description lengths against your principles, and, on a branch, each changed SKILL.md's and description's size and growth against main (information only);
 - names across folders, README and manifests;
-- the files each skill points to;
+- the files each skill points to, each path resolving from the file that names it;
 - the changelog's structure, and that each branch changing the plugin has a changelog entry;
 - `claude plugin validate`, on an archive of the last commit.
 
