@@ -8,10 +8,12 @@ The cold reader tests what happens once the skill is running; the trigger suite 
 
 Start a fresh agent with no access to this conversation, on the session's model. When the target's principles name a weaker model its users run, start it on that one if the session can choose an agent's model. Give it only:
 - every changed file of the skill and its SKILL.md, changed or not (most contradictions are between a SKILL.md and a reference), and the rest of what the model running it has on the case's path (`writing.md`, One source), as the case's project has it. Nothing more: a file the text doesn't send the model to would hide a gap where the text relies on it;
-- the case, written as the user's request, with any material the user gave;
+- the case's request, in the words the case quotes, with any material the user gave;
 - the question: "Following only these files, what do you do with this request, step by step? Where did you have to guess, or could two readings lead you to different results? Name only the gaps that change or could change what you do."
 
 The test passes when its answer does what the plan said the skill should do in that case, without guessing between readings that lead to different results. When it goes another way, the text doesn't say what the plan decided: fix the text, not the reader. If the session can't start an agent, give the maintainer that prompt and the files, ready to run in a new conversation.
+
+When the maintainer decided to go without a case, there is no request to give. Give the reader the same files and the acceptance criteria (with no entry, the behavior the plan decided), and ask, for each one: "Following only these files, does the text deliver this? Where would you have to guess?" It passes when every answer is yes without a guess. Say in the merge summary that no request was tested. An acceptance criterion that no request of the case reaches is judged the same way, beside the requests, and the merge summary names it.
 
 ### A new skill or a rewrite
 

@@ -14,7 +14,7 @@ When the CLAUDE.md doesn't name sensei, say that `/sensei:prepare` sets the proj
 ## What to settle
 
 The case comes first: the rest depends on it.
-- **The case:** what the skill was asked, what it did and what it should have done, from a conversation or an excerpt; for a new skill, the requests it must serve and the good result for each. The user's account of what happened, or a request they expect, counts, marked hypothetical. An impression ("it's off") is a reason to ask for the case. Going without one is the user's explicit decision, recorded under the issue's Decisions.
+- **The case:** what the skill was asked, what it did and what it should have done, from a conversation or an excerpt; for a new skill, the requests it must serve and the good result for each. The user's account of what happened, or a request they expect, counts, marked hypothetical, once it holds the request in their words (`../log/references/backlog.md`, Ready). An impression ("it's off") is a reason to ask for the case. Going without one is the user's explicit decision, recorded under the issue's Decisions.
 - **The behavior wanted:** what each skill involved does after the change, for each request of the case.
 - **The border:** what the change leaves out and, when scope moves between skills, which requests fall on each side.
 - **Skills:** for a new skill, a scope that moves, or a reference several skills will share, also settle what applies of the Skills group in `references/new-plugin.md` (What to settle): the split, the folder and borders, the invocation, which skill keeps a shared reference.

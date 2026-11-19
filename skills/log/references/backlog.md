@@ -35,7 +35,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 ```
 
 - **Fields:** Motivation and Description are always present. Omit any other field with nothing to say.
-- **Motivation** is the case, condensed: the request, what happened, what should have happened. For a skill not built yet, it's the concrete requests the skill must serve, quoted whole since they are its test cases. Quote only key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
+- **Motivation** is the case, condensed: the request, what happened, what should have happened; for a skill not built yet, the concrete requests the skill must serve. Quote every request whole, since the tests run on it, and condense the rest to key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
 - **Acceptance criteria:** what a good result looks like for each request of the case, or another way to tell the change works.
 - **Blocked by:** the entries that must be done before this one.
 - **Model:** the tier of model the change needs (`models.md`).
@@ -44,7 +44,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 ## Ready
 
 An entry is ready when a change plan can be written from it without asking the maintainer for a decision. It has:
-- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. "No case recorded" alone isn't a case.
+- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case quotes at least one request as the user typed or would type it (the maintainer may reconstruct it; a narration of what was asked isn't one), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case.
 - **The expected behavior:** what the skill should do after the change, in Description.
 - **Acceptance criteria**, in their field.
 - **No open questions.**
