@@ -1,6 +1,6 @@
 ---
 name: examiner
-description: Independent, read-only architecture review of a new or rewritten skill, or of each skill in a consistency audit, that also lists the sentences that can be cut. Started by sensei's train skill.
+description: Independent, read-only architecture review of a new or rewritten skill, or of each skill in a consistency audit, that also lists the sentences that can be cut. Started by sensei's train and spar skills.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

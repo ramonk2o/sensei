@@ -35,8 +35,8 @@ You don't have to pick between `train`, `meditate` and `log`: say what you want,
 - **spar** evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing. Run it with `/sensei:spar`, or ask sensei whether your skill is good.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise. Run it with `/sensei:graduate`.
 
-Two read-only agents review changes for `train`:
-- **examiner** judges a new skill's architecture, or every skill's in an audit, and lists the sentences that can be cut;
+Two read-only agents review changes for `train`, and a skill made elsewhere for `spar`:
+- **examiner** judges a new skill's architecture, every skill's in an audit, or one made elsewhere, and lists the sentences that can be cut;
 - **sweeper** finds leftovers, contradictions, redundancy, drift between skills, broken references, inconsistent terms, vague instructions and scope overlap.
 
 `scripts/check.py` checks:
