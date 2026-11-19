@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- The README starts with a guide for newcomers: what skills and plugins are, where to start, the cycle step by step and what to say day to day, with the technical details moved to the end.
+
 ## [0.13.0] - 2026-11-19
 
 Sensei can now introduce itself to newcomers and evaluate a skill made elsewhere, and the check script can check a single skill folder.
