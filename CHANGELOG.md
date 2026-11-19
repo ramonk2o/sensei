@@ -13,6 +13,10 @@ applied to how the skills behave.
 - `introduce` presents sensei to someone new to it: the cycle, a table of the skills with how to call each, and the next step for the current folder, in the user's language.
 - The check script fails when a file marked `<!-- sensei:listing -->` doesn't name every skill of the plugin, as it already does for the README.
 
+### Fixed
+
+- `prepare` turns off a prefixed skill, such as one synced from claude.ai, with a deny rule in the local settings, which blocks it in the terminal and the desktop app alike, and on a re-run proposes replacing a `skillOverrides` entry an earlier run wrote for one. It now always recommends turning off a skill that claims writing or improving skills.
+
 ## [0.12.0] - 2026-11-18
 
 Train checks before it builds: a hypothetical case needs a request to test on, an entry's open blockers and a matching backlog entry stop or redirect it, and the skills share one term for what needs clarification and one way to write paths in references.

@@ -35,7 +35,9 @@ These rules cover the forms Claude usually writes, not every way to run git (`gi
 ## Local file
 
 - **The plugin being maintained:** `enabledPlugins` set to `false` for its installed copy, by its `id` from `claude plugin list --json` (`name@marketplace`), so its released skills don't fire while its source is being changed. When that list doesn't include it (a new plugin), write no entry.
-- **Conflicts** (step 5), on the user's agreement:
-  - **a plugin's skill** (`plugin:skill`) alone: `permissions.deny: ["Skill(<plugin>:<skill>)"]`, so the plugin's other skills stay on. Its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. The prefix is the manifest's name and can differ from the plugin's `id`. Checked with the CLI on 2026-11-10; Claude Code's docs don't state it;
-  - **a whole plugin,** when all its skills conflict: `false` in `enabledPlugins`, by its `id`;
-  - **a skill with no plugin prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`. `skillOverrides` doesn't reach plugin skills.
+- **Conflicts** (step 5), on the user's agreement, by the skill's name as the session lists it:
+  - **a prefixed skill** (`<prefix>:<skill>`) alone: `permissions.deny: ["Skill(<prefix>:<skill>)"]`, whatever loads it: an installed plugin, the desktop app, or skills synced from claude.ai. The same skill can load as a plugin skill in one surface and as a synced skill in another, and only the deny rule blocks it in both. The plugin's other skills stay on. Its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. The prefix can differ from the plugin's `id`. Checked in the terminal and the desktop app on 2026-11-19;
+  - **a whole plugin,** when all its skills conflict and `claude plugin list --json` lists it: `false` in `enabledPlugins`, by its `id`;
+  - **a skill with no prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`.
+
+  A `skillOverrides` entry keyed by a prefixed name doesn't reach the skill where it loads as a plugin skill: on a re-run, propose replacing it with the skill's deny rule.
