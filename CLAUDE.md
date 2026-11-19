@@ -1,6 +1,6 @@
 # Sensei
 
-A Claude Code plugin that maintains skill plugins: planning (`meditate`), setup (`prepare`), backlog and changelog (`log`), changes to skills (`train`), releases (`graduate`), introduction (`introduce`).
+A Claude Code plugin that maintains skill plugins: planning (`meditate`), setup (`prepare`), backlog and changelog (`log`), changes to skills (`train`), releases (`graduate`), introduction (`introduce`), evaluating a skill made elsewhere (`spar`).
 
 ## Maintenance with sensei
 

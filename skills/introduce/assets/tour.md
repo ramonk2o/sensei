@@ -9,4 +9,5 @@
 | `train` | Creates or changes a skill from a real case: plan, branch, checks, reviews, test, merge | "the deck skill did X, it should do Y" |
 | `log` | Notes ideas, bugs and debt, says what's next, keeps CHANGELOG.md | "note this idea for the deck skill", "what's next?" |
 | `graduate` | Releases a version: number, checks, tag, release zip | `/sensei:graduate` |
+| `spar` | Evaluates one skill made elsewhere, with no setup, and says how to bring it into sensei | `/sensei:spar`, or "can sensei tell me if my skill is good?" |
 | `introduce` | This tour | `/sensei:introduce` |
