@@ -35,7 +35,7 @@ Nothing about the backlog is committed in this mode: the issue is the record.
 - **Change readiness or blockers:** `gh issue edit <number> --add-label <readiness> --remove-label <the other>`; `--add-blocked-by` or `--remove-blocked-by <numbers>`.
 - **Check for duplicates:** `gh issue list --state all --search "<key words>"`. A closed issue is done or discarded (closed as not planned): handle it as `backlog.md` handles an implemented or a discarded entry.
 - **List:** `gh issue list --state open --limit 200 --json number,title,labels`, grouped by area label, each with its number, type and readiness.
-- **What's next:** `gh issue list --state open --limit 200 --json number,title,labels,body,blockedBy`, then as `backlog.md` says. An entry's blockers are the open issues in `blockedBy` and any Blocked by line in its body.
+- **What's next:** `gh issue list --state open --limit 200 --json number,title,labels,body,blockedBy`, then as `backlog.md` says, with each entry's open blockers as it defines them (An entry, Blocked by).
 - **Discard:** only on the maintainer's word: `gh issue close <number> --reason "not planned" --comment "<why discarded> (YYYY-MM-DD)"`.
 - **Clean up and reorganize:** as in `backlog.md`, plan first; moving entries between areas is a change of labels.
 - **A contributor's issue:** once the maintainer accepts it as an entry, add its area, type and readiness labels. It isn't copied anywhere: the issue is the entry. When it lacks the case, ask for it in a comment, on the maintainer's OK to the text.

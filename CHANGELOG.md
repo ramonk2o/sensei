@@ -8,6 +8,14 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- `train` checks a backlog entry's blockers before planning. An open blocker stops it without starting `meditate`: it names the open blockers and points to the next entry with none. It goes on only on the maintainer's explicit word, recorded in the plan. A discarded blocker doesn't block, and `train` says it was discarded.
+
+### Changed
+
+- `log` defines an open blocker once. In GitHub issues it is an open issue in GitHub's blocked-by relationship, and a Blocked by line in the body counts only when that relationship isn't available. In `backlog/` it is an entry file that exists with `status: open`. "What's next" and `train` both use this definition.
+
 ### Fixed
 
 - A hypothetical case now needs a request: `log`'s Ready test, and `train` and `meditate` with it, count the maintainer's account only when it quotes at least one request in the words the user typed or would type, and otherwise ask for them without proposing one. Every request in an entry's Motivation is quoted whole. `train`'s cold reader runs on that request; when the maintainer decided to go without a case, it judges each acceptance criterion instead, and the merge summary says no request was tested.

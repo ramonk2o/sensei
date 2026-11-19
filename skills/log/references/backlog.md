@@ -37,7 +37,11 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 - **Fields:** Motivation and Description are always present. Omit any other field with nothing to say.
 - **Motivation** is the case, condensed: the request, what happened, what should have happened; for a skill not built yet, the concrete requests the skill must serve. Quote every request whole, since the tests run on it, and condense the rest to key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
 - **Acceptance criteria:** what a good result looks like for each request of the case, or another way to tell the change works.
-- **Blocked by:** the entries that must be done before this one.
+- **Blocked by:** the entries that must be done before this one. An **open blocker** is one of them not done yet:
+  - in GitHub issues, an open issue in the entry's blocked-by relationship (`gh issue view <number> --json blockedBy`); the body's field counts only where `issues.md`'s Mapping says the relationship isn't available;
+  - in `backlog/`, an entry named in the field whose file exists with `status: open`.
+
+  A discarded blocker (closed as not planned, as `gh issue view <number> --json stateReason` shows, or `status: discarded`) doesn't block, but say it was discarded, since the entry may need revisiting.
 - **Model:** the tier of model the change needs (`models.md`).
 - **Write only what the maintainer said or decided.** An assumption is an open question. The type, area, readiness and tier are yours to set from what was said.
 
