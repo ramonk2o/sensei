@@ -44,7 +44,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 ## Ready
 
 An entry is ready when a change plan can be written from it without asking the maintainer for a decision. It has:
-- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case holds at least one request, in the words the user typed or would type (the maintainer may reconstruct them), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case.
+- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case quotes at least one request as the user typed or would type it (the maintainer may reconstruct it; a narration of what was asked isn't one), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case.
 - **The expected behavior:** what the skill should do after the change, in Description.
 - **Acceptance criteria**, in their field.
 - **No open questions.**
