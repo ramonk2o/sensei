@@ -1,6 +1,6 @@
 ---
 name: introduce
-description: Presents sensei to someone new to it: the cycle, each skill and how to call it, and where to start in this folder, e.g. 'how does sensei work?', 'which sensei skill do I call first?'. Only for questions about sensei, not about the user's own plugin or its skills.
+description: Presents sensei to someone new to it: the cycle, each skill and how to call it, and where to start in this folder, e.g. 'how does sensei work?', 'which sensei skill do I call first?'. Not for the user's own plugin, or for setting a repo up (/sensei:prepare).
 ---
 
 # Introduce
