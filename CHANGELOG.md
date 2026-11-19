@@ -8,6 +8,11 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Added
+
+- `introduce` presents sensei to someone new to it: the cycle, a table of the skills with how to call each, and the next step for the current folder, in the user's language.
+- The check script fails when a file marked `<!-- sensei:listing -->` doesn't name every skill of the plugin, as it already does for the README.
+
 ## [0.12.0] - 2026-11-18
 
 Train checks before it builds: a hypothetical case needs a request to test on, an entry's open blockers and a matching backlog entry stop or redirect it, and the skills share one term for what needs clarification and one way to write paths in references.

@@ -6,7 +6,7 @@ The skills are written in English and talk to you in your own language. Everythi
 
 ## Skills
 
-The names follow a dojo: **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
+The names follow a dojo: the sensei **introduce**s itself; you **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
 You don't have to pick between `train`, `meditate` and `log`: say what you want, and the one that fits starts. A request to change a skill goes to `train`, which sends it to `meditate` when it needs clarification: it isn't settled enough to plan, or is too big for one pull request; `meditate` writes issues that `train` builds one at a time; noting an idea and asking what's next go to `log`. `prepare` and `graduate` you run yourself.
 
@@ -31,6 +31,7 @@ You don't have to pick between `train`, `meditate` and `log`: say what you want,
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
+- **introduce** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder. Run it with `/sensei:introduce`, or ask how sensei works.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise. Run it with `/sensei:graduate`.
 
 Two read-only agents review changes for `train`:
@@ -39,7 +40,7 @@ Two read-only agents review changes for `train`:
 
 `scripts/check.py` checks:
 - sizes and description lengths against your principles, and, on a branch, each changed SKILL.md's and description's size and growth against main (information only);
-- names across folders, README and manifests;
+- names across folders, README, manifests and any file marked `<!-- sensei:listing -->`;
 - the files each skill points to, each path resolving from the file that names it;
 - the changelog's structure, and that each branch changing the plugin has a changelog entry;
 - `claude plugin validate`, on an archive of the last commit.
@@ -68,7 +69,7 @@ Early and experimental (before 1.0). See [CHANGELOG.md](CHANGELOG.md).
 /plugin install sensei@sensei
 ```
 
-Then open your plugin's repository and run `/sensei:prepare`. For a plugin that is still an idea, run `/sensei:meditate` in an empty folder first. Sensei needs Claude Code with `claude plugin validate` and `claude plugin eval`, `git`, and Python 3.
+New to sensei? Run `/sensei:introduce` first. Then open your plugin's repository and run `/sensei:prepare`. For a plugin that is still an idea, run `/sensei:meditate` in an empty folder first. Sensei needs Claude Code with `claude plugin validate` and `claude plugin eval`, `git`, and Python 3.
 
 ## How it is built
 
