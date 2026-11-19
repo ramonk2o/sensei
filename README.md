@@ -45,7 +45,7 @@ Two read-only agents review changes for `train`:
 - the changelog's structure, and that each branch changing the plugin has a changelog entry;
 - `claude plugin validate`, on an archive of the last commit.
 
-It also prints a scope map of your skills.
+It also prints a scope map of your skills. With `--skill <folder>`, it checks one skill on its own, loose or in a plugin: its frontmatter, sizes and the files it points to.
 
 ## How a change goes
 

@@ -4,10 +4,13 @@
 Usage:
     check.py [ROOT] [--release] [--scope-map] [--no-validate]
              [--skill-tokens N] [--description-chars N]
+    check.py --skill FOLDER [--scope-map] [--skill-tokens N] [--description-chars N]
 
 ROOT defaults to the current directory. Exit code 1 when any check fails;
 warnings are printed but don't fail. On a branch, it also prints the size of each
-SKILL.md and description changed against main, as information only. Standard library only.
+SKILL.md and description changed against main, as information only. --skill checks
+one skill folder, loose (SKILL.md at its root) or inside a plugin, and skips the
+plugin-level checks: listings, changelog, git and validate. Standard library only.
 """
 
 import argparse
@@ -105,20 +108,25 @@ def parse_frontmatter(text):
     return data, body
 
 
-def read_limits(root, args):
-    limits = {"skill_tokens": None, "description_chars": None}
-    p = root / "docs" / "principles.md"
-    if p.exists():
-        m = re.search(r"<!--\s*sensei:limits(.*?)-->", p.read_text(encoding="utf-8"), re.S)
+def read_limits(places, args):
+    """Limits from the first docs/principles.md in places with a sensei:limits block; flags override."""
+    limits = {"skill_tokens": None, "description_chars": None, "source": []}
+    for place in places:
+        p = place / "docs" / "principles.md"
+        m = p.exists() and re.search(r"<!--\s*sensei:limits(.*?)-->", p.read_text(encoding="utf-8"), re.S)
         if m:
             for line in m.group(1).splitlines():
                 kv = re.match(r"\s*([a-z_]+)\s*:\s*(\d+)", line)
-                if kv and kv.group(1) in limits:
+                if kv and kv.group(1) in ("skill_tokens", "description_chars"):
                     limits[kv.group(1)] = int(kv.group(2))
+            limits["source"].append(str(p))
+            break
     if args.skill_tokens:
         limits["skill_tokens"] = args.skill_tokens
     if args.description_chars:
         limits["description_chars"] = args.description_chars
+    if args.skill_tokens or args.description_chars:
+        limits["source"].append("flags")
     return limits
 
 
@@ -127,58 +135,62 @@ def read_limits(root, args):
 REF_RE = re.compile(r"(?<![\w/.-])((?:(?:\.\./)+[\w-]+/)?(?:references|scripts|assets|agents)/[\w./-]*[\w-]\.[a-z]{1,5})")
 
 
-def check_skills(plugin, limits, rel):
-    skills = []
-    sdir = plugin / "skills"
-    if not sdir.is_dir():
-        return skills
-    for skill_md in sorted(sdir.glob("*/SKILL.md")):
-        folder = skill_md.parent
-        text = skill_md.read_text(encoding="utf-8")
-        fm, body = parse_frontmatter(text)
-        where = rel(skill_md)
-        if fm is None:
-            err(f"{where}: no frontmatter")
-            continue
-        name = fm.get("name", "")
-        desc = fm.get("description", "")
-        if name != folder.name:
-            err(f"{where}: name '{name}' doesn't match folder '{folder.name}'")
-        if not desc:
-            err(f"{where}: no description")
-        tokens = len(text) // 4
-        if limits["skill_tokens"] and tokens > limits["skill_tokens"]:
-            err(f"{where}: ~{tokens} tokens, over the {limits['skill_tokens']} limit")
-        if limits["description_chars"] and len(desc) > limits["description_chars"]:
-            err(f"{where}: description has {len(desc)} characters, over the {limits['description_chars']} limit")
-        pointers = [(where, body, None)]
-        for extra in sorted(folder.glob("references/**/*.md")):
-            pointers.append((rel(extra), extra.read_text(encoding="utf-8"), extra.parent))
-        for src, text_, here in pointers:
-          for ref in sorted(set(REF_RE.findall(text_))):
+def check_skill(skill_md, limits, rel, plugin=None):
+    """One skill folder. plugin is the plugin that holds it, or None for a loose skill."""
+    folder = skill_md.parent
+    sdir = plugin / "skills" if plugin else None
+    text = skill_md.read_text(encoding="utf-8")
+    fm, body = parse_frontmatter(text)
+    where = rel(skill_md)
+    if fm is None:
+        err(f"{where}: no frontmatter")
+        return None
+    name = fm.get("name", "")
+    desc = fm.get("description", "")
+    if name != folder.name:
+        err(f"{where}: name '{name}' doesn't match folder '{folder.name}'")
+    if not desc:
+        err(f"{where}: no description")
+    tokens = len(text) // 4
+    if limits["skill_tokens"] and tokens > limits["skill_tokens"]:
+        err(f"{where}: ~{tokens} tokens, over the {limits['skill_tokens']} limit")
+    if limits["description_chars"] and len(desc) > limits["description_chars"]:
+        err(f"{where}: description has {len(desc)} characters, over the {limits['description_chars']} limit")
+    pointers = [(where, body, None)]
+    for extra in sorted(folder.glob("references/**/*.md")):
+        pointers.append((rel(extra), extra.read_text(encoding="utf-8"), extra.parent))
+    for src, text_, here in pointers:
+        for ref in sorted(set(REF_RE.findall(text_))):
             if "<" in ref or "*" in ref:
                 continue
             # A path resolves from its own file: a reference's from its folder, SKILL.md's from the skill's.
             base = here if here is not None else folder
             if (base / ref).exists():
                 continue
-            if (plugin / ref).exists():
+            if plugin is not None and (plugin / ref).exists():
                 continue
             if here is not None and (folder / ref).exists():
                 fixed = os.path.relpath(os.path.normpath(folder / ref), here)
                 err(f"{src}: names {ref}, which resolves only from the skill's folder; "
                     f"from this file it's {fixed}")
                 continue
-            owners = [d for d in sdir.iterdir() if d.is_dir() and d != folder and (d / ref).exists()]
+            owners = [d for d in sdir.iterdir() if d.is_dir() and d != folder and (d / ref).exists()] if sdir else []
             if owners:
                 path = os.path.relpath(owners[0] / ref, base)
                 warn(f"{src}: names {ref}, which exists only in {', '.join(d.name for d in owners)} "
                      f"(fine if the text says whose it is; a path to read is {path})")
             else:
                 err(f"{src}: names {ref}, which doesn't exist")
-        skills.append({"name": name or folder.name, "description": desc, "body": body,
-                       "tokens": tokens, "path": where, "manual": fm.get("disable-model-invocation") == "true"})
-    return skills
+    return {"name": name or folder.name, "description": desc, "body": body,
+            "tokens": tokens, "path": where, "manual": fm.get("disable-model-invocation") == "true"}
+
+
+def check_skills(plugin, limits, rel):
+    sdir = plugin / "skills"
+    if not sdir.is_dir():
+        return []
+    found = (check_skill(md, limits, rel, plugin) for md in sorted(sdir.glob("*/SKILL.md")))
+    return [s for s in found if s]
 
 
 def check_agents(plugin, limits, rel):
@@ -404,23 +416,70 @@ def scope_map(skills):
             print(f"Opening: {opening[:700]}{'…' if len(opening) > 700 else ''}")
 
 
+NO_LIMITS = "no size limits found (a sensei:limits block in docs/principles.md, or flags): sizes not checked"
+
+
+def report():
+    for w in warnings:
+        print(f"warning: {w}")
+    for e in errors:
+        print(f"FAIL: {e}")
+
+
+def check_one_skill(folder, args):
+    """--skill: one skill folder, loose or in a plugin, without the plugin-level checks."""
+    skill_md = folder / "SKILL.md"
+    if not skill_md.is_file():
+        print(f"{folder}: no SKILL.md")
+        return 1
+    plugin = None
+    if folder.parent.name == "skills" and (folder.parent.parent / ".claude-plugin").is_dir():
+        plugin = folder.parent.parent
+    places = []
+    if plugin:
+        places.append(plugin)
+        top = run(["git", "rev-parse", "--show-toplevel"], plugin)
+        if top and top.returncode == 0 and top.stdout.strip():
+            places.append(Path(top.stdout.strip()))
+    limits = read_limits(places, args)
+    skill = check_skill(skill_md, limits, lambda p: os.path.relpath(p, folder.parent), plugin)
+    if args.scope_map:
+        scope_map([skill] if skill else [])
+        return 0
+    if not limits["skill_tokens"] or not limits["description_chars"]:
+        warn(NO_LIMITS)
+    report()
+    if limits["source"]:
+        print(f"limits: {limits['skill_tokens'] or '-'} tokens, {limits['description_chars'] or '-'} "
+              f"description characters (from {' and '.join(limits['source'])})")
+    where = f"in plugin {plugin.name}" if plugin else "loose"
+    size = (f"~{skill['tokens']} tokens in SKILL.md, description of {len(skill['description'])} characters"
+            if skill else "not read")
+    print(f"{folder.name} ({where}): {size}; {len(errors)} failures, {len(warnings)} warnings")
+    return 1 if errors else 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="Consistency checks for a skill plugin repository.")
     ap.add_argument("root", nargs="?", default=".")
     ap.add_argument("--release", action="store_true", help="release checks: non-empty [Unreleased], validate --profile directory")
     ap.add_argument("--scope-map", action="store_true", help="print each skill's description and opening, then exit")
     ap.add_argument("--no-validate", action="store_true", help="skip claude plugin validate")
+    ap.add_argument("--skill", metavar="FOLDER",
+                    help="check one skill folder, loose or in a plugin; skips listings, changelog, git and validate")
     ap.add_argument("--skill-tokens", type=int)
     ap.add_argument("--description-chars", type=int)
     args = ap.parse_args()
 
+    if args.skill:
+        return check_one_skill(Path(args.skill).resolve(), args)
     root = Path(args.root).resolve()
     rel = lambda p: os.path.relpath(p, root)
     plugins = plugin_dirs(root)
     if not plugins:
         print(f"{root}: no plugin found (.claude-plugin/plugin.json or skills/)")
         return 1
-    limits = read_limits(root, args)
+    limits = read_limits([root], args)
     skills = []
     for p in plugins:
         found = check_skills(p, limits, rel)
@@ -438,11 +497,8 @@ def main():
         validate(root, plugins, args.release, committed)
 
     if not limits["skill_tokens"] or not limits["description_chars"]:
-        warn("no size limits found (a sensei:limits block in docs/principles.md, or flags): sizes not checked")
-    for w in warnings:
-        print(f"warning: {w}")
-    for e in errors:
-        print(f"FAIL: {e}")
+        warn(NO_LIMITS)
+    report()
     growth = growth_lines(root, skills, limits)
     if growth:
         print("size against main:")
