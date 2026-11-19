@@ -5,7 +5,7 @@ description: In a repository whose CLAUDE.md names sensei, notes ideas, bugs and
 
 # Log
 
-Two records describe a plugin over time, like a training log: what is left to practice and what each version earned. `log` owns their formats: it notes what may come, shows what to take next and keeps the changelog. A change to a skill belongs to `train`, which writes its own changelog entry, and planning one that isn't settled or spans several PRs to `meditate`; `log` only records ideas for later. A release belongs to the maintainer, who runs `/sensei:graduate`; `log` doesn't cut versions.
+Two records describe a plugin over time, like a training log: what is left to practice and what each version earned. `log` owns their formats: it notes what may come, shows what to take next and keeps the changelog. A change to a skill belongs to `train`, which writes its own changelog entry, and planning one that needs clarification to `meditate`; `log` only records ideas for later. A release belongs to the maintainer, who runs `/sensei:graduate`; `log` doesn't cut versions.
 
 | Where | Holds | Time |
 |---|---|---|

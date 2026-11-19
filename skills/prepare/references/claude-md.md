@@ -12,8 +12,8 @@ The CLAUDE.md has three parts. The first two are fixed, copied as written below.
 ## Maintenance with sensei
 
 This repository is maintained with the sensei plugin. If sensei is installed:
-- creating or changing a skill, judging an issue or pull request, or auditing consistency: the `train` skill, which sends a request that needs clarifying to `meditate`;
-- planning a plugin, or a change that isn't settled or spans several PRs: the `meditate` skill;
+- creating or changing a skill, judging an issue or pull request, or auditing consistency: the `train` skill, which sends a request that needs clarification to `meditate`;
+- planning a plugin, or a change that needs clarification (not settled, or more than one pull request): the `meditate` skill;
 - the backlog (noting, what's next) and CHANGELOG.md: the `log` skill (`train` writes its own changelog entries);
 - releasing a version: `/sensei:graduate`.
 

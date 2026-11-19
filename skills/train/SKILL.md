@@ -1,11 +1,11 @@
 ---
 name: train
-description: In a repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command, judges an issue or PR, or audits consistency, e.g. 'the deck skill did X, it should do Y'; an unclear request goes on to meditate. Not for noting an idea (log) or releasing (/sensei:graduate).
+description: In a repository whose CLAUDE.md names sensei, creates or changes a skill, agent, hook or command, judges an issue or PR, or audits consistency, e.g. 'the deck skill did X, it should do Y'; what needs clarification goes to meditate. Not for noting an idea (log) or releasing (/sensei:graduate).
 ---
 
 # Train
 
-A change to a skill goes wrong in predictable ways: it fixes the one example that failed instead of the case behind it, changes a rule in one skill while a sibling or a reference still states the old one, or is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these. It builds what is ready: a request that needs clarifying goes to `meditate`, ideas for later to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
+A change to a skill goes wrong in predictable ways: it fixes the one example that failed instead of the case behind it, changes a rule in one skill while a sibling or a reference still states the old one, or is judged by a model that already knows what the skill was meant to say. `train` is the fixed form that prevents these. It builds what is ready: a request that needs clarification goes to `meditate`, ideas for later to the backlog with `log`. Releases are the maintainer's call, with `/sensei:graduate`.
 
 **The skills are the object of the work here, not tools.** When the maintainer talks about the plugin's subject (prompts, decks, emails…), it's about improving the skill. Don't run that skill's flow unless they explicitly ask to use it.
 
@@ -44,9 +44,9 @@ Start from what happened: what the skill was asked, what it did and what it shou
 ### 2. Ready?
 For a backlog entry, look first for open blockers (`../log/references/backlog.md`, An entry, Blocked by). An open blocker ends this step without starting `meditate`: name the open blockers and point to the entry that file's What's next proposes instead. Go on despite one only on the maintainer's explicit word (e.g. the blocker is done but its issue isn't closed), and record the exception in the plan.
 
-Then ask: can I write the change plan now without asking the maintainer for a decision, and does it fit one pull request? For a backlog entry, the first question is `../log/references/backlog.md`, Ready.
-- **Yes:** go on. A small, clear request needs no entry and doesn't pass through `meditate`.
-- **No:** say it needs clarifying first and what it lacks, then start `meditate` on it, which settles it and splits it into issues `train` builds one at a time.
+Then ask whether it needs clarification (`../log/references/backlog.md`, Ready, for an entry or a request with no entry).
+- **Ready:** go on. A small request that's ready needs no entry and doesn't pass through `meditate`.
+- **Needs clarification:** say what it lacks, then start `meditate` on it, which settles it and splits it into issues `train` builds one at a time.
 
 ### 3. The change plan
 Present one message with:

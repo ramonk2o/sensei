@@ -47,13 +47,13 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 
 ## Ready
 
-An entry is ready when a change plan can be written from it without asking the maintainer for a decision. It has:
+A change, from an entry or from a request with no entry, is ready when its change plan can be written without asking the maintainer for a decision and it fits one pull request; anything else **needs clarification**. For an entry, that means it has:
 - **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case quotes at least one request as the user typed or would type it (the maintainer may reconstruct it; a narration of what was asked isn't one), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case.
 - **The expected behavior:** what the skill should do after the change, in Description.
 - **Acceptance criteria**, in their field.
 - **No open questions.**
 
-Any other entry needs clarification. Set the readiness by this test each time an entry is written or changed, and when it needs clarification, tell the maintainer what it lacks.
+An entry that lacks any of these needs clarification. Set an entry's readiness by this test each time it's written or changed, and when it needs clarification, tell the maintainer what it lacks.
 
 ## The folder
 
