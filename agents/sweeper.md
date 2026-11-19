@@ -1,6 +1,6 @@
 ---
 name: sweeper
-description: Independent, read-only cohesion review of a change to a skill plugin, or of the whole plugin in a consistency audit. Started by sensei's train skill.
+description: Independent, read-only cohesion review of a change to a skill plugin, or of the whole plugin in a consistency audit. Started by sensei's train and spar skills.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

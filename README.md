@@ -6,7 +6,7 @@ The skills are written in English and talk to you in your own language. Everythi
 
 ## Skills
 
-The names follow a dojo: the sensei **introduce**s itself; you **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
+The names follow a dojo: the sensei **introduce**s itself; you **spar** with a skill made elsewhere, **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
 You don't have to pick between `train`, `meditate` and `log`: say what you want, and the one that fits starts. A request to change a skill goes to `train`, which sends it to `meditate` when it needs clarification: it isn't settled enough to plan, or is too big for one pull request; `meditate` writes issues that `train` builds one at a time; noting an idea and asking what's next go to `log`. `prepare` and `graduate` you run yourself.
 
@@ -32,10 +32,11 @@ You don't have to pick between `train`, `meditate` and `log`: say what you want,
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
 - **introduce** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder. Run it with `/sensei:introduce`, or ask how sensei works.
+- **spar** evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing. Run it with `/sensei:spar`, or ask sensei whether your skill is good.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise. Run it with `/sensei:graduate`.
 
-Two read-only agents review changes for `train`:
-- **examiner** judges a new skill's architecture, or every skill's in an audit, and lists the sentences that can be cut;
+Two read-only agents review changes for `train`, and a skill made elsewhere for `spar`:
+- **examiner** judges a new skill's architecture, every skill's in an audit, or one made elsewhere, and lists the sentences that can be cut;
 - **sweeper** finds leftovers, contradictions, redundancy, drift between skills, broken references, inconsistent terms, vague instructions and scope overlap.
 
 `scripts/check.py` checks:
@@ -69,7 +70,7 @@ Early and experimental (before 1.0). See [CHANGELOG.md](CHANGELOG.md).
 /plugin install sensei@sensei
 ```
 
-New to sensei? Run `/sensei:introduce` first. Then open your plugin's repository and run `/sensei:prepare`. For a plugin that is still an idea, run `/sensei:meditate` in an empty folder first. Sensei needs Claude Code with `claude plugin validate` and `claude plugin eval`, `git`, and Python 3.
+New to sensei? Run `/sensei:introduce` first. Have a skill made elsewhere? Run `/sensei:spar` on it to see what sensei would say. Then open your plugin's repository and run `/sensei:prepare`. For a plugin that is still an idea, run `/sensei:meditate` in an empty folder first. Sensei needs Claude Code with `claude plugin validate` and `claude plugin eval`, `git`, and Python 3.
 
 ## How it is built
 

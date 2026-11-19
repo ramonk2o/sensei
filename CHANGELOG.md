@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Added
 
 - `introduce` presents sensei to someone new to it: the cycle, a table of the skills with how to call each, and the next step for the current folder, in the user's language.
+- `spar` evaluates one skill made outside sensei, in any folder and with no setup: a loose folder, a `.skill` file or a skill in a plugin. It runs the check script and the `examiner` review (and `sweeper` when the skill has siblings), judged by the plugin's principles or `train`'s writing guide, and reports the findings, the cuts, what recreating it with sensei would change and the next step. It writes nothing.
 - The check script fails when a file marked `<!-- sensei:listing -->` doesn't name every skill of the plugin, as it already does for the README.
 - The check script checks one skill folder with `--skill <folder>`, loose (`SKILL.md` at its root) or inside a plugin, with no plugin around it: frontmatter, name, sizes and the files it points to, with limits from the plugin's principles or the flags. It skips the listings, changelog, git and `claude plugin validate`, and with `--scope-map` prints that one skill.
 
