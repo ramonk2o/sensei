@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Fixed
+
+- A hypothetical case now needs a request: `log`'s Ready test, and `train` and `meditate` with it, count the maintainer's account only when it quotes at least one request in the words the user typed or would type, and otherwise ask for them without proposing one. Every request in an entry's Motivation is quoted whole. `train`'s cold reader runs on that request; when the maintainer decided to go without a case, it judges each acceptance criterion instead, and the merge summary says no request was tested.
+
 ## [0.11.0] - 2026-11-18
 
 Sensei clarifies before it builds: meditate plans changes as well as new plugins and splits them into ready issues, train builds only what is ready, and log keeps readiness, blockers and a model tier for each entry and says what to take next.
