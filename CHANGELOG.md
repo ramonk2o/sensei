@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Added
 
 - `train` checks a backlog entry's blockers before planning. An open blocker stops it without starting `meditate`: it names the open blockers and points to the next entry with none. It goes on only on the maintainer's explicit word, recorded in the plan. A discarded blocker doesn't block, and `train` says it was discarded.
+- Before judging a request with no backlog entry, `train` looks for an open entry it matches. When one does, it names the entry and asks whether the request is that entry; on yes, the new account joins the entry's case and `train` goes on from the entry, its blockers included. `log`'s Capture now says what merging a capture into a similar entry means: the new account joins that entry's Motivation, and its readiness is set again.
 
 ### Changed
 

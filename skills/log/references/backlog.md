@@ -80,7 +80,7 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
 - **Capture:** when the maintainer states an idea, a bug or a debt, write it as a new entry.
   - When the case is missing, ask one or two short questions about it.
   - "Just note it" skips the questions.
-  - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge.
+  - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge: the new account joins that entry's Motivation, its request quoted whole, and readiness is set again.
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.
 - **What's next:** read the open entries and show, without changing anything:
   1. a table of the ready ones in the order to take them: first those with no open blocker, then those still blocked, each after its blockers; within each group, bugs, then ideas, then debt, oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers;

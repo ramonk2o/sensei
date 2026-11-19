@@ -42,6 +42,8 @@ When in doubt between two kinds, take the heavier one and say so. A skill that o
 Start from what happened: what the skill was asked, what it did and what it should have done, best from the conversation or an excerpt. An account of it, or a request the maintainer expects, counts as a hypothetical case once it holds the request in the user's words (when it's missing, ask as `../log/references/backlog.md` says, Ready). Say so in the plan and the commit message, since the first real case can overturn it. Going without any case is the maintainer's explicit decision. An impression ("it's off", "improve it") isn't a case: a change built on one becomes rework, so step 2 says no. For a new skill or a rewrite, the case is as `references/modes.md` says. A backlog entry holds its case (read an issue as `../log/references/issues.md` says, Writing to issues), and an audit finding is its own.
 
 ### 2. Ready?
+For a request with no entry, look first for an open entry it matches, as `../log/references/backlog.md` says (Operations, Capture; in GitHub issues, `../log/references/issues.md`, Check for duplicates). When one matches, name it and ask whether the request is that entry; on yes, merge them as Capture says and go on from the entry.
+
 For a backlog entry, look first for open blockers (`../log/references/backlog.md`, An entry, Blocked by). An open blocker ends this step without starting `meditate`: name the open blockers and point to the entry that file's What's next proposes instead. Go on despite one only on the maintainer's explicit word (e.g. the blocker is done but its issue isn't closed), and record the exception in the plan.
 
 Then ask whether it needs clarification (`../log/references/backlog.md`, Ready, for an entry or a request with no entry).
