@@ -44,7 +44,7 @@ Start from what happened: what the skill was asked, what it did and what it shou
 ### 2. Ready?
 For a backlog entry, look first for open blockers (`../log/references/backlog.md`, An entry, Blocked by). An open blocker ends this step without starting `meditate`: name the open blockers and point to the entry that file's What's next proposes instead. Go on despite one only on the maintainer's explicit word (e.g. the blocker is done but its issue isn't closed), and record the exception in the plan.
 
-Then ask whether it needs clarification, an entry or a request with no entry (`../log/references/backlog.md`, Ready).
+Then ask whether it needs clarification (`../log/references/backlog.md`, Ready, for an entry or a request with no entry).
 - **Ready:** go on. A small request that's ready needs no entry and doesn't pass through `meditate`.
 - **Needs clarification:** say what it lacks, then start `meditate` on it, which settles it and splits it into issues `train` builds one at a time.
 
