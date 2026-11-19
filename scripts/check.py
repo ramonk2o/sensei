@@ -190,17 +190,31 @@ def check_agents(plugin, limits, rel):
             err(f"{rel(agent_md)}: description has {len(desc)} characters, over the {limit} limit")
 
 
+LISTING_RE = re.compile(r"^<!-- sensei:listing -->$", re.M)
+
+
+def missing_skills(text, skills):
+    return [s["name"] for s in skills
+            if not re.search(rf"(?<![\w-]){re.escape(s['name'])}(?![\w-])", text)]
+
+
 def check_listings(root, plugin, skills, rel):
     readme = root / "README.md"
     if not readme.exists():
         readme = plugin / "README.md"
     if readme.exists():
-        text = readme.read_text(encoding="utf-8")
-        for s in skills:
-            if not re.search(rf"(?<![\w-]){re.escape(s['name'])}(?![\w-])", text):
-                err(f"{rel(readme)}: doesn't mention the skill '{s['name']}'")
+        for name in missing_skills(readme.read_text(encoding="utf-8"), skills):
+            err(f"{rel(readme)}: doesn't mention the skill '{name}'")
     else:
         warn("no README.md")
+    # Any other file marked as a listing must name every skill too.
+    for md in sorted(plugin.rglob("*.md")):
+        if md == readme or any(part.startswith(".") for part in md.relative_to(plugin).parts):
+            continue
+        text = md.read_text(encoding="utf-8")
+        if LISTING_RE.search(text):
+            for name in missing_skills(text, skills):
+                err(f"{rel(md)}: marked as a listing, but doesn't mention the skill '{name}'")
     pj = load_json(plugin / ".claude-plugin" / "plugin.json")
     market = load_json(root / ".claude-plugin" / "marketplace.json")
     if pj and market:
