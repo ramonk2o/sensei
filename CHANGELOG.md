@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-11-18
+
+Sensei clarifies before it builds: meditate plans changes as well as new plugins and splits them into ready issues, train builds only what is ready, and log keeps readiness, blockers and a model tier for each entry and says what to take next.
+
 ### Added
 
 - `log`'s backlog format defines when an entry is ready: it has its case (or the maintainer's explicit decision to go without one), the expected behavior, acceptance criteria and no open questions; any other entry needs clarification. `meditate` leaves for later a skill whose entry couldn't be ready.
