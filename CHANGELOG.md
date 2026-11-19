@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-11-18
+
+Train checks before it builds: a hypothetical case needs a request to test on, an entry's open blockers and a matching backlog entry stop or redirect it, and the skills share one term for what needs clarification and one way to write paths in references.
+
 ### Added
 
 - `train` checks a backlog entry's blockers before planning. An open blocker stops it without starting `meditate`: it names the open blockers and points to the next entry with none. It goes on only on the maintainer's explicit word, recorded in the plan. A discarded blocker doesn't block, and `train` says it was discarded.
