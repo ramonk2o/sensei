@@ -24,7 +24,7 @@ Without a limits block, use the default limits: 4000 tokens for SKILL.md and 300
 
 ## 3. Check
 
-Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --skill <folder>`, adding the default limits' flags when step 2 uses them. Then get the scope map: the same command with `--scope-map`, or, for a skill in a plugin, `check.py <plugin> --scope-map`, so the review sees its siblings.
+Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/check.py --skill <folder>`, which reads a plugin's limits block itself, adding the default limits' flags when step 2 uses them. Then get the scope map: the same command with `--scope-map`, or, for a skill in a plugin, `check.py <plugin> --scope-map`, so the review sees its siblings.
 
 ## 4. Review
 
@@ -42,7 +42,7 @@ When the skill has siblings, start `sensei:sweeper` at the same time, with the s
 One message:
 - **Criteria:** which ones judged the skill (step 2), and its limits.
 - **Check:** the script's failures and warnings, and the sizes against the limits.
-- **Findings:** the agents' findings that pass the bar ("What to leave out" in `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`), merged and ranked, each with where, what and the fix.
+- **Findings:** the agents' findings on this skill that pass the bar ("What to leave out" in `${CLAUDE_PLUGIN_ROOT}/agents/examiner.md`), merged and ranked, each with where, what and the fix.
 - **Cuts:** the examiner's cuts, as their own list.
 - **With sensei:** which of these findings and cuts recreating it would settle, and how: rebuilt minimal from the requests it serves, each rule kept only where a test on one of them earns it, the description tested by a trigger suite.
 - **Next step:**
