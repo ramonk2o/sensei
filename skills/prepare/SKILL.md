@@ -73,7 +73,7 @@ Judge them by what they say they do, never by a fixed list of names. For each, p
 
 A skill that only overlaps the maintained plugin's subject (a slides skill in a deck plugin) or reviews code in general (`code-review`, `simplify`, `security-review`) isn't a conflict: mention it and recommend leaving it on, since CLAUDE.md already says the skills are the object of the work.
 
-On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides` (an entry there for a prefixed name gets the replacement `references/settings.md` proposes). Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. A reply that names one is the OK to turn it off.
+On a re-run, skip skills already turned off: a skill still shows in the session when the local file denies it, so check that file's deny rules, `enabledPlugins` and `skillOverrides`. A `skillOverrides` entry for a prefixed name doesn't count as turned off: propose its replacement from `references/settings.md`. Nothing records a decline, so a conflict the user left on and one installed since look the same. List every conflicting skill still on by its name (`plugin:skill`) in one line ("still on, relying on the routing: …; say which to turn off"), with no new recommendation. A reply that names one is the OK to turn it off.
 
 ## 6. Migration and orphans
 

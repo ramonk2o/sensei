@@ -37,7 +37,7 @@ These rules cover the forms Claude usually writes, not every way to run git (`gi
 - **The plugin being maintained:** `enabledPlugins` set to `false` for its installed copy, by its `id` from `claude plugin list --json` (`name@marketplace`), so its released skills don't fire while its source is being changed. When that list doesn't include it (a new plugin), write no entry.
 - **Conflicts** (step 5), on the user's agreement, by the skill's name as the session lists it:
   - **a prefixed skill** (`<prefix>:<skill>`) alone: `permissions.deny: ["Skill(<prefix>:<skill>)"]`, whatever loads it: an installed plugin, the desktop app, or skills synced from claude.ai. The same skill can load as a plugin skill in one surface and as a synced skill in another, and only the deny rule blocks it in both. The plugin's other skills stay on. Its description stays listed, but loading it is blocked, and the session follows CLAUDE.md's routing. The prefix can differ from the plugin's `id`. Checked in the terminal and the desktop app on 2026-11-19;
-  - **a whole plugin,** when all its skills conflict and `claude plugin list --json` lists it: `false` in `enabledPlugins`, by its `id`;
+  - **a whole plugin,** when all its skills conflict and `claude plugin list --json` lists it: `false` in `enabledPlugins`, by its `id`; otherwise, a deny rule for each of its skills;
   - **a skill with no prefix** (bundled, user or project): `"skillOverrides": {"<name>": "off"}`.
 
   A `skillOverrides` entry keyed by a prefixed name doesn't reach the skill where it loads as a plugin skill: on a re-run, propose replacing it with the skill's deny rule.
