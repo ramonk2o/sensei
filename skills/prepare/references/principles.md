@@ -4,7 +4,7 @@
 
 ## Settling it
 
-Settle the principles with the user in rounds of up to five numbered questions, each with a recommended answer and a one-line reason. Cover:
+Settle the principles with the user in rounds, in the form of `../../meditate/SKILL.md` (step 2: A round, The reply). Cover:
 - what every skill does before writing;
 - how results are checked;
 - whether each skill stands alone (reads nothing outside its folder);

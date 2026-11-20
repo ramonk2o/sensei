@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Changed
 
 - The README starts with a guide for newcomers: what skills and plugins are, where to start, the cycle step by step and what to say day to day, with the technical details moved to the end.
+- `meditate` gives each question in a round a short title and its recommended answer on a line of its own, and a reply accepts every recommendation it doesn't contest, so you answer only what you disagree with. `prepare`'s rounds on the principles take the same form.
 
 ## [0.13.0] - 2026-11-19
 

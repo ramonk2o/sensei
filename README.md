@@ -36,7 +36,7 @@ Pick the line that describes you:
 
 **meditate → prepare → train ⇄ log → graduate**, then back to `log` or `meditate` for the next version.
 
-1. **Plan** with `meditate`. Sensei asks you questions in rounds, each with a recommended answer, about who the skills are for, what requests they must handle and where one skill ends and the next begins. It ends with a list of small tasks, ready to build. Use it at the start, or later for a change that you haven't fully thought through.
+1. **Plan** with `meditate`. Sensei asks you questions in rounds about who the skills are for, what requests they must handle and where one skill ends and the next begins. Each question comes with a recommended answer, and you reply only to the ones you disagree with. It ends with a list of small tasks, ready to build. Use it at the start, or later for a change that you haven't fully thought through.
 2. **Set up** with `prepare`. Sensei gets the plugin folder ready: the basic files, a place for your list of tasks (on GitHub or in a folder), and a note that tells Claude this plugin is maintained with sensei. You run it once per plugin.
 3. **Build and change** with `train`. Each task, and each time a skill did something wrong, goes through `train`: it shows you a plan, makes the change once you approve it, checks it, has it reviewed by readers who never saw your conversation, tests it, and records it in the changelog.
 4. **Keep notes** with `log`. Ideas, bugs and loose ends go into your list of tasks, and `log` tells you what to take next.
@@ -73,7 +73,7 @@ The names follow a dojo: the sensei **introduce**s itself; you **spar** with a s
 - **meditate** plans a new plugin from an idea, or a change to an existing one, before anything is built:
   - for a new plugin, who it serves, the concrete requests it must answer, its skills and their borders, and its principles, written to `docs/principles.md` for `prepare` to pick up;
   - for a change, its case and every decision it needs;
-  - in both, rounds of questions with a recommended answer each, then the work split into ready backlog issues that `train` builds one at a time, each with its acceptance criteria, blockers and model tier.
+  - in both, rounds of questions with a recommended answer each, accepted unless you contest it, then the work split into ready backlog issues that `train` builds one at a time, each with its acceptance criteria, blockers and model tier.
 - **prepare** sets up a plugin repository, new or existing:
   - what's missing of the skeleton, and the principles your skills follow;
   - a CLAUDE.md with the project's facts, recommending pull requests and a backlog in GitHub issues when `gh` is signed in, and offering to create the GitHub repository when there's none;
