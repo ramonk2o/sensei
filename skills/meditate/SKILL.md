@@ -22,8 +22,16 @@ Read where you are before asking anything:
 
 Settle every decision the issues need, in rounds. Your mode's reference says what there is to settle.
 - **The tree:** keep the list of open decisions, each with the decisions it depends on. One is ready to ask once everything it depends on is settled. When an answer opens a new decision, add it.
-- **A round:** the ready decisions, up to five, riskiest first, numbered, each worded as your recommendation so that "yes" accepts it, with its reason in one line ("1. Leave sending the emails out of scope? The plugin only writes them."). Ready decisions past five wait for the next round.
-- **The case** is the exception: only the user has it, so ask for it without proposing one, since an invented request tests only what the model already expects.
+- **A round:** the ready decisions, up to five, riskiest first, numbered. Each has a short title, the question with its options when it has any, and a line of its own that opens with the recommendation in bold, then its reason in one line:
+
+  ```
+  1. **Sending.** Should the plugin send the emails, or only write them?
+     - **Recommended: only write them.** Sending needs access to the user's mail account.
+  ```
+
+  Ready decisions past five wait for the next round. End the round with one line: the user needs to answer only what they disagree with, and the case when the round asks for it.
+- **The reply** accepts every recommendation it doesn't contest: "ok" accepts them all, "I disagree with 3" accepts the others. A question it mentions without deciding is asked again in the next round.
+- **The case** is the exception: only the user has it, so ask for it without proposing one, since an invented request tests only what the model already expects. It stays open until the user gives it.
 - **Facts aren't questions:** what the repository holds, what is installed, what Claude Code allows. Look them up, in an agent if the session can start one, so the reading stays out of the conversation, and give the answer with where it came from.
 - **The end:** no decision left open. Approving a round's answers isn't the OK to write.
 
@@ -39,7 +47,7 @@ Cut the understanding into as few issues as `train` can build one at a time, eac
 ## 4. Review
 
 Show everything in one message:
-- **The understanding:** what will be done and why, in a few sentences, with the decisions settled.
+- **The understanding:** what will be done and why, in a few sentences, with every decision settled, those accepted by default included.
 - **The issues,** in build order, each as it will be written, with its type, area, readiness, tier and blockers.
 - **The other files** your mode's reference writes; for a file that exists, the changes section by section.
 
