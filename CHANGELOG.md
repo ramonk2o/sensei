@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-11-20
+
+Planning rounds put each recommended answer on its own line and accept it unless you contest it, and the README now opens with a guide for newcomers.
+
 ### Changed
 
 - The README starts with a guide for newcomers: what skills and plugins are, where to start, the cycle step by step and what to say day to day, with the technical details moved to the end.

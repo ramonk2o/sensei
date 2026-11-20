@@ -1,7 +1,7 @@
 {
   "name": "sensei",
   "displayName": "Sensei",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "A lean maintenance cycle for Claude Code skill plugins: plan a new plugin or a change to one (meditate), set up a plugin repo (prepare), keep its backlog and changelog (log), create or change a skill from a real case with checks, independent reviews and trigger tests (train), release a version (graduate), show a newcomer where to start (introduce), and evaluate a skill made elsewhere before adopting sensei (spar).",
   "author": {
     "name": "Ramon K.",
