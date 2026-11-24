@@ -46,7 +46,7 @@ Start from what happened: what the skill was asked, what it did and what it shou
 ### 2. Ready?
 For a request with no entry, look first for an open entry it matches, as `../log/references/backlog.md` says (Operations, Capture; in GitHub issues, `../log/references/issues.md`, Check for duplicates). When one matches, name it and ask whether the request is that entry; on yes, merge them as Capture says and go on from the entry.
 
-For a backlog entry, look first for open blockers (`../log/references/backlog.md`, An entry, Blocked by). An open blocker ends this step without starting `meditate`: name the open blockers and point to the entry that file's What's next proposes instead. Go on despite one only on the maintainer's explicit word (e.g. the blocker is done but its issue isn't closed), and record the exception in the plan.
+For a backlog entry, look first for open blockers (`../log/references/backlog.md`, An entry, Blocked by). An open blocker ends this step without starting `meditate`: name the open blockers and point to the entry that file's What's next proposes instead. Go on despite one only on the maintainer's explicit word (e.g. the blocker is done but its issue isn't closed), and record the exception in the plan. A taken entry (same file, An entry, Taken) is handled the same way: say by which branch or assignee. A claim you're resuming (its branch, or one the maintainer says is this work's) isn't taken: go on from it.
 
 Then ask whether it needs clarification (`../log/references/backlog.md`, Ready, for an entry or a request with no entry).
 - **Ready:** go on. A small request that's ready needs no entry and doesn't pass through `meditate`.
@@ -65,7 +65,7 @@ Present one message with:
 Edit only after an explicit OK to this plan.
 
 ### 4. Edit on a branch
-- **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main.
+- **Branch:** create one named after the change (e.g. `deck-duration-question`), from an up-to-date main. For a backlog entry, start the name with its number (`7-deck-duration-question`) and claim the entry (`../log/references/backlog.md`, An entry, Taken): in `backlog/` the branch is the claim; in GitHub issues, assign the issue to yourself. If the work stops without a merge, release the claim as that entry says.
 - **Writing:** follow `references/writing.md` and the target's principles; where they differ, the principles win. A new skill or a rewrite starts minimal (`references/modes.md`).
 - **Siblings:** change every sibling the plan listed.
 - **Changelog:** add the entry under `[Unreleased]` in the same edit (`../log/references/changelog.md`).

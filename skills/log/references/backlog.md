@@ -43,6 +43,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 
   A discarded blocker (closed as not planned, as `gh issue view <number> --json stateReason,comments` shows, or `status: discarded`) doesn't block. Say it was discarded and why, since its reason may change whether the entry is still ready.
 - **Model:** the tier of model the change needs (`models.md`).
+- **Taken:** an entry `train` is building, so What's next doesn't offer it to another session. In GitHub issues, it has an assignee (`issues.md`), and removing the assignee releases it. In `backlog/`, a branch starts with its number and a hyphen (`7-deck-duration-question`) in `git branch --all`, remote branches included as last fetched. A mark in the entry's file wouldn't do: a session reads `backlog/` as its own branch has it. Another worktree of the same clone sees the branch at once; another clone, once it's pushed. Deleting the branch releases the entry, on the maintainer's word, since it may hold work.
 - **Write only what the maintainer said or decided.** An assumption is an open question. The type, area, readiness and tier are yours to set from what was said.
 
 ## Ready
@@ -83,9 +84,9 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
   - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge, with the entry as it would read: the new account joins its Motivation, its request quoted whole, and readiness is set again. A yes is the OK to write it, in an issue's body too.
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.
 - **What's next:** read the open entries and show, without changing anything:
-  1. a table of the ready ones in the order to take them: first those with no open blocker, then those still blocked, each after its blockers; within each group, bugs, then ideas, then debt, oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers;
+  1. a table of the ready ones in the order to take them: first those with no open blocker, then those still blocked, each after its blockers; within each group, bugs, then ideas, then debt, oldest (lowest number) first. Columns: number, title, area, type, tier, open blockers, taken (the branch or assignee);
   2. the entries that need clarification, oldest first, each with what it lacks and the ready entries it blocks;
-  3. the one to take next: the first in the table with no open blocker, with its tier's model (`models.md`). When there's none, the entry to clarify first: one that blocks a ready entry, or else the oldest.
+  3. the one to take next: the first in the table with no open blocker that isn't taken (An entry, Taken), with its tier's model (`models.md`). When there's none, the entry to clarify first: one that blocks a ready entry, or else the oldest.
 
   Place an entry with no readiness label by the Ready test, say which ones they are, and offer to label them (Clean up).
 - **Discard:** only on the maintainer's word: set `status: discarded` and add the Why discarded line.
