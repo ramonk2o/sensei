@@ -29,6 +29,8 @@ Settle every decision the issues need, in rounds. Your mode's reference says wha
      - **Recommended: only write them.** Sending needs access to the user's mail account.
   ```
 
+  When a decision is the shape of an output (a round's format, a changelog entry), show each option as a short sample of that output, not a description.
+
   Ready decisions past five wait for the next round. End the round with one line: the user needs to answer only what they disagree with, and the case when the round asks for it.
 - **The reply** accepts every recommendation it doesn't contest: "ok" accepts them all, "I disagree with 3" accepts the others. A question it mentions without deciding is asked again in the next round.
 - **The case** is the exception: only the user has it, so ask for it without proposing one, since an invented request tests only what the model already expects. It stays open until the user gives it.
