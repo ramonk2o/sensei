@@ -14,6 +14,7 @@ applied to how the skills behave.
 - Every skill that talks to the user now carries the plain-words rule in its "Talk to the user" line (`train` gains the line), pointing to the glossary.
 - `prepare`: the principles round first says what principles are and why they're settled now, and the review explains in one plain sentence what each backlog and integration option means day to day.
 - `train`: the change plan says why each new file lives in its folder and quotes each principle it touches, and the merge request explains the branch and the pull request in plain words.
+- `introduce`: answers a question about a term of the process or a skill's parts ("what is a pull request?", "what goes in references?") from its glossary, without the tour.
 - `meditate`: the first round says how rounds work, each question is asked by what it changes in the user's work, and before the issues are listed it explains what the split is for and what an issue, "blocked by" and the model tier mean.
 - `meditate`: when a decision is the shape of an output, each option is shown as a short sample instead of described.
 - `meditate`: planning a new plugin now records each out-of-scope item as a discarded backlog entry with its reason, so a later idea that was already ruled out is found.
