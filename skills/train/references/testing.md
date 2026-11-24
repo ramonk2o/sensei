@@ -15,6 +15,10 @@ The test passes when its answer does what the plan said the skill should do in t
 
 When the maintainer decided to go without a case, there is no request to give. Give the reader the same files and the acceptance criteria (with no entry, the behavior the plan decided), and ask, for each one: "Following only these files, does the text deliver this? Where would you have to guess?" It passes when every answer is yes without a guess. Say in the merge summary that no request was tested. An acceptance criterion that no request of the case reaches is judged the same way, beside the requests, and the merge summary names it.
 
+### Against main
+
+A behavior change also runs each request, or with no request each acceptance criterion, on the skill's files from main, in parallel with the branch, with the same inputs and question. Main runs once: a fix round reruns only the branch. When main's answer also does what the plan decided, the case doesn't reproduce in the text: the test still passes, but the merge summary says so and proposes removing the added text as a cut, for the maintainer to decide. A new skill, a rewrite and cuts from an audit keep their own runs, below.
+
 ### A new skill or a rewrite
 
 The cold reader runs in step 4, on the minimal draft (`writing.md`, A new skill starts minimal), before the commit and the reviews, so they judge the reinforced text:
