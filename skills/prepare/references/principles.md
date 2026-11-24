@@ -4,7 +4,7 @@
 
 ## Settling it
 
-Settle the principles with the user in rounds, in the form of `../../meditate/SKILL.md` (step 2: A round, The reply). Cover:
+Settle the principles with the user in rounds, in the form of `../../meditate/SKILL.md` (step 2: A round, The reply). Before the first question, say what principles are and why they're settled now, from `../../introduce/references/glossary.md` (Principles). Cover:
 - what every skill does before writing;
 - how results are checked;
 - whether each skill stands alone (reads nothing outside its folder);

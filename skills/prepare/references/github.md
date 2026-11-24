@@ -15,7 +15,7 @@ Where the repository lives sets two facts of the CLAUDE.md: the integration and 
 - **No remote, `gh` signed in:** offer to create the repository (below). Yes brings pull requests and issues; no keeps local merge and `backlog/`.
 - **Otherwise** (another host, or no `gh`): local merge and `backlog/`, without asking.
 
-Say the recommendation and its reason in step 7's review, like the other facts. The user may pick otherwise at that review. Issues without pull requests work too: `Closes #<number>` then goes in the merge commit's message and closes the issue when main is pushed.
+Say the recommendation and its reason in step 7's review, like the other facts, and give each option of both facts one plain sentence on what it means day to day, from `../../introduce/references/glossary.md`: issues or files in `backlog/` (Issue), pull requests or a merge on this computer with no page on GitHub (Pull request, Merge). The user may pick otherwise at that review. Issues without pull requests work too: `Closes #<number>` then goes in the merge commit's message and closes the issue when main is pushed.
 
 ## Creating the repository
 
