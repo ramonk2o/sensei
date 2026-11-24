@@ -10,6 +10,10 @@ applied to how the skills behave.
 
 ### Changed
 
+- `meditate`: planning a new plugin now records each out-of-scope item as a discarded backlog entry with its reason, so a later idea that was already ruled out is found.
+
+### Changed
+
 - `meditate`: while an agent looks up a fact, the round asks the decisions that don't depend on it instead of waiting for the lookup.
 
 ## [0.14.1] - 2026-11-24
