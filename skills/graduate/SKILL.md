@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Releases what has reached main since the last version. People who installed the plugin get an update only when the version number in `plugin.json` goes up, so a release is what turns merged changes into something users receive.
 
-Talk to the user in their language.
+Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number.
 
 ## 1. Read the state
 

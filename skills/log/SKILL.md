@@ -14,7 +14,7 @@ Two records describe a plugin over time, like a training log: what is left to pr
 
 The skills themselves are the present: they say how the plugin works today, so no other document repeats them. `meditate`, `train` and `graduate` don't load this skill. They read the formats directly from `references/`, so the formats have one owner and every reader writes the same way.
 
-Talk to the maintainer in their language. Write the files in English, unless the project's CLAUDE.md names another language for its documents.
+Talk to the maintainer in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number. Write the files in English, unless the project's CLAUDE.md names another language for its documents.
 
 ## Before writing
 

@@ -7,6 +7,8 @@ description: Presents sensei to someone new to it: the cycle, each skill and how
 
 Shows someone new to sensei how it works and where to start, in one message. It writes and changes nothing, and asks nothing: the work belongs to the skills it presents.
 
+Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`references/glossary.md`) and name a principle by what it says, not by its number.
+
 1. Read `assets/tour.md` and show everything after its marker line in the user's language: translate the text and the sample requests, and keep the skill names, the commands and the layout as they are.
 2. Look at the current folder and add one line with the next step:
    - no plugin here (no `.claude-plugin/plugin.json`): `/sensei:meditate` to plan one, in an empty folder when this one holds something else;

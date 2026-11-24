@@ -7,7 +7,7 @@ description: Plans a new skill plugin, or a change to one that needs clarificati
 
 Takes a new plugin, or a change to one that needs clarification (`../log/references/backlog.md`, Ready), to issues ready to build: it settles every decision in rounds, splits what it settled into issues `train` builds one at a time, and writes them to the backlog. `train` starts it on a request that needs clarification. It doesn't change skills (`train` does, from these issues), note a stray idea (`log`) or set up a repository (`/sensei:prepare`).
 
-Talk to the user in their language. Write in English, unless the project's CLAUDE.md names another language or, for a new plugin, the user asks for one.
+Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number. Write in English, unless the project's CLAUDE.md names another language or, for a new plugin, the user asks for one.
 
 Nothing is written before the user's OK to the review (step 4).
 
@@ -31,13 +31,17 @@ Settle every decision the issues need, in rounds. Your mode's reference says wha
 
   When a decision is the shape of an output (a round's format, a changelog entry), show each option as a short sample of that output, not a description.
 
-  Ready decisions past five wait for the next round. End the round with one line: the user needs to answer only what they disagree with, and the case when the round asks for it.
+  Ask each question by what it changes in the user's work, not by the internal concept: "When you ask 'review this post', which skill should answer?", not "Border: copy or review?"
+
+  Ready decisions past five wait for the next round. The first round opens by saying how rounds work: each question has a recommendation and its reason, "ok" accepts them all, a number disagrees. End every round with one line: the user needs to answer only what they disagree with, and the case when the round asks for it.
 - **The reply** accepts every recommendation it doesn't contest: "ok" accepts them all, "I disagree with 3" accepts the others. A question it mentions without deciding is asked again in the next round.
 - **The case** is the exception: only the user has it, so ask for it without proposing one, since an invented request tests only what the model already expects. It stays open until the user gives it.
 - **Facts aren't questions:** what the repository holds, what is installed, what Claude Code allows. Look them up, in an agent if the session can start one, so the reading stays out of the conversation, and give the answer with where it came from. While it runs, only the decisions that depend on the fact wait: ask the other ready ones in the current round, before the agent reports.
 - **The end:** no decision left open. Approving a round's answers isn't the OK to write.
 
 ## 3. Split into issues
+
+Before listing them, say what the split is for (small pieces built one at a time, easier to review and undo) and, from the glossary, what an issue, "blocked by" and the model tier are.
 
 Cut the understanding into as few issues as `train` can build one at a time, each in one run and one pull request:
 - **Vertical:** each issue gives something usable on its own once merged (a request the plugin now serves end to end, or what a later issue builds on), not one layer across many skills (every description, then every flow).
