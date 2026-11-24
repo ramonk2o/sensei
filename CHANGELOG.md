@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `train`'s cold reader for a behavior change also runs each case on the text from main, in parallel. When the old text already does what the change wanted, the merge summary says so and proposes removing the added text.
+
 ## [0.14.0] - 2026-11-20
 
 Planning rounds put each recommended answer on its own line and accept it unless you contest it, and the README now opens with a guide for newcomers.
