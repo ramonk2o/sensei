@@ -1,6 +1,6 @@
 ---
 name: introduce
-description: Presents sensei to someone new to it: the cycle, each skill and how to call it, where to start in this folder, and what a term means, e.g. 'how does sensei work?', 'what is a pull request?', 'what goes in references?'. Not for the user's own plugin, or for setting a repo up (/sensei:prepare).
+description: Presents sensei to someone new to it: the cycle, each skill and how to call it, where to start, and what a sensei term means, e.g. 'how does sensei work?', 'which sensei skill do I call first?', 'what is a pull request?'. Not for the user's own plugin, or for setting a repo up (/sensei:prepare).
 ---
 
 # Introduce
