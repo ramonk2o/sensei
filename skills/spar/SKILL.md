@@ -7,7 +7,7 @@ description: Evaluates a skill made outside sensei, with no setup, when someone 
 
 Evaluates one skill made elsewhere, so its author sees what sensei would say before adopting it: the check script and an independent review, with nothing at stake. It reads and reports, and writes nothing to the user's folders. Changing a skill belongs to `train`, in a repository set up with `/sensei:prepare`; a whole plugin goes to `/sensei:prepare`, then `train`'s audit.
 
-Talk to the user in their language.
+Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number.
 
 ## 1. The skill
 
