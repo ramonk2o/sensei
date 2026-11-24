@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `meditate`: while an agent looks up a fact, the round asks the decisions that don't depend on it instead of waiting for the lookup.
+
 ## [0.14.1] - 2026-11-24
 
 `train`'s cold reader now also runs each case on the text from main, so a change the old text already covered is caught before it's merged.
