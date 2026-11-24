@@ -32,8 +32,8 @@ Most decisions depend on those of the groups above them.
 - **`backlog/`:** the issues, one file each, in the format of `../../log/references/backlog.md` (The folder), numbered from 1 in build order:
   - one entry per skill of the first version, labeled with its folder name and its readiness. Its Motivation is the skill's requests, its Acceptance criteria the good result for each, its Description the skill's purpose and scope, its Decisions what was settled for it (the borders, the invocation, the shared references it keeps), and its Blocked by the entries whose skill or component it reads;
   - a component of the first version that belongs to no single skill (a shared agent, a hook, a script) gets its own entry labeled `plugin`, numbered before the first entry that needs it, with that request as its Motivation;
-  - the ideas for later come last, labeled `plugin`, one entry each, with what was settled for them under Decisions.
-  - each Out of scope item comes after them, labeled `plugin`, one entry each, with `status: discarded` and `**Why discarded:** out of scope: <reason> (YYYY-MM-DD)` as its last line, so `log`'s duplicate check finds an idea already ruled out.
+  - the ideas for later come after those, labeled `plugin`, one entry each, with what was settled for them under Decisions.
+  - each Out of scope item comes last, labeled `plugin`, one entry each, with `status: discarded` and `**Why discarded:** out of scope: <reason> (YYYY-MM-DD)` as its last line, so `log`'s duplicate check finds an idea already ruled out.
 
   Write them as files even when the backlog will live in GitHub issues: `prepare` moves them there.
 
