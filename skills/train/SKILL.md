@@ -54,9 +54,9 @@ Then ask whether it needs clarification (`../log/references/backlog.md`, Ready, 
 
 ### 3. The change plan
 Present one message with:
-- **What changes,** and in which files.
+- **What changes,** and in which files; for each new file, one sentence on why it lives in its folder (SKILL.md, `references/`, `assets/`, `scripts/`), from the glossary.
 - **Why:** the case, and the root it points to, not just the example.
-- **Principle touched:** which of the target's principles the change touches. If it goes against one, read `references/conflicts.md` and propose a way out as it says.
+- **Principle touched:** which of the target's principles the change touches, quoting what each says. If it goes against one, read `references/conflicts.md` and propose a way out as it says.
 - **Siblings that state this rule:** search the whole repository for the rule's key terms and for the skill's name (`grep -rn`), and list every other file that must change in the same branch. That includes other skills that state the rule, the README and the manifests when names or scope change, and the "leaves out" opening of each sibling when scope moves. Say what you searched for. "None" is an answer only after the search.
 - **Effect on the version** (`../log/references/changelog.md`, The version number).
 - **Size effect:** how many tokens each SKILL.md and how many characters each description gains or loses, estimated, and, before text is added, what can be removed instead.
@@ -91,7 +91,7 @@ For the kinds that have reviews, read `references/review.md`, start the review a
 For the kinds that have tests, read `references/testing.md` and run the test it describes for that kind. A failed test comes back as a fix round (`references/review.md`, Using the findings), then the test runs again.
 
 ### 8. Merge
-Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says:
+Show the whole change: the diff summary, the check result, the review findings and what was done about them, and the test result. Unless this conversation already did, say from the glossary what the branch is and, with pull requests, the pull request. On the maintainer's OK to the whole change, bring the branch in the way CLAUDE.md's integration fact says:
 - **Local merge** (the default): merge into main with `--no-ff`, so one revert undoes one change. Push main only when the maintainer says so, or at release; feature branches stay local.
 - **Pull requests:** follow `references/pull-requests.md`.
 
