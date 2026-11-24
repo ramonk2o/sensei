@@ -32,7 +32,7 @@ Settle every decision the issues need, in rounds. Your mode's reference says wha
   Ready decisions past five wait for the next round. End the round with one line: the user needs to answer only what they disagree with, and the case when the round asks for it.
 - **The reply** accepts every recommendation it doesn't contest: "ok" accepts them all, "I disagree with 3" accepts the others. A question it mentions without deciding is asked again in the next round.
 - **The case** is the exception: only the user has it, so ask for it without proposing one, since an invented request tests only what the model already expects. It stays open until the user gives it.
-- **Facts aren't questions:** what the repository holds, what is installed, what Claude Code allows. Look them up, in an agent if the session can start one, so the reading stays out of the conversation, and give the answer with where it came from.
+- **Facts aren't questions:** what the repository holds, what is installed, what Claude Code allows. Look them up, in an agent if the session can start one, so the reading stays out of the conversation, and give the answer with where it came from. While it runs, only the decisions that depend on the fact wait: ask the other ready ones in the current round, before the agent reports.
 - **The end:** no decision left open. Approving a round's answers isn't the OK to write.
 
 ## 3. Split into issues
