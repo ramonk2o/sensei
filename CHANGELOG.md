@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-11-24
+
+`train`'s cold reader now also runs each case on the text from main, so a change the old text already covered is caught before it's merged.
+
 ### Changed
 
 - `train`'s cold reader for a behavior change also runs each case on the text from main, in parallel. When the old text already does what the change wanted, the merge summary says so and proposes removing the added text.
