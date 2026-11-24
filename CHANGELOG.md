@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-24
+
+First stable release: sensei now explains its terms in plain words, with a glossary in `introduce` that also answers "what is X?" questions, and `train` claims a backlog entry while building it so parallel sessions don't take the same one.
+
 ### Changed
 
 - Sensei's principles now ask for plain words with the user: a term of the process is explained the first time it comes up, and a principle is named by what it says. `introduce` holds a glossary of sensei's terms, git and GitHub, and a skill's parts for these explanations.
