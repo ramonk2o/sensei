@@ -43,7 +43,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 
   A discarded blocker (closed as not planned, as `gh issue view <number> --json stateReason,comments` shows, or `status: discarded`) doesn't block. Say it was discarded and why, since its reason may change whether the entry is still ready.
 - **Model:** the tier of model the change needs (`models.md`).
-- **Taken:** an entry `train` is building, so What's next doesn't offer it to another session. In GitHub issues, it has an assignee (`issues.md`). In `backlog/`, a branch starts with its number and a hyphen (`7-deck-duration-question`) in `git branch --all`, remote branches included. A mark in the entry's file wouldn't do: a session reads `backlog/` as its own branch has it. Another worktree of the same clone sees the branch at once; another clone, once it's pushed. Deleting the branch releases the entry, on the maintainer's word, since it may hold work.
+- **Taken:** an entry `train` is building, so What's next doesn't offer it to another session. In GitHub issues, it has an assignee (`issues.md`), and removing the assignee releases it. In `backlog/`, a branch starts with its number and a hyphen (`7-deck-duration-question`) in `git branch --all`, remote branches included as last fetched. A mark in the entry's file wouldn't do: a session reads `backlog/` as its own branch has it. Another worktree of the same clone sees the branch at once; another clone, once it's pushed. Deleting the branch releases the entry, on the maintainer's word, since it may hold work.
 - **Write only what the maintainer said or decided.** An assumption is an open question. The type, area, readiness and tier are yours to set from what was said.
 
 ## Ready
