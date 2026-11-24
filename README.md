@@ -87,7 +87,7 @@ The names follow a dojo: the sensei **introduce**s itself; you **spar** with a s
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
-- **introduce** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder.
+- **introduce** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder; it also answers what a term of the process means.
 - **spar** evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise.
 
