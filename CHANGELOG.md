@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-26
+
+`train` now writes output that always follows the same format as a template filled by a script, so the model only adds what needs judgment.
+
 ### Changed
 
 - `train`'s writing guide: output that always follows the same format is a template in `assets/` filled by a script, with the model adding only what needs judgment; a command run when a skill loads (`` !`command` ``) is used only when every run needs it, it can't fail and it's pre-approved, and otherwise runs as a step. The `examiner` reports a fixed-format output rebuilt by hand on every run as mechanical work.
