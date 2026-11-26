@@ -28,7 +28,7 @@ The change starts from one real case, but the skill must work for every case lik
 
 Beyond the sentence:
 - **Read what the model did, not just what it answered.** When a test or a real case shows the model spending turns on something unproductive, find the text that sends it there and remove or narrow it.
-- **Bundle repeated work.** When every test run writes the same helper, or a step is mechanical (counting, formatting, checking files), put a script in the skill's `scripts/` and tell the skill when to run it. A script runs without being read into context.
+- **Bundle repeated work.** When every test run writes the same helper, or a step is mechanical (counting, formatting, checking files, fetching data for output in a fixed format), put a script in the skill's `scripts/` and tell the skill when to run it. A script runs without being read into context. Output that always follows the same format is a template in `assets/` that the script fills with the data; the model adds only what needs judgment, such as a short summary of each item, so the format comes out the same on every run. A command written as `` !`command` `` in SKILL.md runs when the skill loads, and its output replaces it; use it only when every run needs that output, the command is fast and can't fail (end it in `|| true`), and it's pre-approved in `allowed-tools`, because a failed command aborts the whole skill. Otherwise the skill runs the script as a step.
 
 ## Layers
 
@@ -36,6 +36,7 @@ Beyond the sentence:
 - **`SKILL.md`:** the flow, and what every step needs. It opens with what the skill is for and, when siblings exist, what it leaves to them.
 - **`references/`:** what only one step, case or kind of input needs. SKILL.md names each reference at the step that uses it, and says when to read it ("read `references/<name>.md` before step 3"). A reference over about 300 lines gets a short table of contents at the top.
 - **`scripts/`:** mechanical work, run rather than read.
+- **`assets/`:** files used as they are: a template a script fills, a text to show.
 
 ## A new skill starts minimal
 

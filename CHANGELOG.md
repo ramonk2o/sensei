@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- `train`'s writing guide: output that always follows the same format is a template in `assets/` filled by a script, with the model adding only what needs judgment; a command run when a skill loads (`` !`command` ``) is used only when every run needs it, it can't fail and it's pre-approved, and otherwise runs as a step. The `examiner` reports a fixed-format output rebuilt by hand on every run as mechanical work.
+
 ## [1.0.0] - 2026-11-24
 
 First stable release: sensei now explains its terms in plain words, with a glossary in `introduce` that also answers "what is X?" questions, and `train` claims a backlog entry while building it so parallel sessions don't take the same one.
