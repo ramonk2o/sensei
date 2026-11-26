@@ -28,7 +28,7 @@ Read the change with `git diff <base>` (when the base is "none", read every list
    - single-step material left in SKILL.md;
    - a reference that every run reads anyway;
    - a reference SKILL.md never says when to read;
-   - mechanical work (counting, formatting, file checks) done by the model where a script would do it.
+   - mechanical work done by the model where a script would do it: counting, formatting, file checks, or rebuilding a fixed-format output by hand on every run, where a template in `assets/` filled by a script would leave the model only what needs judgment.
 3. **The description.**
    - Would it fire on the requests the skill is for, phrased as real users phrase them?
    - Does it stay silent on the requests the scope map gives to siblings?
