@@ -1,6 +1,6 @@
 ---
 name: help
-description: Presents sensei to someone new to it: the cycle, each skill and how to call it, where to start, what a term means, or which command judges a skill, e.g. 'how does sensei work?', 'what is a pull request?', 'is my skill any good?'. Not for the user's own plugin, or setting a repo up (/sensei:prepare).
+description: Presents sensei to someone new to it: the cycle, each skill and which to call now, what a term means, or how to have sensei judge a skill, e.g. 'how does sensei work?', 'what is a pull request?', 'is my skill any good?'. Not for the user's own plugin, or setting a repo up (/sensei:prepare).
 ---
 
 # Help
