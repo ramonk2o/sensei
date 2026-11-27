@@ -39,7 +39,7 @@ Nothing about the backlog is committed in this mode: the issue is the record.
 - **What's next:** `gh issue list --state open --limit 200 --json number,title,labels,body,blockedBy,assignees`, then as `backlog.md` says, with each entry's open blockers as it defines them (An entry, Blocked by).
 - **Discard:** only on the maintainer's word: `gh issue close <number> --reason "not planned" --comment "<why discarded> (YYYY-MM-DD)"`.
 - **Clean up and reorganize:** as in `backlog.md`, plan first; moving entries between areas is a change of labels.
-- **A contributor's issue:** once the maintainer accepts it as an entry, add its area, type and readiness labels. It isn't copied anywhere: the issue is the entry. When it lacks the case, ask for it in a comment, on the maintainer's OK to the text.
+- **A contributor's issue:** once the maintainer accepts it as an entry, add its area, type and readiness labels. It isn't copied anywhere: the issue is the entry. When it lacks the case (or, for a change that doesn't alter how a skill answers a request, its reason), ask for it in a comment, on the maintainer's OK to the text.
 
 ## Migrate from the repository
 

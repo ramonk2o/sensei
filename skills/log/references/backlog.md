@@ -79,7 +79,7 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
 ## Operations
 
 - **Capture:** when the maintainer states an idea, a bug or a debt, write it as a new entry.
-  - When the case is missing, ask one or two short questions about it.
+  - When the case is missing, ask one or two short questions about it; for a change that doesn't alter how a skill answers a request, ask once for its reason instead (Ready).
   - "Just note it" skips the questions.
   - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge, with the entry as it would read: the new account joins its Motivation, its request quoted whole, and readiness is set again. A yes is the OK to write it, in an issue's body too.
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.
