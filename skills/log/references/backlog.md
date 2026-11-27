@@ -35,7 +35,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 ```
 
 - **Fields:** Motivation and Description are always present. Omit any other field with nothing to say.
-- **Motivation** is the case, condensed: the request, what happened, what should have happened; for a skill not built yet, the concrete requests the skill must serve. Quote every request whole, since the tests run on it, and condense the rest to key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded".
+- **Motivation** is the case, condensed: the request, what happened, what should have happened; for a skill not built yet, the concrete requests the skill must serve. Quote every request whole, since the tests run on it, and condense the rest to key phrases. When the case, or a request in it, is only the maintainer's account of what happened, with no conversation or excerpt, or a request they expect, mark it "(hypothetical)", since the first real case can overturn what's built on it. With no case at all, write "No case recorded". A change that needs no case (Ready) records `Reason: <the maintainer's words>` instead.
 - **Acceptance criteria:** what a good result looks like for each request of the case, or another way to tell the change works.
 - **Blocked by:** the entries that must be done before this one. An **open blocker** is one of them not done yet:
   - in GitHub issues, an open issue in the entry's blocked-by relationship (`gh issue view <number> --json blockedBy`); the body's field counts only where `issues.md`'s Mapping says the relationship isn't available;
@@ -49,7 +49,7 @@ The entries live in GitHub issues when the project's CLAUDE.md gives them as its
 ## Ready
 
 A change, from an entry or from a request with no entry, is ready when its change plan can be written without asking the maintainer for a decision and it fits one pull request; anything else **needs clarification**. For an entry, that means it has:
-- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case quotes at least one request as the user typed or would type it (the maintainer may reconstruct it; a narration of what was asked isn't one), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case.
+- **The case:** real or hypothetical, in Motivation, or the maintainer's explicit decision to go without one, in Decisions. A hypothetical case quotes at least one request as the user typed or would type it (the maintainer may reconstruct it; a narration of what was asked isn't one), marked "(hypothetical)". An account with no request isn't a case yet: ask "what was typed, or what would you type?" without proposing a request, since an invented one tests only what the model already expects. "No case recorded" alone isn't a case. A change that doesn't alter how a skill answers a request (a rename, moved files, a wording fix, a cleanup that keeps every answer) needs no case: its reason, in the maintainer's words, in Motivation. When it isn't given, ask for it once, in one sentence, without asking for a case or a request. The part of such a change that touches a description or a skill's behavior needs the case for that part. An impression about how a skill answers ("it's off") isn't a reason: it asks for the case.
 - **The expected behavior:** what the skill should do after the change, in Description.
 - **Acceptance criteria**, in their field.
 - **No open questions.**
@@ -79,7 +79,7 @@ A project may still keep its backlog in one `BACKLOG.md` at the root: `## <area>
 ## Operations
 
 - **Capture:** when the maintainer states an idea, a bug or a debt, write it as a new entry.
-  - When the case is missing, ask one or two short questions about it.
+  - When the case is missing, ask one or two short questions about it; for a change that doesn't alter how a skill answers a request, ask once for its reason instead (Ready).
   - "Just note it" skips the questions.
   - Look first for a similar entry, including discarded ones. If one exists, show it and ask whether to merge, with the entry as it would read: the new account joins its Motivation, its request quoted whole, and readiness is set again. A yes is the OK to write it, in an issue's body too.
 - **List:** by area, each entry's number, title, type and readiness. Give details only when asked.

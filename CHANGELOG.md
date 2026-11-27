@@ -11,6 +11,7 @@ applied to how the skills behave.
 ### Changed
 
 - **Breaking:** `introduce` is now `help`, invoked as `/sensei:help`, since the old name was hard to remember. `/sensei:introduce` no longer exists; the glossary moves to `skills/help/references/glossary.md`.
+- A change that doesn't alter how a skill answers a request, such as a rename, needs only its reason, not a case: `train` and `meditate` ask for the reason once instead of a case, and the entry records `Reason: …`. An impression about how a skill answers still asks for the case.
 
 ## [1.1.0] - 2026-11-26
 
