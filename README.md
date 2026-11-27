@@ -30,7 +30,7 @@ Pick the line that describes you:
 | Only an idea for some skills | Open an empty folder and run `/sensei:meditate` |
 | A folder with skills already | Open it and run `/sensei:prepare` |
 | One skill made elsewhere, and you want an opinion on it | Run `/sensei:spar` on it |
-| No idea how any of this works | Run `/sensei:introduce` for a short tour |
+| No idea how any of this works | Run `/sensei:help` for a short tour |
 
 ## The cycle
 
@@ -68,7 +68,7 @@ This part is for those who want to know how sensei works inside.
 
 ### The skills in detail
 
-The names follow a dojo: the sensei **introduce**s itself; you **spar** with a skill made elsewhere, **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
+The names follow a dojo: you ask the sensei for **help**; you **spar** with a skill made elsewhere, **meditate** on a plugin or a change, **prepare** the repository, **train** each skill, **log** what is left and what was earned, **graduate** a version.
 
 - **meditate** plans a new plugin from an idea, or a change to an existing one, before anything is built:
   - for a new plugin, who it serves, the concrete requests it must answer, its skills and their borders, and its principles, written to `docs/principles.md` for `prepare` to pick up;
@@ -87,7 +87,7 @@ The names follow a dojo: the sensei **introduce**s itself; you **spar** with a s
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
-- **introduce** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder; it also answers what a term of the process means.
+- **help** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder; it also answers what a term of the process means.
 - **spar** evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise.
 

@@ -9,7 +9,7 @@ A change to a skill goes wrong in predictable ways: it fixes the one example tha
 
 **The skills are the object of the work here, not tools.** When the maintainer talks about the plugin's subject (prompts, decks, emails…), it's about improving the skill. Don't run that skill's flow unless they explicitly ask to use it.
 
-Talk to the maintainer in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number.
+Talk to the maintainer in their language, in plain words: explain a term of the process the first time it comes up (`../help/references/glossary.md`) and name a principle by what it says, not by its number.
 
 ## Before starting
 

@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking:** `introduce` is now `help`, invoked as `/sensei:help`, since the old name was hard to remember. `/sensei:introduce` no longer exists; the glossary moves to `skills/help/references/glossary.md`.
+
 ## [1.1.0] - 2026-11-26
 
 `train` now writes output that always follows the same format as a template filled by a script, so the model only adds what needs judgment.
