@@ -1,6 +1,7 @@
 ---
 name: spar
-description: Evaluates a skill made outside sensei, with no setup, when someone asks sensei to judge it or whether it can: sensei's checks and review, and how to bring the skill in, e.g. 'can sensei tell me if my skill is good?', 'spar my invoice-summary skill'. Not for changing or improving a skill (train).
+description: Evaluates one skill made outside sensei, with no setup: sensei's checks and review, and how to bring the skill in.
+disable-model-invocation: true
 ---
 
 # Spar
