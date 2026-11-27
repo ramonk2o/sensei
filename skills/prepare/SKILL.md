@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Prepares a repository so the plugin it holds can be maintained with sensei's skills: `meditate` (planning), `train` (changing skills), `log` (backlog and changelog) and `graduate` (releases). The cycle lives in those skills. This setup only puts the project's facts and its enforced settings in place, so updating sensei updates every project.
 
-Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`../introduce/references/glossary.md`) and name a principle by what it says, not by its number. Write every file in English, unless the user explicitly asks for another language for the project's documents. Then record it in CLAUDE.md.
+Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`../help/references/glossary.md`) and name a principle by what it says, not by its number. Write every file in English, unless the user explicitly asks for another language for the project's documents. Then record it in CLAUDE.md.
 
 Nothing is written before the user's OK. When principles are missing, settle them first, in step 2's rounds, because the CLAUDE.md draws facts from them. Then collect the proposals of steps 2 to 6, show them together in step 7, and apply what's approved in step 8.
 
