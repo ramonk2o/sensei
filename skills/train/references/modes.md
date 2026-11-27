@@ -13,7 +13,7 @@ Switch to an up-to-date main; with pull requests, create a short branch from it 
 
 - Read it in full: the issue and its comments, or the pull request's diff and description.
 - Judge it with the target's questions for judging a proposal (`docs/principles.md`):
-  - which real case it comes from;
+  - which real case it comes from, or its reason when it needs no case;
   - whether it changes behavior or only wording;
   - whether it conflicts with a principle, and if so which way out fits (`conflicts.md`);
   - whether it fits an existing skill;

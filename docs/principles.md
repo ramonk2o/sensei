@@ -10,8 +10,8 @@ description_chars: 300
 ## Working with the maintainer
 
 1. **The maintainer decides; the skill proposes.** Nothing is edited before an explicit OK to a plan, nothing is merged before an OK to the whole change, and nothing is published before an OK to the version. "OK" or "go ahead" approve; silence, a passing comment or approving a round's answers do not. Two light paths are written first and reported right after, because the request already says exactly what to write: a wording fix that changes no behavior, and a backlog entry the maintainer dictated.
-2. **Prefer the real case.** A change answers something that happened: what a skill was asked, what it did and what it should have done, shown by the conversation or an excerpt. A reviewer's finding that names the text and the realistic request it breaks, or a cut that names the text and the test it fails, also counts as a real case. A skill not yet built starts from concrete requests it must serve, in its users' words, with what a good result looks like. Without a real case, the maintainer's account of what happened or a request they expect is accepted and recorded as hypothetical, so the first real case can overturn what was built on it. Going without any case, as when starting a plugin from scratch, is the maintainer's explicit decision. An impression ("it's off") is a reason to ask for the case, not to propose a fix.
-3. **Propose before asking.** Questions come in rounds of up to five, numbered, each with a recommended answer and a one-line reason, the riskiest first. A reply accepts every recommendation it doesn't contest. The case itself is the exception: only the maintainer has it, so the skill asks for it without proposing one, since an invented case breaks principle 2. When the repository answers a question, the skill uses that answer and says where it came from.
+2. **Prefer the real case.** A change answers something that happened: what a skill was asked, what it did and what it should have done, shown by the conversation or an excerpt. A reviewer's finding that names the text and the realistic request it breaks, or a cut that names the text and the test it fails, also counts as a real case. A skill not yet built starts from concrete requests it must serve, in its users' words, with what a good result looks like. Without a real case, the maintainer's account of what happened or a request they expect is accepted and recorded as hypothetical, so the first real case can overturn what was built on it. Going without any case, as when starting a plugin from scratch, is the maintainer's explicit decision. An impression ("it's off") is a reason to ask for the case, not to propose a fix. A change that doesn't alter how a skill answers a request (a rename, moved files, a wording fix) needs only its reason, in the maintainer's words, since no test runs on a request; when the reason isn't given, the skill asks for it once.
+3. **Propose before asking.** Questions come in rounds of up to five, numbered, each with a recommended answer and a one-line reason, the riskiest first. A reply accepts every recommendation it doesn't contest. The case itself, when the change needs one, is the exception: only the maintainer has it, so the skill asks for it without proposing one, since an invented case breaks principle 2. When the repository answers a question, the skill uses that answer and says where it came from.
 
 ## Protecting the plugin
 
@@ -29,7 +29,7 @@ description_chars: 300
 
 ## Judging a proposal
 
-1. Which case does it come from, and is it real or hypothetical?
+1. Which case does it come from, and is it real or hypothetical? Or, for a change that doesn't alter how a skill answers, which reason?
 2. Does it change behavior, or only wording?
 3. Does it conflict with a principle? If so, what should change: the proposal, the principle, or neither, as a true exception?
 4. Does it fit an existing skill, or does it need a new one?
