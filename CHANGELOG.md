@@ -8,6 +8,10 @@ applied to how the skills behave.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-27
+
+`introduce` is renamed `help`, a change that only renames something needs just its reason instead of a case, and `spar` runs only when called by name.
+
 ### Changed
 
 - **Breaking:** `introduce` is now `help`, invoked as `/sensei:help`, since the old name was hard to remember. `/sensei:introduce` no longer exists; the glossary moves to `skills/help/references/glossary.md`.
