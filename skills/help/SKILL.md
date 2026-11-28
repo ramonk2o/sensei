@@ -1,15 +1,15 @@
 ---
 name: help
-description: Presents sensei to someone new to it: the cycle, each skill and how to call it, where to start, and what a sensei term means, e.g. 'how does sensei work?', 'which sensei skill do I call first?', 'what is a pull request?'. Not for the user's own plugin, or for setting a repo up (/sensei:prepare).
+description: Presents sensei to someone new to it: the cycle, each skill and which to call now, what a term means, or how to have sensei judge a skill, e.g. 'how does sensei work?', 'what is a pull request?', 'is my skill any good?'. Not for the user's own plugin, or setting a repo up (/sensei:prepare).
 ---
 
 # Help
 
-Shows someone new to sensei how it works and where to start, in one message, or answers what one term means. It writes and changes nothing, and asks nothing: the work belongs to the skills it presents.
+Shows someone new to sensei how it works and where to start, in one message, answers what one term means, or names the command that judges a skill. It writes and changes nothing, and asks nothing: the work belongs to the skills it presents.
 
 Talk to the user in their language, in plain words: explain a term of the process the first time it comes up (`references/glossary.md`) and name a principle by what it says, not by its number.
 
-A question about a term of the process or a skill's parts ("what is an issue?", "what goes in assets?") gets only its answer, even when the term came up earlier: the glossary's entry (or, for a term it lacks, the same in plain words), meaning and why it matters, in the user's language, with no tour and no next-step line. Otherwise:
+A question about a term of the process or a skill's parts ("what is an issue?", "what goes in assets?") gets only its answer, even when the term came up earlier: the glossary's entry (or, for a term it lacks, the same in plain words), meaning and why it matters, in the user's language, with no tour and no next-step line. A request to judge or evaluate a skill ("is my skill any good?") gets only a short answer the same way: `/sensei:spar` runs sensei's checks and an independent review on one skill and changes nothing; call it followed by the skill's folder or `.skill` file, using the user's path when they gave one (e.g. `/sensei:spar ./skills/invoice-summary`). Otherwise:
 
 1. Read `assets/tour.md` and show everything after its marker line in the user's language: translate the text and the sample requests, and keep the skill names, the commands and the layout as they are.
 2. Look at the current folder and add one line with the next step:

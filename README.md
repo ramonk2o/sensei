@@ -52,9 +52,8 @@ After `prepare`, you rarely need to type a command. Say what you want, and the r
 | "I want a new skill that turns meeting notes into tasks" | `train` builds it, or sends it to `meditate` first if it needs more thought |
 | "Note this idea: the deck skill could add speaker notes" | `log` adds it to your list of tasks |
 | "What's next?" | `log` shows the tasks that are ready |
-| "Is this skill any good?" | `spar` evaluates it and changes nothing |
 
-Only two you run by hand: `/sensei:prepare` to set up a plugin, and `/sensei:graduate` to release a version.
+Only three you run by hand: `/sensei:prepare` to set up a plugin, `/sensei:spar` to evaluate a skill made elsewhere, and `/sensei:graduate` to release a version.
 
 The best requests come from something that really happened: what you asked a skill, what it did, and what it should have done.
 
@@ -87,8 +86,8 @@ The names follow a dojo: you ask the sensei for **help**; you **spar** with a sk
   - then checks, independent reviews, a test scaled to the change, the changelog entry and the merge.
 
   It also judges issues and pull requests, audits consistency and recreates skills from old ones.
-- **help** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder; it also answers what a term of the process means.
-- **spar** evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing.
+- **help** presents sensei: the cycle, each skill and how to call it, and where to start in the current folder; it also answers what a term of the process means, and points to `/sensei:spar` when asked to judge a skill.
+- **spar**, run by hand as `/sensei:spar`, evaluates one skill made outside sensei, loose or in a plugin, with no setup: the check script and an independent review, judged by the plugin's principles or `train`'s writing guide, then what recreating it with sensei would change and the next step. It writes nothing.
 - **graduate** releases a version: number, checks, changelog, `plugin.json`, tag, push, and one zip per skill when your skills stand alone, or one zip of the whole plugin otherwise.
 
 ### Reviewers
